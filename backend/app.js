@@ -12,7 +12,7 @@ const { ValidationError } = require('sequelize');
 const isProduction = environment === 'production'
 
 
-// app.use('/', require('./routes'))
+
 
 
 app.use(morgan('dev'));

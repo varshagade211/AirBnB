@@ -11,11 +11,8 @@ router.get("/api/csrf/restore", (req, res) => {
     res.status(200).json({
       'XSRF-Token': csrfToken
     });
-  });
+});
 
-// router.get('/hello/world' , (req,res) => {
-//     res.cookie('XSRF-TOKEN', req.csrfToken())
-//     res.send('hello');
-// });
+
 
 module.exports = router;
