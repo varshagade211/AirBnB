@@ -6,13 +6,11 @@ const spot = require('../../db/models/spot');
 const { route } = require('./user');
 
 router.get('/', async(req,res,next) => {
-    let spots = await Spot.findAll(
-    {
+    let spots = await Spot.findAll({
         include:[{
             model: Image,
             attributes:['image'],
-        }]
-    }
+        }]}
     )
 
     if(!spots) {
@@ -34,34 +32,35 @@ router.get('/', async(req,res,next) => {
 router.get('/:id', async(req,res,next) => {
     let spot = await Spot.findByPk(req.params.id,
         {include:[{model:Image},{model:User , as: 'Owner'}]})
+
     if(!spot){
-        res.json({
+        return res.json({
             "message": "Spot couldn't be found",
             "statusCode": 404
-          })
+        })
     }
-    res.status(200).json(spot)
+    return res.status(200).json(spot)
 })
 
 router.post('/',requireAuth, async(req,res)=>{
     const {name,address,city,state,country,lat,lng,description,price} = req.body
     let spot
     try{
-         spot = await Spot.create({
-         name,
-         address,
-         city,
-         state,
-         country,
-         lat,
-         lng,
-         description,
-         price,
-         ownerId:req.user.id
-     })
-    }catch(e){
-
-        res.json({
+        spot = await Spot.create({
+            name,
+            address,
+            city,
+            state,
+            country,
+            lat,
+            lng,
+            description,
+            price,
+            ownerId:req.user.id
+        })
+        return res.status(201).json(spot)
+    } catch {
+        return res.json({
             "message": "Validation Error",
             "statusCode": 400,
             "errors": {
@@ -75,89 +74,81 @@ router.post('/',requireAuth, async(req,res)=>{
               "description": "Description is required",
               "price": "Price per day is required"
             }
-          })
-          return
+        })
     }
-    res.status(201).json(spot)
 })
 
 router.put('/:id',requireAuth, async(req,res)=>{
     let spot = await Spot.findByPk(req.params.id)
     if(!spot){
-        res.json({
+        return res.json({
             "message": "Spot couldn't be found",
             "statusCode": 404
         })
     }
     const {address,city,state,country,lat,lng,name,description,price} = req.body
     let newSpot
-    try{
-       if(spot.ownerId === req.user.id) {
-         newSpot = await spot.update({
-         address,
-         city,
-         state,
-         country,
-         lat,
-         lng,
-         name,
-         description,
-         price
-       })
-       res.status(201).json(newSpot)
-    }else{
-        res.status(401).json({message:'Unauthorised!',status:401})
+    if(spot.ownerId === req.user.id) {
+        try {
+            newSpot = await spot.update({
+                address,
+                city,
+                state,
+                country,
+                lat,
+                lng,
+                name,
+                description,
+                price
+            })
+            return res.status(201).json(newSpot)
+        } catch {
+            return res.json({
+                "message": "Validation Error",
+                "statusCode": 400,
+                "errors": {
+                  "address": "Street address is required",
+                  "city": "City is required",
+                  "state": "State is required",
+                  "country": "Country is required",
+                  "lat": "Latitude is not valid",
+                  "lng": "Longitude is not valid",
+                  "name": "Name must be less than 50 characters",
+                  "description": "Description is required",
+                  "price": "Price per day is required"
+                }
+            })
+        }
+    } else {
+        return res.status(401).json({message:'Unauthorised!',status:401})
     }
-    }catch{
-        res.json({
-            "message": "Validation Error",
-            "statusCode": 400,
-            "errors": {
-              "address": "Street address is required",
-              "city": "City is required",
-              "state": "State is required",
-              "country": "Country is required",
-              "lat": "Latitude is not valid",
-              "lng": "Longitude is not valid",
-              "name": "Name must be less than 50 characters",
-              "description": "Description is required",
-              "price": "Price per day is required"
-            }
-          })
-    }
-
-
 })
 
 
 router.delete('/:id', requireAuth, async(req,res,next)=> {
     const spot = await Spot.findOne({where:{ownerId:req.params.id}})
-    console.log(spot)
-    if(!spot){
-       return res.status(404).json({
+    if(!spot) {
+        return res.status(404).json({
             "message": "Spot couldn't be found",
             "statusCode": 404
-          })
+        })
     }
-    try{
-        if(spot.ownerId === req.user.id){
+    if(spot.ownerId === req.user.id) {
+        try {
             spot.destroy()
-            res.status(200).json({
+            return res.status(200).json({
                 "message": "Successfully deleted",
                 "statusCode": 200
             })
-        }else{
-            throw new Error('Unauthorised!')
+        } catch {
+            return res.status(500).json({"message": "Failed to remove spot"})
         }
-
-    }catch(error){
-
-        res.status(401 ).json({
-            "message": error.message,
-            "statusCode":401
+    } else {
+        return res.status(401).json({
+            "message": "Unauthorised!",
+            "statusCode": 401
         })
     }
-
 })
 
 module.exports = router
