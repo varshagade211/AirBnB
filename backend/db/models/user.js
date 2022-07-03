@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       return isValid
     }
     //getcurrentUserid
-    static getCurrentUserId(){
+    static getCurrentUserId(id){
        return User.scope('currentUser').findByPk(id)
     }
     //login use

@@ -48,7 +48,7 @@ const restoreUser = (req, res, next) => {
         req.user = await User.scope('currentUser').findByPk(id);
       } catch (e) {
         res.clearCookie('token');
-        return next();
+        return next(e);
       }
 
       if (!req.user) res.clearCookie('token');
