@@ -50,4 +50,6 @@ router.get('/spots',requireAuth, async(req,res,next)=> {
   const spots = await Spot.findAll({where:{ownerId:user.id}})
   res.status(200).json(spots)
 })
+
+
 module.exports = router;
