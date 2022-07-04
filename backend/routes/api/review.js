@@ -59,7 +59,7 @@ router.post('/:spotId',requireAuth, async (req,res)=>{
     })
 
     if(userHasReviewForSpot) {
-        return res.json({
+        return res.status(403).json({
             "message": "User already has a review for this spot",
             "statusCode": 403
         })
