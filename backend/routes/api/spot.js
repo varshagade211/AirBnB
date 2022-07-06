@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { setTokenCookie, requireAuth ,restoreUser } = require('../../utils/auth');
+const {  requireAuth  } = require('../../utils/auth');
 const {Spot,Image,User} = require('../../db/models');
 const spot = require('../../db/models/spot');
-const { route } = require('./user');
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
+// const { route } = require('./user');
 
 router.get('/', async(req,res,next) => {
     let spots = await Spot.findAll({
@@ -42,43 +44,87 @@ router.get('/:id', async(req,res,next) => {
     return res.status(200).json(spot)
 })
 
-router.post('/',requireAuth, async(req,res)=>{
+//create spot validation
+const validateSpot = [
+    check('name')
+      .exists({ checkFalsy: true })
+      .isString()
+      .withMessage('Name must be less than 50 characters'),
+    check('name')
+      .notEmpty()
+      .withMessage('Name must be less than 50 characters'),
+    check('name')
+      .isLength({max:49})
+      .withMessage('Name must be less than 50 characters'),
+    check('address')
+      .exists({ checkFalsy: true })
+      .isString()
+      .withMessage('Street address is required'),
+    check('address')
+      .notEmpty()
+      .withMessage('Street address is required'),
+    check('city')
+      .exists({ checkFalsy: true })
+      .isString()
+      .withMessage('City is required'),
+    check('city')
+      .notEmpty()
+      .withMessage('City is required'),
+    check('state')
+      .exists({ checkFalsy: true })
+      .isString()
+      .withMessage('State is required'),
+    check('state')
+      .notEmpty()
+      .withMessage('State is required'),
+    check('country')
+      .exists({ checkFalsy: true })
+      .isString()
+      .withMessage('Country is required'),
+    check('country')
+      .notEmpty()
+      .withMessage('Country is required'),
+    check('lat')
+      .exists({ checkFalsy: true })
+      .isDecimal()
+      .withMessage('Latitude is not valid'),
+    check('lng')
+      .exists({ checkFalsy: true })
+      .isDecimal()
+      .withMessage('Longitude is not valid'),
+    check('description')
+      .exists({ checkFalsy: true })
+      .isString()
+      .withMessage('Description is required'),
+    check('description')
+      .notEmpty()
+      .withMessage('Description is required'),
+    check('price')
+      .exists({ checkFalsy: true })
+      .isNumeric()
+      .withMessage('Price per day is required'),
+
+    handleValidationErrors
+  ];
+
+router.post('/', requireAuth, validateSpot, async(req,res)=>{
     const {name,address,city,state,country,lat,lng,description,price} = req.body
-    let spot
-    try{
-        spot = await Spot.create({
-            name,
-            address,
-            city,
-            state,
-            country,
-            lat,
-            lng,
-            description,
-            price,
-            ownerId:req.user.id
-        })
-        return res.status(201).json(spot)
-    } catch {
-        return res.json({
-            "message": "Validation Error",
-            "statusCode": 400,
-            "errors": {
-              "address": "Street address is required",
-              "city": "City is required",
-              "state": "State is required",
-              "country": "Country is required",
-              "lat": "Latitude is not valid",
-              "lng": "Longitude is not valid",
-              "name": "Name must be less than 50 characters",
-              "description": "Description is required",
-              "price": "Price per day is required"
-            }
-        })
-    }
+    let spot = await Spot.create({
+        name,
+        address,
+        city,
+        state,
+        country,
+        lat,
+        lng,
+        description,
+        price,
+        ownerId:req.user.id
+    })
+    return res.status(201).json(spot)
 })
 
-router.put('/:id',requireAuth, async(req,res)=>{
+router.put('/:id', requireAuth, validateSpot, async(req,res)=>{
     let spot = await Spot.findByPk(req.params.id)
     if(!spot){
         return res.json({
@@ -87,38 +133,20 @@ router.put('/:id',requireAuth, async(req,res)=>{
         })
     }
     const {address,city,state,country,lat,lng,name,description,price} = req.body
-    let newSpot
+
     if(spot.ownerId === req.user.id) {
-        try {
-            newSpot = await spot.update({
-                address,
-                city,
-                state,
-                country,
-                lat,
-                lng,
-                name,
-                description,
-                price
-            })
-            return res.status(201).json(newSpot)
-        } catch {
-            return res.json({
-                "message": "Validation Error",
-                "statusCode": 400,
-                "errors": {
-                  "address": "Street address is required",
-                  "city": "City is required",
-                  "state": "State is required",
-                  "country": "Country is required",
-                  "lat": "Latitude is not valid",
-                  "lng": "Longitude is not valid",
-                  "name": "Name must be less than 50 characters",
-                  "description": "Description is required",
-                  "price": "Price per day is required"
-                }
-            })
-        }
+        let newSpot = await spot.update({
+            address,
+            city,
+            state,
+            country,
+            lat,
+            lng,
+            name,
+            description,
+            price
+        })
+        return res.status(201).json(newSpot)
     } else {
         return res.status(401).json({message:'Unauthorised!',status:401})
     }
