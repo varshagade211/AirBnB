@@ -39,11 +39,11 @@ router.post('/',validateSignup, async (req, res) => {
       });
     }
   );
-router.get('/current', requireAuth, async(req,res) => {
-  const { user } = req
-  const { token } = req.cookies
-  res.status(200).json({...user.toSafeObject(),token})
-})
+// router.get('/current', requireAuth, async(req,res) => {
+//   const { user } = req
+//   const { token } = req.cookies
+//   res.status(200).json({...user.toSafeObject(),token})
+// })
 
 router.get('/spots',requireAuth, async(req,res,next)=> {
   const {user} = req

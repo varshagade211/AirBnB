@@ -65,7 +65,11 @@ const restoreUser = (req, res, next) => {
     err.title = 'Unauthorized';
     err.errors = ['Unauthorized'];
     err.status = 401;
-    return next(err);
+    _res.json({
+      message: "Authentication required",
+      statusCode: 401
+    })
+    // return next(err);
   }
 
 

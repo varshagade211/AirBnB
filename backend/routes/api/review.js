@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const {Review,Spot,Image, User}= require('../../db/models')
-const { setTokenCookie, requireAuth ,restoreUser } = require('../../utils/auth');
+const {  requireAuth  } = require('../../utils/auth');
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
 const {Op} = require('sequelize');
 
 //get reviews of current user
@@ -42,8 +44,27 @@ router.get('/:spotId', async(req,res)=>  {
    return res.status(200).json(reviews)
 })
 
+//create review validation
+const validateReview = [
+    check("review")
+       .exists({checkFalsy:true})
+       .isString()
+       .withMessage("Review text is required"),
+    check("review")
+       .notEmpty()
+       .withMessage("Review text is required"),
+    check("stars")
+       .exists({checkFalsy:true})
+       .isNumeric()
+       .withMessage("Stars must be an integer from 1 to 5"),
+    check("stars")
+       .isInt({ min: 1, max: 5 })
+       .withMessage("Stars must be an integer from 1 to 5"),
+
+    handleValidationErrors
+]
 //create reveiw
-router.post('/:spotId',requireAuth, async (req,res)=>{
+router.post('/:spotId',requireAuth, validateReview, async (req,res)=>{
     const {review,stars} = req.body
     let spot = await Spot.findByPk(req.params.spotId)
     if(!spot){
@@ -60,33 +81,25 @@ router.post('/:spotId',requireAuth, async (req,res)=>{
 
     if(userHasReviewForSpot) {
         return res.status(403).json({
-            "message": "User already has a review for this spot",
-            "statusCode": 403
+            message: "User already has a review for this spot",
+            statusCode: 403
         })
     }
 
-    try{
-        let newReview = await Review.create({
+    let newReview = await Review.create({
             review,
             stars,
             spotId:spot.id,
             userId:req.user.id
-        })
-        return res.status(201).json(newReview)
-    } catch {
-        return res.status(400).json({
-            message: "Validation error",
-            statusCode: 400,
-            errors: {
-                review: "Review text is required",
-                stars: "Stars must be an integer from 1 to 5",
-            }
-        })
-    }
+    })
+    return res.status(201).json(newReview)
+
+
+
 })
 
 //edit review
-router.put('/:id', requireAuth, async(req,res)=> {
+router.put('/:id', requireAuth, validateReview, async(req,res)=> {
     const foundReview = await Review.findByPk(req.params.id)
     if(!foundReview){
         return res.status(404).json({
@@ -97,19 +110,8 @@ router.put('/:id', requireAuth, async(req,res)=> {
 
     const {review, stars} = req.body
     if (foundReview.userId === req.user.id) {
-        try {
-            const updatedReview =  await foundReview.update({review, stars})
-            return res.status(200).json(updatedReview)
-        } catch {
-            return res.status(400).json({
-                message: "Validation error",
-                statusCode: 400,
-                errors: {
-                  review: "Review text is required",
-                  stars: "Stars must be an integer from 1 to 5",
-                }
-            })
-        }
+        const updatedReview =  await foundReview.update({review, stars})
+        return res.status(200).json(updatedReview)
     } else {
         return res.status(401).json({message:'Unauthorised!',statusCode:401})
     }

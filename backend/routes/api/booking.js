@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const {Booking,Spot,Image,User}= require('../../db/models')
-const { setTokenCookie, requireAuth ,restoreUser } = require('../../utils/auth');
+const {  requireAuth  } = require('../../utils/auth');
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
 const {Op} = require('sequelize');
 
 
@@ -72,8 +74,8 @@ router.post('/:spotId', requireAuth, async(req,res)=> {
             message: "Sorry, this spot is already booked for the specified dates",
             statusCode: 403,
             errors: {
-              "startDate": "Start date conflicts with an existing booking",
-              "endDate": "End date conflicts with an existing booking"
+              startDate: "Start date conflicts with an existing booking",
+              endDate: "End date conflicts with an existing booking"
             }
         })
     }
@@ -85,16 +87,33 @@ router.post('/:spotId', requireAuth, async(req,res)=> {
     })
     return res.status(200).json(newBooking)
 })
+const validateBooking = [
+    check("startDate")
+       .exists({ checkFalsy: true })
+       .isString()
+       .withMessage('Date should be string format'),
+    check("startDate")
+       .isISO8601('yyyy-mm-dd').toDate()
+       .withMessage('Date should be in date format'),
+    check("endDate")
+       .exists({ checkFalsy: true })
+       .isString()
+       .withMessage('Date should be string format'),
+    check("endDate")
+       .isISO8601('yyyy-mm-dd').toDate()
+       .withMessage('Date should be in date format'),
+
+    handleValidationErrors
+]
 
 //edit booking
-
-router.put('/:bookingId', requireAuth , async(req,res)=> {
+router.put('/:bookingId', requireAuth , validateBooking, async(req,res)=> {
     const booking = await Booking.findByPk(req.params.bookingId)
     if(!booking){
         return res.status(404).json({
             message: "Booking couldn't be found",
             statusCode: 404
-          })
+        })
     }
     const {startDate,endDate} = req.body
     let today = new Date();
@@ -104,7 +123,7 @@ router.put('/:bookingId', requireAuth , async(req,res)=> {
     let date = `${year}-${month}-${day}`
     let sDate = new Date(startDate)
     let nowDate= new Date(date)
-    if(sDate < nowDate ){
+    if(sDate < nowDate){
         return res.status(400).json({
             message: "Past bookings can't be modified",
             statusCode: 400
@@ -112,13 +131,13 @@ router.put('/:bookingId', requireAuth , async(req,res)=> {
     }
     if(booking.userId === req.user.id){
        const updatedBooking = await booking.update({
-          startDate,endDate
+          startDate, endDate
        })
        res.status(200).json(updatedBooking)
     }
     return res.status(401).json({
-        "message": "Unauthorised!",
-        "statusCode": 401
+        message: "Unauthorised!",
+        statusCode: 401
     })
 })
 
