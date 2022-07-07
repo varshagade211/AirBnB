@@ -3,43 +3,43 @@ const {Spot,User,Booking} = require('../models')
 const bookingsData = [
   {
     spotName:'Eagles Nest at Bass Lake near Yosemite',
-    userName:'Ryan',
+    email:'ryan@user.io',
     startDate:'2022-08-12',
     endDate:'2022-08-13'
   },
   {
     spotName:'Villa De Lago The Lake House',
-    userName:'Javier',
+    email:'javier@user.io',
     startDate:'2022-09-02',
     endDate:'2022-09-05'
   },
   {
     spotName:'Peaceful Waters',
-    userName:'Rakesh',
+    email:'rakesh@user.io',
     startDate:'2022-09-02',
     endDate:'2022-09-05'
   },
   {
     spotName:'Peaceful Waters',
-    userName:'Katy',
+    email:'katy@user.io',
     startDate:'2022-09-12',
     endDate:'2022-09-15'
   },
   {
     spotName:'Tewesi Manor',
-    userName:'Jensen',
+    email:'jensen@user.io',
     startDate:'2022-09-12',
     endDate:'2022-09-15'
   },
   {
     spotName:'Beautiful Beachfront Lake Tahoe Home',
-    userName:'Tom',
+    email:'tom@user.io',
     startDate:'2022-10-12',
     endDate:'2022-10-15'
   },
   {
     spotName:'Beautiful Beachfront Lake Tahoe Home',
-    userName:'Javier',
+    email:'javier@user.io',
     startDate:'2022-12-05',
     endDate:'2022-12-08'
   },
@@ -50,12 +50,12 @@ module.exports = {
         for(let bookingsIndex = 0; bookingsIndex< bookingsData.length; bookingsIndex++) {
             let bookingData = bookingsData[bookingsIndex]
             let name =  bookingData.spotName
-            let userName = bookingData.userName
+            let userEmail = bookingData.email
             let spot = await Spot.findOne({where:{name:name}})
-            let user = await User.findOne({where:{userName:userName}})
+            let user = await User.findOne({where:{email:userEmail}})
 
             if(user && spot) {
-              delete bookingData.userName
+              delete bookingData.userEmail
               delete bookingData.spotName
               let spotId = spot.id
               let userId = user.id
@@ -70,12 +70,12 @@ module.exports = {
     for(let bookingsIndex = 0; bookingsIndex< bookingsData.length; bookingsIndex++) {
       let bookingData = bookingsData[bookingsIndex]
       let name =  bookingData.spotName
-      let userName = bookingData.userName
+      let userEmail = bookingData.email
       let spot = await Spot.findOne({where:{name:name}})
-      let user = await User.findOne({where:{userName:userName}})
+      let user = await User.findOne({where:{email:userEmail}})
 
       if(user && spot) {
-        delete bookingData.userName
+        delete bookingData.email
         delete bookingData.spotName
         let spotId = spot.id
         let userId = user.id

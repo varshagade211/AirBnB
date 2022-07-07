@@ -7,34 +7,35 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 //login credential check middleware
-
 const validateLogin = [
-  check('credential')
+  check('email')
     .exists({ checkFalsy: true })
-    .notEmpty()
-    .withMessage('Please provide a valid email or username.'),
+    .withMessage('Email is required'),
+  check("email")
+    .isEmail()
+    .withMessage('Email is required'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('Please provide a password.'),
+    .withMessage('Password is required'),
   handleValidationErrors
 ];
 
 //login
 router.post('/',validateLogin, async(req,res,next) => {
-    const {credential, password} = req.body
+    const {email, password} = req.body
 
-    const user = await User.login({credential, password})
+    const user = await User.login({email, password})
     if (!user) {
-        const err = new Error('Login failed');
-        err.status = 401;
-        err.title = 'Login failed';
-        err.errors = ['The provided credentials were invalid.'];
+        const err = new Error('Invalid credentials');
+        err.statusCode = 401;
         return next(err);
     }
     let token = await setTokenCookie(res, user)
-    return res.json({
-        user,token
-    })
+    user.dataValues.token = token
+
+    return res.json(
+      user
+    )
 })
 
 //logout
