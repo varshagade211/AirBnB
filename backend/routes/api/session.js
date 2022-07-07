@@ -39,7 +39,12 @@ router.post('/login',validateLogin, async(req,res,next) => {
 })
 
 //logout
-router.delete('/logout',(_req, res) => {
+router.delete('/logout',(req, res, next) => {
+      if(!req.user) {
+        const err = new Error("User is not logged in")
+        err.statusCode = 403
+        return next(err)
+      }
       res.clearCookie('token');
       return res.json({ message: 'success' });
     }

@@ -44,97 +44,6 @@ correct role(s) or permission(s).
     }
     ```
 
-## Get the Current User
-
-Returns the information about the current user that is logged in.
-
-* Require Authentication: true
-* Request
-  * Method: GET
-  * URL: /api/users/current
-  * Body: none
-
-* Successful Response
-  * Status Code: 200
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Smith",
-      "email": "john.smith@gmail.com"
-    }
-    ```
-
-## Log In a User
-
-Logs in a current user with valid credentials and returns the current user's
-information.
-
-* Require Authentication: false
-* Request
-  * Method: POST
-  * URL: /api/session/login
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "email": "john.smith@gmail.com",
-      "password": "secret password"
-    }
-    ```
-
-* Successful Response
-  * Status Code: 200
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Smith",
-      "email": "john.smith@gmail.com",
-      "token": ""
-    }
-    ```
-
-* Error Response: Invalid credentials
-  * Status Code: 401
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "message": "Invalid credentials",
-      "statusCode": 401
-    }
-    ```
-
-* Error response: Body validation errors
-  * Status Code: 400
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "message": "Validation error",
-      "statusCode": 400,
-      "errors": {
-        "email": "Email is required",
-        "password": "Password is required"
-      }
-    }
-    ```
-
 ## Sign Up a User
 
 Creates a new user, logs them in as the current user, and returns the current
@@ -204,6 +113,135 @@ user's information.
         "firstName": "First Name is required",
         "lastName": "Last Name is required"
       }
+    }
+    ```
+
+## Log In a User
+
+Logs in a current user with valid credentials and returns the current user's
+information.
+
+* Require Authentication: false
+* Request
+  * Method: POST
+  * URL: /api/session/login
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "email": "john.smith@gmail.com",
+      "password": "secret password"
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "john.smith@gmail.com",
+      "token": ""
+    }
+    ```
+
+* Error Response: Invalid credentials
+  * Status Code: 401
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Invalid credentials",
+      "statusCode": 401
+    }
+    ```
+
+* Error response: Body validation errors
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation error",
+      "statusCode": 400,
+      "errors": {
+        "email": "Email is required",
+        "password": "Password is required"
+      }
+    }
+    ```
+
+## Log Out a User
+
+Logs out a current user
+
+* Require Authentication: true
+* Request
+  * Method: DELETE
+  * URL: /api/session/logout
+  * Headers:
+    * Content-Type: application/json
+  * Body: None
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "success"
+    }
+    ```
+
+* Error Response: None is logged in
+  * Status Code: 403
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "User is not logged in",
+      "statusCode": 403
+    }
+    ```
+
+
+## Get the Current User
+
+Returns the information about the current user that is logged in.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/users/current
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "john.smith@gmail.com"
     }
     ```
 
@@ -953,8 +991,14 @@ Create and return a new booking from a spot specified by id.
 * Request
   * Method: POST
   * URL: /api/bookings/:spotId
-  * Body: none
-
+  * startDate and endDate must be in future
+  * Body:
+   ```json
+   {
+   "startDate": "yyyy-mm-dd",
+   "endDate": "yyyy-mm-dd"
+   }
+   ```
 * Successful Response
   * Status Code: 200
   * Headers:

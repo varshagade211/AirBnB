@@ -2,12 +2,10 @@ const express = require('express');
 const router = express.Router();
 const {  requireAuth  } = require('../../utils/auth');
 const {Spot,Image,User,Review,sequelize} = require('../../db/models');
-// const spot = require('../../db/models/spot');
 const { check } = require('express-validator');
 const { query } = require('express-validator/check');
 const { handleValidationErrors } = require('../../utils/validation');
 const {Op} = require("sequelize")
-// const { route } = require('./user');
 
 const queryValidator = [
     query('page')
@@ -26,7 +24,6 @@ const queryValidator = [
       .optional()
       .isInt({ min: 0})
       .withMessage("Size must be greater than or equal to 0"),
-
     query('maxLat')
       .optional()
       .exists({ checkFalsy: true })
@@ -35,7 +32,6 @@ const queryValidator = [
       .optional()
       .isDecimal()
       .withMessage("Maximum latitude is invalid"),
-
     query('minLat')
       .optional()
       .exists({ checkFalsy: true })
@@ -44,7 +40,6 @@ const queryValidator = [
       .optional()
       .isDecimal()
       .withMessage("Maximum latitude is invalid"),
-
       query('minLng')
       .optional()
       .exists({ checkFalsy: true })
@@ -53,7 +48,6 @@ const queryValidator = [
       .optional()
       .isDecimal()
       .withMessage("Maximum latitude is invalid"),
-
     query('maxLng')
       .optional()
       .exists({ checkFalsy: true })
@@ -156,7 +150,7 @@ router.get('/', queryValidator, async(req,res,next) => {
                 maxPrice = 0
             }
         }else{
-            maxPrice = 10000
+            maxPrice = 0
         }
         where.price = {[Op.between]:[minPrice,maxPrice]}
     }
