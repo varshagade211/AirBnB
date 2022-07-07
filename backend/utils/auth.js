@@ -6,10 +6,8 @@ const{secret , expiresIn} = jwtConfig;
 
 
 //sends a JWT Cookie
-
 const setTokenCookie = (res,user) => {
     //create token
-
     const token = jwt.sign(
         {data:user.toSafeObject() },
         secret,
@@ -19,7 +17,6 @@ const setTokenCookie = (res,user) => {
     const isProduction = process.env.NODE_ENV === "production";
 
     //set the token cookie
-
     res.cookie('token', token,{
         maxAge:expiresIn * 1000, //max age in miliseconds
         httpOnly:true,
@@ -69,8 +66,6 @@ const restoreUser = (req, res, next) => {
       message: "Authentication required",
       statusCode: 401
     })
-    // return next(err);
   }
-
 
   module.exports = { setTokenCookie, restoreUser, requireAuth };

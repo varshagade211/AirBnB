@@ -50,16 +50,16 @@ const validateBooking = [
        .exists({ checkFalsy: true })
        .isString()
        .withMessage('Date should be string format'),
-    //check("startDate")
-    //   .isISO8601('yyyy-mm-dd').toDate()
-    //   .withMessage('Date should be in date format'),
+    check("startDate")
+      .matches(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/)
+      .withMessage('Date should be in date format'),
     check("endDate")
        .exists({ checkFalsy: true })
        .isString()
        .withMessage('Date should be string format'),
-    //check("endDate")
-       //.isISO8601('yyyy-mm-dd').toDate()
-       //.withMessage('Date should be in date format'),
+    check("endDate")
+      .matches(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/)
+      .withMessage('Date should be in date format'),
 
     handleValidationErrors
 ]

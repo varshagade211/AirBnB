@@ -201,7 +201,6 @@ router.get('/:id', async(req,res,next) => {
     }
     let spotReviews = await Review.findAll({
         where: {spotId:spot.id},
-        //attributes: {include: [[sequelize.fn('COUNT', sequelize.col('*')), 'numReviews']]}
     })
     spot.dataValues.numReviews = spotReviews.length
     let total = 0
