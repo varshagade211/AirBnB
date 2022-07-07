@@ -132,8 +132,14 @@ router.put('/:bookingId', requireAuth , validateBooking, async(req,res,next)=> {
         return next(err);
     }
 
-    // find if there is booking conflict
+    // find booking sartdate is in future
     const {startDate, endDate} = req.body
+    if(startDate < today || endDate < today){
+        const err = new Error("Start or End date can not be in past");
+        err.statusCode = 400;
+        return next(err);
+    }
+      // find if there is booking conflict
     const existingBookings = await Booking.findAll({
         where: {spotId : booking.spotId}
     })
