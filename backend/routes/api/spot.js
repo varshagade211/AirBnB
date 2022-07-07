@@ -184,7 +184,7 @@ router.get('/', queryValidator, async(req,res,next) => {
     res.json({Spots: spots,page,size})
 })
 
-router.get('/user',requireAuth, async(req,res,next)=> {
+router.get('/user/spots',requireAuth, async(req,res,next)=> {
     const {user} = req
     const spots = await Spot.findAll({where:{ownerId:user.id}})
     res.status(200).json({Spots : spots})

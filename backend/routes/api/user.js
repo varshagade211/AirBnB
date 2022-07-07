@@ -34,7 +34,7 @@ const validateSignup = [
 ];
 
 // Sign up
-router.post('/',validateSignup, async (req, res, next) => {
+router.post('/signup',validateSignup, async (req, res, next) => {
   const { email, password,firstName,lastName } = req.body;
   const isExists = await User.findOne({where:{email:email}})
   if(req.user) {
