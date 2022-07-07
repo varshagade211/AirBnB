@@ -13,35 +13,44 @@ router.get('/',requireAuth, async(req,res) => {
         include:[
             {
                 model:Spot,
-                attributes:{exclude:['createdAt','updatedAt']}
+                attributes:{exclude:['createdAt','updatedAt','description']}
             },
             {
                 model:Image,
                 attributes:['image']
             },
             {
-                model:User
+                model:User,
+                attributes:['id','firstName','lastName']
             }
         ]
     })
-   return res.status(200).json(reviews)
+   return res.status(200).json({"Reviews" : reviews})
 })
 
 //get review fo spot
-router.get('/:spotId', async(req,res)=>  {
+router.get('/:spotId', async(req,res,next)=>  {
     const reviews = await Review.findAll(
         {
             where:{spotId:req.params.spotId},
-            include:[{model:User},{model:Image,attributes:['image']}]
+            include:[
+                {
+                    model:User,
+                    attributes:['id','firstName','lastName']
+                },
+                {
+                    model:Image,
+                    attributes:['image']
+                }
+            ]
         }
     )
     if(!reviews.length){
-       return res.status(404).json({
-            message: "Spot couldn't be found",
-            statusCode: 404
-          })
+        const err = new Error("Spot couldn't be found");
+        err.statusCode = 404;
+        return next(err);
     }
-   return res.status(200).json(reviews)
+   return res.status(200).json({"Reviews" : reviews})
 })
 
 //create review validation
@@ -64,14 +73,14 @@ const validateReview = [
     handleValidationErrors
 ]
 //create reveiw
-router.post('/:spotId',requireAuth, validateReview, async (req,res)=>{
+router.post('/:spotId',requireAuth, validateReview, async (req,res,next)=>{
     const {review,stars} = req.body
     let spot = await Spot.findByPk(req.params.spotId)
     if(!spot){
-        return res.status(404).json({
-            message: "Spot couldn't be found",
-            statusCode: 404
-        })
+        const err = new Error("Spot couldn't be found");
+        err.statusCode = 404;
+        return next(err);
+
     }
     let userHasReviewForSpot = await Review.findOne({
         where: {
@@ -80,10 +89,9 @@ router.post('/:spotId',requireAuth, validateReview, async (req,res)=>{
     })
 
     if(userHasReviewForSpot) {
-        return res.status(403).json({
-            message: "User already has a review for this spot",
-            statusCode: 403
-        })
+        const err = new Error("User already has a review for this spot");
+        err.statusCode = 403;
+        return next(err);
     }
 
     let newReview = await Review.create({
@@ -99,13 +107,13 @@ router.post('/:spotId',requireAuth, validateReview, async (req,res)=>{
 })
 
 //edit review
-router.put('/:id', requireAuth, validateReview, async(req,res)=> {
+router.put('/:id', requireAuth, validateReview, async(req,res,next)=> {
     const foundReview = await Review.findByPk(req.params.id)
     if(!foundReview){
-        return res.status(404).json({
-            message: "Review couldn't be found",
-            statusCode: 404
-        })
+        const err = new Error("Review couldn't be found");
+        err.statusCode = 404;
+        return next(err);
+
     }
 
     const {review, stars} = req.body
@@ -113,19 +121,20 @@ router.put('/:id', requireAuth, validateReview, async(req,res)=> {
         const updatedReview =  await foundReview.update({review, stars})
         return res.status(200).json(updatedReview)
     } else {
-        return res.status(401).json({message:'Unauthorised!',statusCode:401})
+        const err = new Error("Forbidden");
+        err.statusCode = 403;
+        return next(err);
     }
 })
 
 //Delete Review
-router.delete('/:id',requireAuth, async(req,res)=>{
+router.delete('/:id',requireAuth, async(req,res,next)=>{
     const foundReview = await Review.findByPk(req.params.id)
 
     if(!foundReview){
-        return res.status(404).json({
-            message: "Review couldn't be found",
-            statusCode: 404
-        })
+       const err = new Error("Review couldn't be found");
+        err.statusCode = 404;
+        return next(err);
     }
     if (foundReview.userId === req.user.id) {
         await foundReview.destroy()
@@ -134,9 +143,8 @@ router.delete('/:id',requireAuth, async(req,res)=>{
             statusCode: 200
         })
     }
-    return res.status(401).json({
-        message: "Unauthorised",
-        statusCode: 401
-    })
+    const err = new Error("Forbidden");
+    err.statusCode = 403;
+    return next(err);
 })
 module.exports= router
