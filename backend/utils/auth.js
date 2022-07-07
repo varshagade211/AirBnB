@@ -48,7 +48,7 @@ const restoreUser = (req, res, next) => {
         req.user = await User.scope('currentUser').findByPk(id);
       } catch (e) {
         res.clearCookie('token');
-        return next();
+        return next(e);
       }
 
       if (!req.user) res.clearCookie('token');
@@ -65,7 +65,11 @@ const restoreUser = (req, res, next) => {
     err.title = 'Unauthorized';
     err.errors = ['Unauthorized'];
     err.status = 401;
-    return next(err);
+    _res.json({
+      message: "Authentication required",
+      statusCode: 401
+    })
+    // return next(err);
   }
 
 
