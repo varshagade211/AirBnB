@@ -3,7 +3,7 @@
 
 ## Database Schema Design
 
-![AirBnB db schema](AirBnB_db_diagram.JPG)
+![AirBnB db schema](spot_AirBnB_db_diagram.JPG)
 
 ## API Documentation
 
