@@ -181,7 +181,7 @@ router.get('/', queryValidator, async(req,res,next) => {
             delete spots[i].dataValues.Images
         }
     }
-    res.json({Spots: spots,page,size})
+    res.json({Spots: spots,page,size:spots.length})
 })
 
 router.get('/user/spots',requireAuth, async(req,res,next)=> {
