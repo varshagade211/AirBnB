@@ -40,7 +40,7 @@ const queryValidator = [
       .optional()
       .isDecimal()
       .withMessage("Maximum latitude is invalid"),
-      query('minLng')
+    query('minLng')
       .optional()
       .exists({ checkFalsy: true })
       .withMessage("Maximum latitude is invalid"),
@@ -82,8 +82,8 @@ router.get('/', queryValidator, async(req,res,next) => {
     page = parseInt(page)
     size = parseInt(size)
 
-    if(isNaN(page) || page < 0) {
-        page = 0
+    if(isNaN(page) || page <= 0) {
+        page = 1
     }
     if(page > 10) {
         page = 10
@@ -136,23 +136,29 @@ router.get('/', queryValidator, async(req,res,next) => {
     }
 
     if(minPrice || maxPrice){
+        let minPriceGiven = false
+        let maxPriceGiven = false
         if(minPrice) {
+            minPriceGiven = true
             minPrice = parseInt(minPrice)
             if(isNaN(minPrice) || minPrice < 0){
                 minPrice = 0
             }
-        }else{
-            minPrice = 0
         }
         if(maxPrice) {
+            maxPriceGiven = true
             maxPrice = parseInt(maxPrice)
             if(isNaN(maxPrice) || maxPrice < 0){
                 maxPrice = 0
             }
-        }else{
-            maxPrice = 0
         }
-        where.price = {[Op.between]:[minPrice,maxPrice]}
+        if(minPriceGiven && maxPriceGiven) {
+            where.price = {[Op.between]:[minPrice,maxPrice]}
+        } else if (minPriceGiven) {
+            where.price = {[Op.gte]:[minPrice]}
+        } else {
+            where.price = {[Op.between]:[0,maxPrice]}
+        }
     }
     let spots = await Spot.findAll({
         where,

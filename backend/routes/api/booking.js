@@ -21,6 +21,7 @@ router.get('/', requireAuth, async(req,res) => {
     return res.status(200).json({Bookings : bookings})
 })
 
+//get bookings based on spot id
 router.get('/:spotId',requireAuth,async(req,res,next) => {
     const spot = await Spot.findByPk(req.params.spotId)
     if(!spot){
@@ -80,10 +81,17 @@ router.post('/:spotId', requireAuth , validateBooking, async(req,res,next)=> {
     }
 
     const {startDate, endDate} = req.body
-    // find booking sartdate is in future
+    // find booking startdate is in future
     let today = new Date().toLocaleDateString('en-CA')
     if(startDate < today || endDate < today){
         const err = new Error("Start or End date can not be in past");
+        err.statusCode = 400;
+        return next(err);
+    }
+
+    //check if end date is less than start date
+    if(endDate < startDate){
+        const err = new Error("End date can not be before start date");
         err.statusCode = 400;
         return next(err);
     }
@@ -141,14 +149,22 @@ router.put('/:bookingId', requireAuth , validateBooking, async(req,res,next)=> {
         return next(err);
     }
 
-    // find booking sartdate is in future
+    // find booking startdate is in future
     const {startDate, endDate} = req.body
     if(startDate < today || endDate < today){
         const err = new Error("Start or End date can not be in past");
         err.statusCode = 400;
         return next(err);
     }
-      // find if there is booking conflict
+
+    //check if end date is less than start date
+    if(endDate < startDate){
+        const err = new Error("End date can not be before start date");
+        err.statusCode = 400;
+        return next(err);
+    }
+
+    // find if there is booking conflict
     const existingBookings = await Booking.findAll({
         where: {spotId : booking.spotId}
     })
