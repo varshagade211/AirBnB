@@ -1,10 +1,18 @@
+
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import LoginFormPage from './components/LoginFormPage';
+
+//import Test from './components/Test'
+// import './LoginForm.css';
+
 function App() {
-
   return (
-    <div>
-
-      <h1>Hello from App</h1>
-    </div>
+    <Switch>
+      <Route path="/login">
+        <LoginFormPage></LoginFormPage>
+      </Route>
+    </Switch>
   );
 }
 
