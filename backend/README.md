@@ -1,4 +1,4 @@
-# AirBnB API
+# airbnb-spots API
 
 
 ## Database Schema Design

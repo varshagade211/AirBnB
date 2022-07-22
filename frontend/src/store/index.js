@@ -1,16 +1,18 @@
-//import {  createStore,  applyMiddleware, compose, combineReducers} from "redux";
+
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import logger from "redux-logger";
 import thunk from 'redux-thunk'
 import {sessionReducer} from './session'
-// applyMidleware
+//------------------------------------------------rootreducer--------------------------------------------------------------
 const rootReducer = combineReducers({
     session:sessionReducer
+
 })
 
 
-let enhancer;
+//------------------------------------------------for console log in browser--------------------------------------------------------------
 
+let enhancer;
 if(process.env.NODE_ENV !== 'production'){
    const logger =require('redux-logger').default
    const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -21,7 +23,7 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 
-
+//-----------------------------------------------configure store------------------------------------------------------------------
 
 const configureStore = (payloadState)=>{
     return createStore(rootReducer, payloadState, enhancer)

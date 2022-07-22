@@ -1,31 +1,64 @@
 import {csrfFetch} from './csrf'
-
+//---------------------------------------------------action creator unic variables-------------------------------------------------------------------------
 const LOGIN_USER = 'session/loginUser'
 const LOGOUT_USER = 'session/logoutUser'
 const RESTORE_USER = 'session/restoreUser'
+const SIGNUP_USER = 'session/signupUser'
+//----------------------------------------------------regular action creator-----------------------------------------------------------
+//signup action creator
+const signupUser = (user) => {
+    return{
+        type:SIGNUP_USER,
+        user
+    }
+}
 
+//login action creator
 const loginUser = (user) => {
     return{
         type:LOGIN_USER,
         user
     }
-
 }
+//logout action creator
 const logOutUser = (response) => {
     return{
         type:LOGOUT_USER,
         response
     }
-
 }
+//restore action creator
 const restoreUser = (user) => {
     return{
         type:RESTORE_USER,
         user
     }
-
 }
 
+
+//--------------------------------------------------thunk action creators-------------------------------------------------
+//signup thunk
+export const signupUserThunk = (user) => {
+    return async function (dispatch) {
+        const {firstName,lastName,email,password} = user
+        const response = await csrfFetch('/api/users/signup',{
+            method:'POST',
+            body:JSON.stringify({
+                email,
+                firstName,
+                lastName,
+                password,
+
+            })
+        })
+        const userData = await response.json()
+
+        dispatch(signupUser(userData))
+        return response;
+
+    }
+}
+//login thunk
 export const loginThunk = (user) => async (dispatch) => {
         const {email , password} = user
          const response = await csrfFetch('/api/session/login',
@@ -36,21 +69,21 @@ export const loginThunk = (user) => async (dispatch) => {
                 password
             })
         })
-        const data = await response.json()
-        // if(response.ok) {
-            console.log(data)
-            dispatch(loginUser(user))
-            return response;
-        // }
-    }
+        const userData = await response.json()
 
+        dispatch(loginUser(userData))
+        return response;
+
+    }
+//logout thunk
 export const logOutThunk = () => async (dispatch) => {
     const response = await csrfFetch('api/session/logout',{method:'DELETE'})
     const data = await response.json()
     dispatch(logOutUser(data))
-    return data;
+    return response;
 
 }
+//restore thunk
 export const restoreUserThunk = () => async dispatch => {
     const response = await csrfFetch('/api/session');
     const data = await response.json();
@@ -58,18 +91,15 @@ export const restoreUserThunk = () => async dispatch => {
     return response;
   };
 
-
+//---------------------------------------------------session reducer------------------------------------------------------------
 const currentSessionUser = { user: null}
 export const sessionReducer = (state = currentSessionUser, action) => {
     let newState
     switch(action.type) {
         case LOGIN_USER:{
-             newState = {user:action.user}
-
+            newState = {user:action.user}
             return newState
-            // newState = Object.assign({}, state);
-            // newState.user = action.payload;
-            // return newState;
+
         }
         case LOGOUT_USER:{
             if(action.response?.message === 'success'){
@@ -77,6 +107,7 @@ export const sessionReducer = (state = currentSessionUser, action) => {
             }else{
                 newState={...state}
             }
+            return newState
         }
         case RESTORE_USER:{
                    console.log('form restore', action.user)
@@ -87,6 +118,11 @@ export const sessionReducer = (state = currentSessionUser, action) => {
                 }
                return newState
 
+        }
+        case SIGNUP_USER:{
+            console.log(action.user)
+            newState = {user:action.user}
+            return newState;
         }
         default:{
             return state
