@@ -1,0 +1,85 @@
+form{
+    width: 500px;
+    height: 300px;
+}
+
+
+
+
+form{
+    max-width: 100%;
+
+    margin: 0rem 0 0 2rem;
+}
+
+.label{
+    /* margin: 150px 0 0 2rem; */
+    display:inline-block;
+    margin: 1rem 0 0 2rem;
+
+}
+.formContainer input{
+   display: flex;
+   min-width: 80%;
+   flex: 1;
+   margin: 0.3rem 1rem 0rem 2rem;
+   padding: 4px;
+   border-radius: 5px;
+
+   border: 1.25px solid rgba(0, 0, 0, 0.26);
+   /* margin: 1rem 0 0 2rem; */
+}
+
+.submitButton{
+    box-sizing: border-box;
+    min-width: 80%;
+    margin: 1.4rem 0 0 2rem;
+    padding:0.7rem;
+    border-radius: 5px;
+    background-color: rgb(230, 30, 77);
+    border: 1px solid rgb(230, 30, 77);
+    color:white;
+    font-weight: 500;
+}
+h3{
+
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.797);
+    margin: 1rem 0 0 4rem;
+}
+h4{
+    margin: 1rem 1rem 1rem 12rem;
+    font-size: 1rem;
+
+}
+.line{
+    background-color: rgba(248, 245, 245, 0.099);
+    border-color: rgba(248, 245, 245, 0.371);;
+    /* background-color: red; */
+}
+.label:first-child {
+    margin: 0.3rem 1rem 0rem 2rem;
+}
+@media only screen and (max-width: 500px) {
+
+form{
+
+    margin: 0rem 0 0 0.2rem;
+}
+ label{
+    margin: 1rem 0 0 0.2rem;
+}
+.formContainer input{
+
+   margin: 0.3rem 0 0rem 0.2rem;
+}
+.submitButton{
+
+    margin: 1rem 0 0 0.2rem;
+}
+h4,h3{
+
+    margin: 1rem 0 0 0.2rem;
+}
+
+  }

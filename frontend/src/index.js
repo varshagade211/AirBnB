@@ -7,20 +7,24 @@ import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import {csrfFetch,restoreCSRF} from './store/csrf'
 import * as sessionAction from "./store/session"
+import { ModalProvider } from "./context/Modal";
+
 const store = configureStore()
 if(process.env.NODE_ENV !== 'production'){
   restoreCSRF()
   window.csrfFetch=csrfFetch
   window.store = store;
   window.sessionAction =sessionAction
-  
+
 }
 const Root = () => {
    return (
       <Provider store={store}>
-        <BrowserRouter>
-           <App />
-        </BrowserRouter>
+        <ModalProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ModalProvider>
       </Provider>
    )
 }

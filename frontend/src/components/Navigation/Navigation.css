@@ -1,0 +1,47 @@
+.navLinks{
+    display:flex;
+    justify-content: space-between;
+}
+.userIconContainer{
+    border:0.5px solid #dddddd;
+    border-radius: 50px;
+    /* background-color: gray; */
+    width: 4.7rem;
+    height:40px;
+    margin-right: 100px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.barsIcon{
+   margin-left: 4px;
+   font-size: 0.9rem;
+   color: rgb(51, 51, 51);
+}
+.userIcon{
+    font-size:1.7rem;
+    margin-right: 1px;
+    color: rgb(110, 110, 110);
+
+}
+.singUplinksContainer{
+    width:120%;
+    position: relative;
+    top: 10px;
+    right:76%;
+    height:200px;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dddddd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+    /* background-color: #dddddd; */
+}
+
+/* .sigupAndUserIconContainer{
+  display: flex;
+  flex-direction: column;
+} */

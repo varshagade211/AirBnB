@@ -61,20 +61,26 @@ export const signupUserThunk = (user) => {
 //login thunk
 export const loginThunk = (user) => async (dispatch) => {
         const {email , password} = user
-         const response = await csrfFetch('/api/session/login',
-         {
-            method:'POST',
-            body:JSON.stringify({
-                email,
-                password
-            })
-        })
-        const userData = await response.json()
 
-        dispatch(loginUser(userData))
-        return response;
+            const response = await csrfFetch('/api/session/login',
+            {
+               method:'POST',
+               body:JSON.stringify({
+                   email,
+                   password
+               })
+           })
+           const userData = await response.json()
 
-    }
+           dispatch(loginUser(userData))
+           console.log('thunk',response)
+           return response;
+
+}
+
+
+
+
 //logout thunk
 export const logOutThunk = () => async (dispatch) => {
     const response = await csrfFetch('api/session/logout',{method:'DELETE'})
@@ -85,10 +91,14 @@ export const logOutThunk = () => async (dispatch) => {
 }
 //restore thunk
 export const restoreUserThunk = () => async dispatch => {
+    // const response = await csrfFetch('/api/session');
+    // const data = await response.json();
+    // dispatch(restoreUser(data.user));
+    // return response;
     const response = await csrfFetch('/api/session');
-    const data = await response.json();
-    dispatch(restoreUser(data.user));
-    return response;
+   const data = await response.json();
+    dispatch(loginUser(data.user));
+   return response;
   };
 
 //---------------------------------------------------session reducer------------------------------------------------------------
@@ -97,28 +107,35 @@ export const sessionReducer = (state = currentSessionUser, action) => {
     let newState
     switch(action.type) {
         case LOGIN_USER:{
-            newState = {user:action.user}
-            return newState
-
+            // newState = {user:action.user}
+            // return newState
+            //change this does not works
+                newState = Object.assign({}, state);
+                newState.user = action.user;
+                return newState;
         }
         case LOGOUT_USER:{
-            if(action.response?.message === 'success'){
-                newState = {...currentSessionUser}
-            }else{
-                newState={...state}
-            }
-            return newState
+            // if(action.response?.message === 'success'){
+            //     newState = {...currentSessionUser}
+            // }else{
+            //     newState={...state}
+            // }
+            // return newState
+            newState = Object.assign({}, state);
+            newState.user = null;
+            return newState;
         }
-        case RESTORE_USER:{
-                   console.log('form restore', action.user)
-                if(action?.user?.id ){
-                    newState={user:action.user}
-                }else{
-                    newState = {...currentSessionUser}
-                }
-               return newState
+        // case RESTORE_USER:{
+        //            console.log('form restore', action.user)
+        //         if(action?.user?.id ){
+        //             newState={user:action.user}
+        //         }
+        //         else{
+        //             newState = {...currentSessionUser}
+        //         }
+        //        return newState
 
-        }
+        // }
         case SIGNUP_USER:{
             console.log(action.user)
             newState = {user:action.user}
