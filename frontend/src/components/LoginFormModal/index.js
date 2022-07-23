@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import LoginFormPage from './LoginFormPage';
 import './index.css'
+// import {useShowModel} from '../../context/showModelContext'
 
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
+  //  const {setShowModal,showModal} =  useShowModel()
 
   return (
     <>

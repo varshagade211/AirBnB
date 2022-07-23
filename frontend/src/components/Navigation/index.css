@@ -1,0 +1,94 @@
+.navLinks{
+    display:flex;
+    justify-content: space-between;
+}
+ .userIconContainer{
+    border:0.5px solid #dddddd;
+    border-radius: 50px;
+    background-color: white;
+    width: 4.7rem;
+    height:40px;
+    margin-right: 100px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.barsIcon{
+   margin-left: 4px;
+   font-size: 0.9rem;
+   color: rgb(51, 51, 51);
+}
+.userIcon{
+    font-size:1.7rem;
+    margin-right: 1px;
+    color: rgb(110, 110, 110);
+
+}
+.linksAndButtonContainer{
+    position: relative;
+}
+
+.singUplinksContainer{
+    width:120%;
+    position: absolute;
+    top: 3.7rem;
+    right:6.5rem;
+    z-index: 10;
+    height:200px;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dddddd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    display: block;
+
+}
+.singUplinksContainerclose{
+    display: none;
+}
+/* .sigupAndUserIconContainer{
+  display: flex;
+  flex-direction: column;
+} */
+.userData{
+    list-style: none;
+    margin:0.5rem 1rem 0.5rem 1rem
+}
+
+.logoutBtn{
+    margin:0.5rem 1rem 0.5rem 1rem;
+    background-color: white;
+    border: none;
+    font-size: 1rem;
+
+}
+.line{
+    background-color: rgba(248, 245, 245, 0.099);
+    border-color: rgba(248, 245, 245, 0.371);
+    position: relative;
+    /* z-index: -1; */
+}
+.linksContainer{
+    display: flex;
+    flex-direction: column;
+}
+.logo{
+    width: 35px;
+    height: 40px;
+    margin:0rem 0rem 0rem 2rem;
+
+}
+
+.logo-name{
+    margin:0.40rem 0.4rem 0rem 0.3rem;
+    color:#ff385c;
+    font-size: 1.4rem;
+}
+.logo-container{
+    width: 14rem;
+   display: flex;
+   /* justify-content: space-around; */
+   /* flex-direction: column; */
+}

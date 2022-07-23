@@ -1,0 +1,10 @@
+.line{
+    background-color: rgba(248, 245, 245, 0.099);
+    border-color: rgba(248, 245, 245, 0.371);;
+    position: relative;
+    z-index: -1;
+}
+
+.appContainer{
+    position: relative;
+}

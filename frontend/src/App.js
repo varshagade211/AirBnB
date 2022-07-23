@@ -19,9 +19,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
-    <Navigation className='navContainer' isLoaded={isLoaded} />
-    {isLoaded && (
+    <div className='appContainer'>
+    <Navigation className='navContainer' isLoaded={isLoaded} setIsLoaded={setIsLoaded}/>
+    <hr className='line'></hr>
+    {/* {isLoaded && ( */}
       <Switch>
         <Route path="/login">
           <LoginFormModal />
@@ -30,8 +31,8 @@ function App() {
           <SignupFormModal />
         </Route>
       </Switch>
-    )}
-  </>
+    {/* )} */}
+  </div>
   );
 }
 

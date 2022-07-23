@@ -36,12 +36,12 @@ function LoginFormPage() {
             </ul>
             {/* <div> */}
                 <label className="label">Email </label>
-                    <input type={email} name={'email'} value={email} onChange={(e)=>setEmail(e.target.value)} />
+                    <input type={'text'} name={'email'} value={email} onChange={(e)=>setEmail(e.target.value)} />
 
             {/* </div> */}
             {/* <div> */}
                 <label  className="label">Password </label>
-                <input type={password} name={'password'} value={password} onChange={(e)=>setPassword(e.target.value)} />
+                <input type={'password'} name={'password'} value={password} onChange={(e)=>setPassword(e.target.value)} />
 
             {/* </div> */}
             {/* <div> */}
