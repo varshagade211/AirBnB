@@ -28,6 +28,7 @@ router.post('/login',validateLogin, async(req,res,next) => {
     if (!user) {
         const err = new Error('Invalid credentials');
         err.statusCode = 401;
+        err.errors = ['Invalid credentials']
         return next(err);
     }
     let token = await setTokenCookie(res, user)
@@ -43,6 +44,7 @@ router.delete('/logout',(req, res, next) => {
       if(!req.user) {
         const err = new Error("User is not logged in")
         err.statusCode = 403
+
         return next(err)
       }
       res.clearCookie('token');
