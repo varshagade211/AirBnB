@@ -4,10 +4,10 @@ const handleValidationErrors = (req, _res, next) => {
     const validationErrors = validationResult(req);
 
     if (!validationErrors.isEmpty()) {
-      //const errors = {}
-      const errors = []
-      //validationErrors.array().forEach((error) => errors[error.param] = `${error.msg}`);
-      validationErrors.array().forEach((error) => errors.push(`${error.msg}`));
+      const errors = {}
+      // const errors = []
+      validationErrors.array().forEach((error) => errors[error.param] = `${error.msg}`);
+      // validationErrors.array().forEach((error) => errors.push(`${error.msg}`));
 
       const err = Error('Validation error');
       //err.errors = errors;

@@ -24,6 +24,14 @@ module.exports = (sequelize, DataTypes) => {
     static getCurrentUserId(id){
        return User.scope('currentUser').findByPk(id)
     }
+    static async findUser(email){
+      const user = await User.scope('loginUser').findOne({
+        where: {
+          email: email
+        }
+      });
+      return user
+    }
     //login use
     static async login({ email, password }) {
       const { Op } = require('sequelize');
@@ -32,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
           email: email
         }
       });
+
       if (user && user.validatePassword(password)) {
         return await User.scope('currentUser').findByPk(user.id);
       }

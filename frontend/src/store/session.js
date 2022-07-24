@@ -83,7 +83,7 @@ export const loginThunk = (user) => async (dispatch) => {
 
 //logout thunk
 export const logOutThunk = () => async (dispatch) => {
-    const response = await csrfFetch('api/session/logout',{method:'DELETE'})
+    const response = await csrfFetch('/api/session/logout',{method:'DELETE'})
     const data = await response.json()
     dispatch(logOutUser(data))
     return response;
@@ -96,9 +96,9 @@ export const restoreUserThunk = () => async dispatch => {
     // dispatch(restoreUser(data.user));
     // return response;
     const response = await csrfFetch('/api/session');
-   const data = await response.json();
+    const data = await response.json();
     dispatch(loginUser(data.user));
-   return response;
+    return response;
   };
 
 //---------------------------------------------------session reducer------------------------------------------------------------

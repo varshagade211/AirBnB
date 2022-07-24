@@ -23,12 +23,18 @@ const validateLogin = [
 //login
 router.post('/login',validateLogin, async(req,res,next) => {
     const {email, password} = req.body
-
+    const foundUser = await User.findUser(email)
+    if (!foundUser) {
+      const err = new Error('User not found');
+      err.statusCode = 401;
+      err.errors = {password:'User Not Found. Please Signup'}
+      return next(err);
+    }
     const user = await User.login({email, password})
     if (!user) {
         const err = new Error('Invalid credentials');
         err.statusCode = 401;
-        err.errors = ['Invalid credentials']
+        err.errors = {password:'Invalid credentials'}
         return next(err);
     }
     let token = await setTokenCookie(res, user)

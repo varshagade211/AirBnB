@@ -1,0 +1,12 @@
+.spotCard{
+
+
+}
+
+.spotsContainer{
+
+    margin: 1.5em 3em 0 5.5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em,1fr));
+    row-gap:2em;
+}

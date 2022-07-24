@@ -3,10 +3,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import logger from "redux-logger";
 import thunk from 'redux-thunk'
 import {sessionReducer} from './session'
+import spotReducer  from './spots'
 //------------------------------------------------rootreducer--------------------------------------------------------------
 const rootReducer = combineReducers({
-    session:sessionReducer
-
+    session:sessionReducer,
+    spots:spotReducer
 })
 
 
@@ -25,8 +26,8 @@ if(process.env.NODE_ENV !== 'production'){
 
 //-----------------------------------------------configure store------------------------------------------------------------------
 
-const configureStore = (payloadState)=>{
-    return createStore(rootReducer, payloadState, enhancer)
+const configureStore = (preloadedState)=>{
+    return createStore(rootReducer, preloadedState, enhancer)
 }
 
 export default configureStore;

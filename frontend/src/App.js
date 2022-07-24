@@ -8,7 +8,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation"
 import LoginFormModal from './components/LoginFormModal';
 import SignupFormModal from './components/SignupFormModal';
-
+import AllSpots from './components/Spots/AllSpots'
 import './App.css';
 
 function App() {
@@ -22,8 +22,12 @@ function App() {
     <div className='appContainer'>
     <Navigation className='navContainer' isLoaded={isLoaded} setIsLoaded={setIsLoaded}/>
     <hr className='line'></hr>
+
     {/* {isLoaded && ( */}
       <Switch>
+        <Route exact path="/">
+            <AllSpots />
+        </Route>
         <Route path="/login">
           <LoginFormModal />
         </Route>
