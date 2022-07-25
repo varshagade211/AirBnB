@@ -34,14 +34,19 @@ function SingleSpot(){
     const EditHandler = () =>{
         history.push(`/spots/edit/${id}`)
     }
+    const firstImg=  singleSpot?.Images[0]
+    const Images = singleSpot?.Images.slice(1)
 
-    const Images = singleSpot?.Images
     return(
         <div>
-            <div>
-                {Images?.map((image)=><img className = 'singleSpotImg' src= {image?.image} />)
-                }
+            <div className='singlePageImageContainer'>
+                <div >
+                  <img  className = 'firstSingleSpotImage'src= {firstImg?.image} />
+                </div>
+                <div className='singleSpotImgsContainer'>
+                   {Images?.map((image,i)=>  <div><img className = {`singleSpotImgs[${i}]`} src= {image?.image} /> </div>)}
 
+                </div>
             </div>
             <div>
                 <h5>{singleSpot?.name}</h5>
