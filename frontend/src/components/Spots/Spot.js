@@ -7,7 +7,7 @@ function Spot({spot}){
 //    const [showSingleSpot,setSingleShowSpot] = useState(false)
 
    const onClickHandler = () => {
-        history.push(`/api/spots/${spot.id}`)
+        history.push(`/spots/${spot.id}`)
     //   return  <Redirect to={`/api/spots/${spot.id}`} />
    }
     return(
