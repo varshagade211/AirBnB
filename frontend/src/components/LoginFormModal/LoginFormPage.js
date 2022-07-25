@@ -5,9 +5,8 @@ import { loginThunk } from "../../store/session"
 import './LoginPage.css';
 function LoginFormPage() {
     const dispatch = useDispatch()
-    // const history = useHistory()
     const sessionUser =useSelector(state => state?.session?.user)
-    // const history = useHistory()
+
     const [email , setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({});

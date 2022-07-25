@@ -73,7 +73,6 @@ export const loginThunk = (user) => async (dispatch) => {
            const userData = await response.json()
 
            dispatch(loginUser(userData))
-           console.log('thunk',response)
            return response;
 
 }
@@ -126,7 +125,6 @@ export const sessionReducer = (state = currentSessionUser, action) => {
             return newState;
         }
         // case RESTORE_USER:{
-        //            console.log('form restore', action.user)
         //         if(action?.user?.id ){
         //             newState={user:action.user}
         //         }
@@ -137,7 +135,6 @@ export const sessionReducer = (state = currentSessionUser, action) => {
 
         // }
         case SIGNUP_USER:{
-            console.log(action.user)
             newState = {user:action.user}
             return newState;
         }

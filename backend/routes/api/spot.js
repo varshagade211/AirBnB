@@ -170,7 +170,6 @@ router.get('/', queryValidator, async(req,res,next) => {
         limit:size,
         offset:size*(page-1)
     })
-    // console.log('from backend',spots)
     // for(let i=0; i<spots.length; i++) {
     //     spots[i].dataValues["previewImage"] = ""
     //     if(spots[i].Images.length) {

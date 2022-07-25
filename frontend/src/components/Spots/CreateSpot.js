@@ -33,15 +33,8 @@ function CreateSpot(){
 
           }
         });
-        // return dispatch(createSpotThunk(spotData))
-        //   .catch(async (res) => {
-        //     const data = await res.json();
-        //     if (data && data.errors) setErrors(data.errors);
-        // });
-        //history.push('/')
         spot.url = imageUrl
         if (spot) {
-            // console.log(response)
             await dispatch(createImageThunk(spot))
             history.push('/api/spots/user/spots')
         }
@@ -104,7 +97,7 @@ function CreateSpot(){
 
                 <label>Country:</label>
                 <input type='text' name='country'   value ={country} onChange={(e) => setCountry(e.target.value)}/>
-                {errors?.email &&
+                {errors?.country &&
                     <div className="errorContainer">
                         <div>
                             <i class="fa-solid fa-circle-exclamation errorlogo"></i>
@@ -156,7 +149,7 @@ function CreateSpot(){
 
                 <label>Latitude</label>
 
-                <input type='number' name='lat'  min="0" step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
+                <input type='number' name='lat' step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
@@ -169,7 +162,7 @@ function CreateSpot(){
                 }
 
                 <label>Longitude:</label>
-                <input type='number' name='lng'  min="0" step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
+                <input type='number' name='lng' step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>

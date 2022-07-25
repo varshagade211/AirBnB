@@ -4,11 +4,10 @@ const LOAD_SPOTS = 'spots/loadSpots';
 const CREATE_SPOTS = 'spots/createSpot'
 const CURRENT_USER_SPOT = 'spots/currentUserSpots'
 const DELETE_CURRENT_USER_SPOT = 'spots/deleteCurrentUserSpot'
-// const EDIT_SPOT_CURRENT_USER = 'spots/editSpotCurrentUserr'
+const EDIT_SPOT_CURRENT_USER = 'spots/editSpotCurrentUserr'
 // ------------------------------regular action cretor---------------------------------------------------
 
 const loadSpotsActionCreator = (spots) => {
-    console.log('in actin creator-----3')
    return{
     type:LOAD_SPOTS,
     spots:spots
@@ -33,17 +32,16 @@ const deleteCurrentUserSpot=(spotId) => {
      spotId
    }
 }
-// const editSpotActionCreator = (updateSpot) => {
-//    return{
-//     type:EDIT_SPOT_CURRENT_USER,
-//     updateSpot
-//    }
-// }
+const editSpotActionCreator = (updateSpot) => {
+   return{
+    type:EDIT_SPOT_CURRENT_USER,
+    updateSpot
+   }
+}
 //-----------------------------------------thunk action creator-----------------------------------
 export const loadSpotsThunk = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots')
     const spotData = await response.json()
-    console.log('before call to  dispatch in thunk----2')
     dispatch(loadSpotsActionCreator(spotData.Spots))
 
     return response
@@ -77,26 +75,26 @@ export const createSpotThunk = (spot) => async (dispatch) => {
        return response;
 
 }
-// export const editSpotThunk = (spot) => async (dispatch) => {
-//     const {id,address, city, state, country,lat,lng,name,description,price} = spot
+export const editSpotThunk = (spot) => async (dispatch) => {
+    const {id,address, city, state, country,lat,lng,name,description,price} = spot
 
-//         const response = await csrfFetch(`/api/spots/${id}`,
-//         {
-//            method:'PUT',
-//            body:JSON.stringify({
-//               address,city,state,country,lat,lng,name,description,price
-//            })
-//        })
-//        const newSpot = await response.json()
+        const response = await csrfFetch(`/api/spots/${id}`,
+        {
+           method:'PUT',
+           body:JSON.stringify({
+              address,city,state,country,lat,lng,name,description,price
+           })
+       })
+       const newSpot = await response.json()
 
 
-//        dispatch(editSpotActionCreator(newSpot))
-//     //    if(newSpot) {
-//     //     return newSpot
-//     //    }
-//        return response;
+       dispatch(editSpotActionCreator(newSpot))
+       if(newSpot) {
+           return newSpot
+       }
+       return response;
 
-// }
+}
 
 export const deleteCurrentUserSpotsThunk = (spot) => async (dispatch) => {
     const {id} = spot
@@ -117,7 +115,6 @@ const spotReducer = (state = initialSpots, action) => {
     switch(action.type) {
         case LOAD_SPOTS:{
 
-            console.log('in load reducer ----4')
             newState = {...state, spots : [...action?.spots]}
             action?.spots?.forEach(spot => {
                 newState[spot?.id] = spot
@@ -144,10 +141,10 @@ const spotReducer = (state = initialSpots, action) => {
             delete state[action?.spotId]
              return state
         }
-        // case EDIT_SPOT_CURRENT_USER:{
-        //      state[action?.updateSpot?.id]=action?.updateSpot
-        //      return state
-        // }
+        case EDIT_SPOT_CURRENT_USER:{
+             state[action?.updateSpot?.id]=action?.updateSpot
+             return state
+        }
         default:{
             return state
         }

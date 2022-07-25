@@ -24,7 +24,7 @@ function SignupFormPage() {
        return dispatch(sessionActions.signupUserThunk({ email, firstName,lastName, password }))
         .catch(async (res) => {
           const data = await res.json();
-          console.log('error...........',data.errors)
+         
 
           if (data && data.errors) setErrors(data.errors);
         });

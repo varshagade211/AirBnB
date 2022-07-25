@@ -9,7 +9,7 @@ function AllSpots(){
 
     useEffect(()=>{
          const reponse = dispatch(loadSpotsThunk())
-         console.log(reponse)
+         
     },[dispatch])
 
     // const oneSpot = spots[0]

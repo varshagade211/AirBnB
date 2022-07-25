@@ -37,7 +37,6 @@ export const createImageThunk = (spot) => async (dispatch) => {
            })
        })
        const newImage = await response.json()
-    //    console.log('thunk',newSpot)
 
        dispatch(createImageActionCreator(newImage))
     //    if(newSpot) {

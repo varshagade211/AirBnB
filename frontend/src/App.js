@@ -14,7 +14,7 @@ import BecomeHostPage from './components/Spots/BecomeHostPage'
 import CreateSpot from './components/Spots/CreateSpot'
 import CurrentUserSpots from './components/Spots/CurrentUserSpot'
 import SingleSpot from './components/Spots/SingleSpot'
-// import EditForm from './components/Spots/EditForm'
+import EditForm from './components/Spots/EditForm'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -54,9 +54,9 @@ function App() {
            <hr className='line'></hr>
            <SingleSpot />
         </Route>
-        {/* <Route exact path='/spots/edit/:id'>
+        <Route exact path='/spots/edit/:id'>
            <EditForm />
-        </Route> */}
+        </Route>
       </Switch>
     {/* )} */}
   </div>
