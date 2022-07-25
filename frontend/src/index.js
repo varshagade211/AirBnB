@@ -10,9 +10,11 @@ import * as sessionAction from "./store/session"
 import { ModalProvider } from "./context/Modal";
 import {ShowModelProvider} from './context/showModelContext'
 
+
 const store = configureStore()
 if(process.env.NODE_ENV !== 'production'){
   restoreCSRF()
+
   window.csrfFetch=csrfFetch
   window.store = store;
   window.sessionAction =sessionAction

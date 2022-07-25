@@ -4,10 +4,12 @@ import logger from "redux-logger";
 import thunk from 'redux-thunk'
 import {sessionReducer} from './session'
 import spotReducer  from './spots'
+import ImageReducer from './image'
 //------------------------------------------------rootreducer--------------------------------------------------------------
 const rootReducer = combineReducers({
     session:sessionReducer,
-    spots:spotReducer
+    spots:spotReducer,
+    image:ImageReducer
 })
 
 

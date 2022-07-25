@@ -1,0 +1,23 @@
+.becomeHostbtn{
+
+    border-radius: 50px;
+    background-color: white;
+    width: 8rem;
+    height:40px;
+    margin-right:2em;
+    font-size: 0.85rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* text-align: inherit; */
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.738);
+    font-weight: 600;
+    text-decoration: none;
+
+}
+
+.becomeHostbtn:hover{
+    background-color: #dddddd4e;;
+}

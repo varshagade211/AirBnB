@@ -170,23 +170,42 @@ router.get('/', queryValidator, async(req,res,next) => {
         limit:size,
         offset:size*(page-1)
     })
-
-    for(let i=0; i<spots.length; i++) {
-        spots[i].dataValues["previewImage"] = ""
-        if(spots[i].Images.length) {
-            let previewImg = spots[i].Images[0].image
-            spots[i].dataValues["previewImage"] = previewImg
-        }
-        if (spots[i].Images) {
-            delete spots[i].dataValues.Images
-        }
-    }
+    // console.log('from backend',spots)
+    // for(let i=0; i<spots.length; i++) {
+    //     spots[i].dataValues["previewImage"] = ""
+    //     if(spots[i].Images.length) {
+    //         let previewImg = spots[i].Images[0].image
+    //         spots[i].dataValues["previewImage"] = previewImg
+    //     }
+    //     if (spots[i].Images) {
+    //         delete spots[i].dataValues.Images
+    //     }
+    // }
     res.json({Spots: spots,page,size:spots.length})
 })
 
 router.get('/user/spots',requireAuth, async(req,res,next)=> {
     const {user} = req
-    const spots = await Spot.findAll({where:{ownerId:user.id}})
+    const spots = await Spot.findAll(
+      {
+        where:{ownerId:user.id},
+        include:[{
+          model: Image,
+          attributes:['image']
+        }],
+      }
+    )
+
+    // for(let i=0; i<spots.length; i++) {
+    //   spots[i].dataValues["previewImage"] = ""
+    //   if(spots[i].Images?.length) {
+    //       let previewImg = spots[i].Images[0].image
+    //       spots[i].dataValues["previewImage"] = previewImg
+    //   }
+    //   if (spots[i]?.Images) {
+    //       delete spots[i].dataValues.Images
+    //   }
+    // }
     res.status(200).json({Spots : spots})
 })
 

@@ -1,0 +1,21 @@
+.videoImage{
+    width: 100%;
+    position: relative;
+}
+.becomeHostLogo{
+  position: absolute;
+  top: 3rem;
+  left:3rem;
+  color: white;
+  font-size: 2.1rem;
+  z-index: 1;
+
+}
+.becomeHostLoginLink{
+    position: absolute;
+    bottom: 3rem;
+    left:3rem;
+    background-color: rgb(230, 30, 77);
+    font-size: 2.1rem;
+    z-index: 1;
+}

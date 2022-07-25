@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton';
 import './index.css';
@@ -7,11 +7,11 @@ import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal'
 import * as sessionActions from '../../store/session';
 import logo from '../../image/logo.png'
-// import {useShowModel} from '../../context/showModelContext'
+import BecomeHostNavButton from'./BecomeHostNavButton'
 
-function Navigation({  }){
+
+function Navigation({ }){
   const [showMenu, setShowMenu] = useState(false);
-  // const {setShowModal,showModal} =  useShowModel()
 
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -49,11 +49,8 @@ function Navigation({  }){
     setShowMenu((prev) => !prev)
 
   };
-  // useEffect(()=>{
-  //   if(showModal){
-  //     setShowMenu(false)
-  //   }
-  // },[showModal])
+
+
 
 
   return (
@@ -63,17 +60,19 @@ function Navigation({  }){
            <NavLink exact to="/"><img className ='logo' src={logo} alt='logo' /></NavLink>
            <h3 className='logo-name'>airbnb-spots</h3>
         </div>
-
-        <div className='linksAndButtonContainer'>
-          <button className="userIconContainer" onClick={openMenu}>
-             <i class="fa fa-bars barsIcon" aria-hidden="true"></i>
-             <i className="fas fa-user-circle userIcon" />
-          </button>
-
-          {showMenu && <div className="singUplinksContainer" id='singUplinksContainer'>
-             {showMenu && sessionLinks}
-          </div>}
-        </div>
+         <div className='becomeHostAndUserBtnContainer'>
+            <BecomeHostNavButton />
+            <div className='linksAndButtonContainer'>
+              <button className="userIconContainer" onClick={openMenu}>
+                <i class="fa fa-bars barsIcon" aria-hidden="true"></i>
+                <i className="fas fa-user-circle userIcon" />
+              </button>
+              {showMenu && <div className="singUplinksContainer" id='singUplinksContainer'>
+              {showMenu && sessionLinks}
+              {sessionUser && <NavLink to={'/api/spots/user/spots'}> My Spots </NavLink>}
+            </div>}
+          </div>
+      </div>
       </li>
 
     </ul>

@@ -1,18 +1,19 @@
 import { useEffect } from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-import { loadSpotsThunk,loadCurrentUserSpotsThunk } from '../../store/spots.js'
+import { loadCurrentUserSpotsThunk } from '../../store/spots.js'
 import Spot from './Spot.js'
 import './AllSpots.css'
-function AllSpots(){
+function CurrentUserSpots(){
     const dispatch = useDispatch()
-    const spots = useSelector(state => state?.spots?.spots)
+    const spots = useSelector(state => state?.spots?.userSpot)
 
     useEffect(()=>{
-         const reponse = dispatch(loadSpotsThunk())
-         console.log(reponse)
+         const reponse = dispatch(loadCurrentUserSpotsThunk())
+     
+
     },[dispatch])
 
-    // const oneSpot = spots[0]
+
     return(
 
         <div className='spotsContainer'>
@@ -21,4 +22,4 @@ function AllSpots(){
     )
 }
 
-export default AllSpots
+export default CurrentUserSpots

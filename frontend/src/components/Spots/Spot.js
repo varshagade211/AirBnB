@@ -1,11 +1,20 @@
 import './Spot.css'
+
+// import { useState } from 'react'
+import { useHistory, Redirect } from 'react-router-dom'
 function Spot({spot}){
-   console.log('hello from spot',spot)
+    const history = useHistory()
+//    const [showSingleSpot,setSingleShowSpot] = useState(false)
+
+   const onClickHandler = () => {
+        history.push(`/api/spots/${spot.id}`)
+    //   return  <Redirect to={`/api/spots/${spot.id}`} />
+   }
     return(
 
-            <div className='card'>
+            <div className='card' onClick={onClickHandler}>
                 <div className='imageContainer'>
-                   <img className = 'spotImage'src={spot?.previewImage} alt={spot?.name}/>
+                   <img className = 'spotImage'src={spot?.Images[0]?.image} alt={spot?.name}/>
 
                 </div>
                 <div className='textContainer'>
@@ -18,6 +27,7 @@ function Spot({spot}){
                         <p className='star'><i class="fa-solid fa-star"></i> 5.0</p>
 
                 </div>
+
             </div>
 
 
