@@ -69,7 +69,7 @@ function Navigation({ }){
               </button>
               {showMenu && <div className="singUplinksContainer" id='singUplinksContainer'>
               {showMenu && sessionLinks}
-              {sessionUser && <NavLink to={'/api/spots/user/spots'}> My Spots </NavLink>}
+              {sessionUser && <NavLink to={'/spots/user/spots'}> My Spots </NavLink>}
             </div>}
           </div>
       </div>
