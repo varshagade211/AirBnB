@@ -44,7 +44,7 @@ function SingleSpot(){
                   <img  className = 'firstSingleSpotImage'src= {firstImg?.image} />
                 </div>
                 <div className='singleSpotImgsContainer'>
-                   {Images?.map((image,i)=>  <div><img className = {`singleSpotImgs[${i}]`} src= {image?.image} /> </div>)}
+                   {Images?.map((image,i)=>  <div><img className = {`singleSpotImgs`} src= {image?.image} /> </div>)}
 
                 </div>
             </div>
