@@ -3,16 +3,14 @@ import {useSelector,useDispatch} from 'react-redux'
 import { loadCurrentUserSpotsThunk } from '../../store/spots.js'
 import Spot from './Spot.js'
 import './AllSpots.css'
+
 function CurrentUserSpots(){
     const dispatch = useDispatch()
     const spots = useSelector(state => state?.spots?.userSpot)
 
     useEffect(()=>{
-         const reponse = dispatch(loadCurrentUserSpotsThunk())
-     
-
+        const reponse = dispatch(loadCurrentUserSpotsThunk())
     },[dispatch])
-
 
     return(
 

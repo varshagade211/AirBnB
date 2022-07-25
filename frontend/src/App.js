@@ -32,7 +32,7 @@ function App() {
            <hr className='line'></hr>
            <AllSpots />
         </Route>
-        <Route exact path='/api/spots/user/spots'>
+        <Route exact path='/spots/user/spots'>
            <Navigation className='navContainer'/>
            <hr className='line'></hr>
            <CurrentUserSpots />
@@ -49,7 +49,7 @@ function App() {
         <Route exact path='/spots'>
            <CreateSpot />
         </Route>
-        <Route exact path='/api/spots/:id'>
+        <Route exact path='/spots/:id'>
            <Navigation className='navContainer'/>
            <hr className='line'></hr>
            <SingleSpot />

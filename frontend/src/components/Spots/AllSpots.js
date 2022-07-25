@@ -9,10 +9,9 @@ function AllSpots(){
 
     useEffect(()=>{
          const reponse = dispatch(loadSpotsThunk())
-         
+
     },[dispatch])
 
-    // const oneSpot = spots[0]
     return(
 
         <div className='spotsContainer'>
