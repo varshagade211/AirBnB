@@ -3,10 +3,13 @@ import {useSelector,useDispatch} from 'react-redux'
 import { loadCurrentUserSpotsThunk } from '../../store/spots.js'
 import Spot from './Spot.js'
 import './AllSpots.css'
+import { useHistory } from 'react-router-dom'
 
 function CurrentUserSpots(){
     const dispatch = useDispatch()
+    const history = useHistory()
     const spots = useSelector(state => state?.spots?.userSpot)
+    const sessionUser = useSelector(state => state.session.user);
 
     useEffect(()=>{
         const reponse = dispatch(loadCurrentUserSpotsThunk())

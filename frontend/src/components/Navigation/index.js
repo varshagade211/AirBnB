@@ -8,17 +8,19 @@ import SignupFormModal from '../SignupFormModal'
 import * as sessionActions from '../../store/session';
 import logo from '../../image/logo.png'
 import BecomeHostNavButton from'./BecomeHostNavButton'
+import { useHistory } from 'react-router-dom'
 
 
 function Navigation({ }){
   const [showMenu, setShowMenu] = useState(false);
-
+  const history = useHistory()
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const logout = (e) => {
     e.preventDefault();
     setShowMenu(false)
     dispatch(sessionActions.logOutThunk());
+    history.push('/')
   };
   let sessionLinks;
   if (sessionUser) {

@@ -1,0 +1,9 @@
+.editImagesInform{
+    width: 200px;
+    height:200px
+}
+.editButtonAndTitleContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -8,19 +8,10 @@ function SingleSpot(){
     let {id} = useParams()
     const history = useHistory()
     const dispatch = useDispatch()
-    const [isLoaded,setIsLoaded] = useState(false)
 
     const spots = useSelector(state => state?.spots)
-
     const sessionUser = useSelector(state => state?.session?.user)
 
-    // let singleSpot
-    // if(spots){
-    //     singleSpot = spots[id]
-    // }
-
-    // let isOwner = false
-    // if(sessionUser?.id === singleSpot?.ownerId) isOwner = true
     useEffect(()=>{
         dispatch(loadSpotsThunk())
     },[dispatch])
@@ -35,7 +26,7 @@ function SingleSpot(){
 
     const deleteHandler = async() =>{
        const response= await dispatch(deleteCurrentUserSpotsThunk(singleSpot))
-       history.push('/api/spots/user/spots')
+       history.push('/spots/user/spots')
     }
 
     const EditHandler = () =>{
@@ -44,14 +35,18 @@ function SingleSpot(){
     const firstImg=  singleSpot?.Images[0]
     const Images = singleSpot?.Images.slice(1)
 
+    const showImageHandler = () =>{
+        history.push(`/images/${singleSpot.id}`)
+    }
     return(
 
         <div>
-         <div className='singlePageImageContainer'>
-                <div >
+         <div className='singlePageImageContainer' onClick={showImageHandler}>
+                <div className='firstSingleImageContainer'>
                   <img  className = 'firstSingleSpotImage'src= {firstImg?.image} />
+                  {/* {isOwner&& <i class="fa fa-ellipsis-v dots " aria-hidden="true"></i>} */}
                 </div>
-                <div className='singleSpotImgsContainer'>
+                 <div className='singleSpotImgsContainer'>
                    {Images?.map((image)=>  <div><img className = {`singleSpotImgs`} src= {image?.image} /> </div>)}
 
                 </div>

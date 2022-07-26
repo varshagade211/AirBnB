@@ -1,17 +1,17 @@
 import { createContext, useState ,useContext} from 'react';
 
 
-export const ShowModelContext = createContext();
-export const useShowModel = () => useContext(ShowModelContext)
-export const ShowModelProvider = props => {
-    const [showModal, setShowModal] = useState(false);
+export const ImageIdContext = createContext();
+export const useImageId = () => useContext(ImageIdContext)
+export const ImageIdProvider = props => {
+    const [ImageId, setImageId] = useState(-1);
 
 
   return (
-    <ShowModelContext.Provider value={{showModal, setShowModal }}>
+    <ImageIdContext.Provider value={{ImageId, setImageId }}>
       {props.children}
-    </ShowModelContext.Provider>
+    </ImageIdContext.Provider>
   );
 };
 
-export default ShowModelContext;
+export default ImageIdProvider;

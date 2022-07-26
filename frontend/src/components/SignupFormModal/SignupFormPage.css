@@ -1,9 +1,9 @@
 
 
 
-form{
+.signUpForm{
     max-width: 100%;
-
+    height: 500px;
     margin: 0rem 0 0 2rem;
 }
 

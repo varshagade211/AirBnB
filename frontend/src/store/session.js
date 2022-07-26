@@ -1,4 +1,6 @@
 import {csrfFetch} from './csrf'
+
+
 //---------------------------------------------------action creator unic variables-------------------------------------------------------------------------
 const LOGIN_USER = 'session/loginUser'
 const LOGOUT_USER = 'session/logoutUser'
@@ -97,6 +99,7 @@ export const restoreUserThunk = () => async dispatch => {
     const response = await csrfFetch('/api/session');
     const data = await response.json();
     dispatch(loginUser(data.user));
+
     return response;
   };
 

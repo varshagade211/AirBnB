@@ -1,0 +1,14 @@
+.singleSpotImage{
+    width:600px;
+    height: 500px;
+    margin: 10rem 10rem 0 10rem;
+}
+/* .singleSpotImagesContaier{
+    position: relative;
+} */
+.arrowIcon{
+    position: fixed;
+    top: 2rem;
+    left:2rem;
+    font-size: 1.2rem;
+}

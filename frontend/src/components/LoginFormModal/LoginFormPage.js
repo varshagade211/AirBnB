@@ -11,11 +11,6 @@ function LoginFormPage() {
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({});
 
-
-
-
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors({});
@@ -31,7 +26,7 @@ function LoginFormPage() {
         <h4>Log in or sign up </h4>
         <hr className='line'></hr>
         <h3 className="welcomMsg">Welcome to Airbnb</h3>
-        <form onSubmit={handleSubmit}>
+        <form className="loginForm" onSubmit={handleSubmit}>
              {/* <ul>
                  {errors.map((error, idx) => <li className='error' key={idx}>{error}</li>)}
             </ul> */}

@@ -2,13 +2,8 @@ import { csrfFetch } from "./csrf"
 
 //  const LOAD_IMAGE = '/loadImage';
 const CREATE_IMAGE = 'image/createImage'
+const DELETE_IMAGE = 'image/deleteImage'
 
-// const loadImageActionCreator = (images) => {
-//     return{
-//      type:LOAD_IMAGE,
-//     images
-//     }
-//  }
 
 const createImageActionCreator = (image) => {
     return{
@@ -17,18 +12,18 @@ const createImageActionCreator = (image) => {
     }
 }
 
+const deleteImagesActionCreator = (imageId) => {
+    return{
+        type:DELETE_IMAGE,
+        imageId
+    }
+}
 
-// export const loadImageThunk = () => async (dispatch) => {
-//     const response = await csrfFetch('/api/spots')
-//     const spotData = await response.json()
 
-//     dispatch(loadSpotsActionCreator(spotData.Spots))
-//     return response
-// }
 
-export const createImageThunk = (spot) => async (dispatch) => {
-    const {id,url} = spot
 
+export const createImageThunk = (id,url) => async (dispatch) => {
+    
         const response = await csrfFetch(`/api/images/spot/${id}`,
         {
            method:'POST',
@@ -47,18 +42,22 @@ export const createImageThunk = (spot) => async (dispatch) => {
 }
 
 
+export const deleteImageThunk = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/${id}`,
+    {
+        method:'DELETE',
+    })
+    await response.json()
+    dispatch(deleteImagesActionCreator(id))
+    return response;
+}
+
+
 const initialImages = { images: []}
 const ImageReducer = (state = initialImages, action) => {
     let newState
     switch(action.type) {
-        // case LOAD_IMAGE:{
 
-        //    newState= {...state, images :[...action?.images]}
-        //    action?.images?.forEach(image => {
-        //       newState[action?.images?.id] = image
-        //    });
-        //    return newState;
-        // }
         case CREATE_IMAGE:{
             if(state.images.length){
                 newState = {...state,images:[...state.images, action.image]}
@@ -67,6 +66,19 @@ const ImageReducer = (state = initialImages, action) => {
             }
             newState[action?.image?.id] = action?.image
             return newState;
+        }
+        case DELETE_IMAGE:{
+            delete state[action.imageId]
+            newState = {...state}
+            const images = []
+            for (let i=0; i<state.images.length; i++){
+                if(action.imageId !== state.images[i].id){
+                    images.push(state.images[i])
+                }
+            }
+          newState.images=images
+          return newState
+
         }
         default:{
             return state

@@ -24,7 +24,7 @@ function SignupFormPage() {
        return dispatch(sessionActions.signupUserThunk({ email, firstName,lastName, password }))
         .catch(async (res) => {
           const data = await res.json();
-         
+
 
           if (data && data.errors) setErrors(data.errors);
         });
@@ -39,7 +39,7 @@ function SignupFormPage() {
         <h4>Log in or sign up </h4>
      <hr className='line'></hr>
     <h3 className="welcomMsg">Welcome to Airbnb</h3>
-    <form onSubmit={handleSubmit}>
+    <form className='signUpForm'onSubmit={handleSubmit}>
         {/* <ul> */}
            {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
         {/* </ul> */}

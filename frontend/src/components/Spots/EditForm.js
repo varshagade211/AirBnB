@@ -2,16 +2,25 @@ import {useParams , useHistory, NavLink} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect,useState } from 'react'
 import {editSpotThunk,loadSpotsThunk} from '../../store/spots'
-
+import './EditForm.css'
 function EditForm() {
     let {id} = useParams()
     const history = useHistory()
     const dispatch = useDispatch()
     const spots = useSelector(state => state?.spots)
+    const sessionUser = useSelector(state => state.session.user);
+
+
+    useEffect(()=>{
+        dispatch(loadSpotsThunk())
+    },[dispatch])
 
     let updateSpot
     if(spots){
         updateSpot= spots[id]
+        // if(sessionUser?.id !== updateSpot?.ownerId) {
+        //     history.push('/')
+        // }
     }
 
     const [name,setName] = useState(updateSpot?.name)
@@ -24,13 +33,6 @@ function EditForm() {
     const [lat,setLat] = useState(updateSpot?.lat)
     const [lng,setLng] = useState(updateSpot?.lng)
     const [errors, setErrors] = useState({})
-
-
-
-    useEffect(()=>{
-        dispatch(loadSpotsThunk())
-
-    },[dispatch])
 
 
     const onSubmit= async (e)=>{
@@ -48,14 +50,34 @@ function EditForm() {
             }
         });
         if (spot) {
-            history.push('/api/spots/user/spots')
+            history.push('/spots/user/spots')
         }
         return
     }
+    let threeSpotImages
+    if(updateSpot?.Images){
+        threeSpotImages = updateSpot?.Images?.slice(0,3)
+    }
 
+    const editImageHandler = () =>{
+        
+        history.push(`/spots/edit/${id}/images`)
+    }
     return(
         <div>
             <h5>Edit form</h5>
+            <div className='editButtonAndTitleContainer'>
+                <div>
+                <h2>Photos</h2>
+                </div>
+
+                <div>
+                <button  onClick={editImageHandler} className='editImageButton'>Edit</button>
+                </div>
+
+
+            </div>
+              {threeSpotImages?.map((img,i)=><img key={i} className='editImagesInform' src={img?.image} alt='editImg' />)}
             <form onSubmit={onSubmit}>
                 <label>Spot Name:</label>
                 <input type='text' name='spotName'  value ={name} onChange={(e) => setName(e.target.value)} />

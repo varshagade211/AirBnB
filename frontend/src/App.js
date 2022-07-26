@@ -15,6 +15,10 @@ import CreateSpot from './components/Spots/CreateSpot'
 import CurrentUserSpots from './components/Spots/CurrentUserSpot'
 import SingleSpot from './components/Spots/SingleSpot'
 import EditForm from './components/Spots/EditForm'
+import SingleSpotImages from './components/Spots/SingleSpotImages'
+import EditImages from './components/Spots/EditImages';
+import DeletePopUpModal from './components/ImageDeleteModal'
+import ImageIdProvider from './context/showModelContext'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -40,12 +44,12 @@ function App() {
         <Route exact path="/becomehost">
            <BecomeHostPage />
         </Route>
-        <Route exact path="/login">
+        {/* <Route exact path="/login">
           <LoginFormModal />
-        </Route>
-        <Route exact path="/signup">
+        </Route> */}
+        {/* <Route exact path="/signup">
           <SignupFormModal />
-        </Route>
+        </Route> */}
         <Route exact path='/spots'>
            <CreateSpot />
         </Route>
@@ -55,8 +59,22 @@ function App() {
            <SingleSpot />
         </Route>
         <Route exact path='/spots/edit/:id'>
+        <Navigation className='navContainer'/>
+           <hr className='line'></hr>
            <EditForm />
         </Route>
+        <Route exact path='/spots/edit/:id/images'>
+        <Navigation className='navContainer'/>
+           <hr className='line'></hr>
+             <EditImages />
+
+
+        </Route>
+        <Route exact path='/images/:id'>
+           <SingleSpotImages />
+        </Route>
+
+
       </Switch>
     {/* )} */}
   </div>

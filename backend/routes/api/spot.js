@@ -164,7 +164,7 @@ router.get('/', queryValidator, async(req,res,next) => {
         where,
         include:[{
             model: Image,
-            attributes:['image']
+            attributes:['image','id']
 
         }],
         limit:size,
@@ -190,7 +190,7 @@ router.get('/user/spots',requireAuth, async(req,res,next)=> {
         where:{ownerId:user.id},
         include:[{
           model: Image,
-          attributes:['image']
+          attributes:['image','id']
         }],
       }
     )

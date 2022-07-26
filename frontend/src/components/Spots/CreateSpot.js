@@ -12,7 +12,11 @@ function CreateSpot(){
     const [state,setState] = useState('')
     const [country,setCountry] = useState('')
     const [description,setDescription] = useState('')
-    const [imageUrl,setImageUrl] = useState('')
+    const [imageUrl1,setImageUrl1] = useState('')
+    const [imageUrl2,setImageUrl2] = useState('')
+    const [imageUrl3,setImageUrl3] = useState('')
+    const [imageUrl4,setImageUrl4] = useState('')
+    const [imageUrl5,setImageUrl5] = useState('')
     const [price,setPrice] = useState(0)
     const [lat,setLat] = useState(-90)
     const [lng,setLng] = useState(-180)
@@ -24,7 +28,10 @@ function CreateSpot(){
         const spotData ={
             name,address,city,state,country,description,price,lat,lng
         }
-
+        if(!(imageUrl1 && imageUrl2 && imageUrl3 && imageUrl4 && imageUrl5)){
+            setErrors({url:'Upload minimum five images'})
+            return
+        }
         const spot = await dispatch(createSpotThunk(spotData))
         .catch(async (res) => {
           const data = await res?.json();
@@ -33,10 +40,24 @@ function CreateSpot(){
 
           }
         });
-        spot.url = imageUrl
+
         if (spot) {
-            await dispatch(createImageThunk(spot))
-            history.push('/api/spots/user/spots')
+
+            await dispatch(createImageThunk(spot?.id,imageUrl1))
+
+
+            await dispatch(createImageThunk(spot?.id,imageUrl2))
+
+
+            await dispatch(createImageThunk(spot?.id,imageUrl3))
+
+
+            await dispatch(createImageThunk(spot.id,imageUrl4))
+
+          
+            await dispatch(createImageThunk(spot?.id,imageUrl5))
+
+            history.push('/spots/user/spots')
         }
         return
     }
@@ -109,7 +130,7 @@ function CreateSpot(){
                 }
 
                 <label>Description</label>
-                <textarea  name='desc'  value ={description} onChange={(e) => setDescription(e.target.value)}/>
+                <textarea  name='desc'  value ={description} onChange={(e) => setDescription(e.target.value)}/><br />
                 {errors?.description &&
                     <div className="errorContainer">
                         <div>
@@ -121,18 +142,7 @@ function CreateSpot(){
                     </div>
                 }
 
-                 <label>Image:</label>
-                <input type='text' name='image' value={imageUrl}  onChange={(e) => setImageUrl(e.target.value) }/>
-                {errors?.url &&
-                    <div className="errorContainer">
-                        <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
-                        </div>
-                        <div>
-                            <span className='error' key={errors.url}>{errors.url}</span>
-                        </div>
-                    </div>
-                }
+
 
                  <label>Price:</label>
                 <input type='number' name='price'  value ={price} onChange={(e) => setPrice(e.target.value)}/>
@@ -170,6 +180,32 @@ function CreateSpot(){
                         </div>
                         <div>
                             <span className='error' key={errors.lng}>{errors.lng}</span>
+                        </div>
+                    </div>
+                }
+
+                   <label>Image 1:</label><br/>
+                  <input type='text' name='image' value={imageUrl1}  onChange={(e) => setImageUrl1(e.target.value) }/><br />
+
+                  <label>Image 2:</label><br/>
+                  <input type='text' name='image' value={imageUrl2}  onChange={(e) => setImageUrl2(e.target.value) }/><br />
+
+                  <label>Image 3:</label><br/>
+                  <input type='text' name='image' value={imageUrl3}  onChange={(e) => setImageUrl3(e.target.value) }/><br />
+
+                  <label>Image 4:</label><br/>
+                  <input type='text' name='image' value={imageUrl4}  onChange={(e) => setImageUrl4(e.target.value) }/><br />
+
+                  <label>Image 5:</label><br/>
+                  <input type='text' name='image' value={imageUrl5}  onChange={(e) => setImageUrl5(e.target.value) }/><br />
+
+                {errors?.url &&
+                    <div className="errorContainer">
+                        <div>
+                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                        </div>
+                        <div>
+                            <span className='error' key={errors.url}>{errors.url}</span>
                         </div>
                     </div>
                 }
