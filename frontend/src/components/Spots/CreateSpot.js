@@ -54,7 +54,7 @@ function CreateSpot(){
 
             await dispatch(createImageThunk(spot.id,imageUrl4))
 
-          
+
             await dispatch(createImageThunk(spot?.id,imageUrl5))
 
             history.push('/spots/user/spots')
@@ -65,7 +65,7 @@ function CreateSpot(){
         <div>
             <form onSubmit={onSubmit}>
                 <label>Spot Name:</label>
-                <input type='text' name='spotName'  value ={name} onChange={(e) => setName(e.target.value)} />
+                <input type='text' name='spotName' placeholder='Enter Spot Name' value ={name} onChange={(e) => setName(e.target.value)} />
                 {errors?.name &&
                     <div className="errorContainer">
                         <div>
@@ -78,7 +78,7 @@ function CreateSpot(){
                 }
 
                 <label>Address:</label>
-                <input type='text' name='address'  value ={address} onChange={(e) => setAddress(e.target.value)}/>
+                <input type='text' name='address' placeholder='Enter Address'  value ={address} onChange={(e) => setAddress(e.target.value)}/>
                 {errors?.address &&
                     <div className="errorContainer">
                         <div>
@@ -91,7 +91,7 @@ function CreateSpot(){
                 }
 
                 <label>City:</label>
-                <input type='text' name='city'  value ={city} onChange={(e) => setCity(e.target.value)} />
+                <input type='text' name='city' placeholder='Enter City' value ={city} onChange={(e) => setCity(e.target.value)} />
                 {errors?.city &&
                     <div className="errorContainer">
                         <div>
@@ -104,7 +104,7 @@ function CreateSpot(){
                 }
 
                 <label>State:</label>
-                <input type='text' name='state'  value ={state}  onChange={(e) => setState(e.target.value)}/>
+                <input type='text' name='state' placeholder='Enter State' value ={state}  onChange={(e) => setState(e.target.value)}/>
                 {errors?.state &&
                     <div className="errorContainer">
                         <div>
@@ -117,7 +117,7 @@ function CreateSpot(){
                 }
 
                 <label>Country:</label>
-                <input type='text' name='country'   value ={country} onChange={(e) => setCountry(e.target.value)}/>
+                <input type='text' name='country'   placeholder='Enter Country'value ={country} onChange={(e) => setCountry(e.target.value)}/>
                 {errors?.country &&
                     <div className="errorContainer">
                         <div>
@@ -130,7 +130,7 @@ function CreateSpot(){
                 }
 
                 <label>Description</label>
-                <textarea  name='desc'  value ={description} onChange={(e) => setDescription(e.target.value)}/><br />
+                <textarea  name='desc' placeholder='Enter Description' value ={description} onChange={(e) => setDescription(e.target.value)}/><br />
                 {errors?.description &&
                     <div className="errorContainer">
                         <div>
@@ -145,7 +145,7 @@ function CreateSpot(){
 
 
                  <label>Price:</label>
-                <input type='number' name='price'  value ={price} onChange={(e) => setPrice(e.target.value)}/>
+                <input type='number' name='price' placeholder='Enter Price'  value ={price} onChange={(e) => setPrice(e.target.value)}/>
                 {errors?.price &&
                     <div className="errorContainer">
                         <div>
@@ -159,7 +159,7 @@ function CreateSpot(){
 
                 <label>Latitude</label>
 
-                <input type='number' name='lat' step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
+                <input type='number' name='lat' placeholder='Enter Latitude'  step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
@@ -172,7 +172,7 @@ function CreateSpot(){
                 }
 
                 <label>Longitude:</label>
-                <input type='number' name='lng' step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
+                <input type='number' placeholder='Enter Longitude'  name='lng' step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>
@@ -185,19 +185,19 @@ function CreateSpot(){
                 }
 
                    <label>Image 1:</label><br/>
-                  <input type='text' name='image' value={imageUrl1}  onChange={(e) => setImageUrl1(e.target.value) }/><br />
+                  <input type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl1}  onChange={(e) => setImageUrl1(e.target.value) }/><br />
 
                   <label>Image 2:</label><br/>
-                  <input type='text' name='image' value={imageUrl2}  onChange={(e) => setImageUrl2(e.target.value) }/><br />
+                  <input type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl2}  onChange={(e) => setImageUrl2(e.target.value) }/><br />
 
                   <label>Image 3:</label><br/>
-                  <input type='text' name='image' value={imageUrl3}  onChange={(e) => setImageUrl3(e.target.value) }/><br />
+                  <input type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl3}  onChange={(e) => setImageUrl3(e.target.value) }/><br />
 
                   <label>Image 4:</label><br/>
-                  <input type='text' name='image' value={imageUrl4}  onChange={(e) => setImageUrl4(e.target.value) }/><br />
+                  <input type='text' name='image'  placeholder='Enter Image Url' value={imageUrl4}  onChange={(e) => setImageUrl4(e.target.value) }/><br />
 
                   <label>Image 5:</label><br/>
-                  <input type='text' name='image' value={imageUrl5}  onChange={(e) => setImageUrl5(e.target.value) }/><br />
+                  <input type='text' name='image' placeholder='Enter Image Url'  value={imageUrl5}  onChange={(e) => setImageUrl5(e.target.value) }/><br />
 
                 {errors?.url &&
                     <div className="errorContainer">
