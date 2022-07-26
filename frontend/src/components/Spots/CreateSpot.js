@@ -42,21 +42,11 @@ function CreateSpot(){
         });
 
         if (spot) {
-
             await dispatch(createImageThunk(spot?.id,imageUrl1))
-
-
             await dispatch(createImageThunk(spot?.id,imageUrl2))
-
-
             await dispatch(createImageThunk(spot?.id,imageUrl3))
-
-
             await dispatch(createImageThunk(spot.id,imageUrl4))
-
-
             await dispatch(createImageThunk(spot?.id,imageUrl5))
-
             history.push('/spots/user/spots')
         }
         return

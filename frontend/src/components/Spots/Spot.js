@@ -14,7 +14,7 @@ function Spot({spot}){
 
             <div className='card' onClick={onClickHandler}>
                 <div className='imageContainer'>
-                   <img className = 'spotImage'src={spot?.Images[0]?.image} alt={spot?.name}/>
+                   {spot?.Images && <img className = 'spotImage'src={spot?.Images[0]?.image} alt={spot?.name}/>}
 
                 </div>
                 <div className='textContainer'>

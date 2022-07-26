@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import DeletePopUp from './DeletePopUp.js';
 
+
 function DeletePopUpModal({ImageId, image, setRefresh}) {
   const [showModal, setShowModal] = useState(false);
+
+
   return (
     <>
       <div className='editImageContainer' onClick={()=>setShowModal(true)}>

@@ -6,7 +6,6 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const {Op} = require('sequelize');
 
-
 //image validation
 const validateImage =[
     check("url")
@@ -16,7 +15,18 @@ const validateImage =[
 
    handleValidationErrors
 ]
+router.get('/', async(req,res,next) => {
+    const images = await Image.findAll({
+        attributes:['id',['image','url'],['spotId','imageableId']]
+    })
+    if(!images) {
+        const err = new Error("Image couldn't be found");
+        err.statusCode = 404;
+        return next(err)
+    }
 
+    res.status(200).json(images)
+})
 router.post('/spot/:spotId', requireAuth, validateImage, async(req,res,next) => {
     const spot = await Spot.findByPk(req.params.spotId)
     if(!spot){
@@ -71,7 +81,6 @@ router.post('/review/:reviewId', requireAuth, validateImage,  async(req,res, nex
     updatedImage.dataValues.imageableType = 'Review'
     res.status(200).json(updatedImage)
 })
-
 
 router.delete('/:id', requireAuth , async(req,res, next) => {
     const image = await Image.findByPk(req.params.id)

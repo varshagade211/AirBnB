@@ -205,6 +205,7 @@ router.get('/user/spots',requireAuth, async(req,res,next)=> {
     //       delete spots[i].dataValues.Images
     //   }
     // }
+    console.log("Backend spots : ", spots)
     res.status(200).json({Spots : spots})
 })
 

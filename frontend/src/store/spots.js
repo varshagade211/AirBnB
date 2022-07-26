@@ -109,41 +109,64 @@ export const deleteCurrentUserSpotsThunk = (spot) => async (dispatch) => {
 }
 
 //------------------------------------Reducer--------------------------
-const initialSpots = { spots: null , userSpot:null}
+// const initialSpots = { spots: null , userSpot:null}
+const initialSpots = { spots: [] , userSpot:[]}
 const spotReducer = (state = initialSpots, action) => {
     let newState
     switch(action.type) {
         case LOAD_SPOTS:{
 
-            newState = {...state, spots : [...action?.spots]}
+            // newState = {...state, spots : [...action?.spots]}
+            // action?.spots?.forEach(spot => {
+            //     newState[spot?.id] = spot
+            // });
+            // return newState
+
+            newState = {...state, userSpot : [...state?.userSpot], spots : [...action?.spots]}
             action?.spots?.forEach(spot => {
                 newState[spot?.id] = spot
             });
             return newState
         }
         case CURRENT_USER_SPOT:{
-            newState = {...state, userSpot : [...action?.spots]}
+            // newState = {...state, userSpot : [...action?.spots]}
+            // action?.spots?.forEach(spot => {
+            //     newState[spot?.id] = spot
+            // });
+            // return newState
+            newState = {...state, spots : [...state?.spots], userSpot : [...action?.spots]}
             action?.spots?.forEach(spot => {
                 newState[spot?.id] = spot
             });
             return newState
         }
         case CREATE_SPOTS:{
-            if (state.spots) {
-                newState = {...state, spots:[...state.spots, action.spot]}
-            } else {
-                newState = {...state, spots:[action.spot]}
-            }
+            // if (state.spots) {
+            //     newState = {...state, spots:[...state.spots, action.spot]}
+            // } else {
+            //     newState = {...state, spots:[action.spot]}
+            // }
+            // newState[action?.spot?.id] = action?.spot
+            // return newState;
+            //new Try
+            newState = {...state, spots:[...state?.spots, action.spot] , userSpot:[...state?.userSpot, action.spot]}
             newState[action?.spot?.id] = action?.spot
             return newState;
         }
         case DELETE_CURRENT_USER_SPOT:{
+            // delete state[action?.spotId]
+            // return state
+             // new try
             delete state[action?.spotId]
-             return state
+            newState={...state, spots:[...state?.spots], userSpot: [...state?.userSpot]}
+            return newState
         }
         case EDIT_SPOT_CURRENT_USER:{
-             state[action?.updateSpot?.id]=action?.updateSpot
-             return state
+            //  state[action?.updateSpot?.id]=action?.updateSpot
+            //  return state
+            newState={...state,spots:[...state?.spots], userSpot:[...state?.userSpot]}
+            newState[action?.updateSpot?.id]=action?.updateSpot
+            return newState
         }
         default:{
             return state

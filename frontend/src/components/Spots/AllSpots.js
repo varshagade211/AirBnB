@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-import { loadSpotsThunk,loadCurrentUserSpotsThunk } from '../../store/spots.js'
+import {loadSpotsThunk} from '../../store/spots.js'
+import {loadAllImageThunkCreator} from '../../store/image.js'
+
 import Spot from './Spot.js'
 import './AllSpots.css'
 function AllSpots(){
@@ -8,8 +10,8 @@ function AllSpots(){
     const spots = useSelector(state => state?.spots?.spots)
 
     useEffect(()=>{
-         const reponse = dispatch(loadSpotsThunk())
-
+        dispatch(loadSpotsThunk())
+        dispatch(loadAllImageThunkCreator())
     },[dispatch])
 
     return(
