@@ -14,13 +14,11 @@ function CurrentUserSpots(){
     useEffect(()=>{
         const reponse = dispatch(loadCurrentUserSpotsThunk())
     },[dispatch])
-   
-    return(
 
+    return(
         <div className='spotsContainer'>
             {spots?.map(spot => <Spot spot={spot}></Spot>)}
         </div>
-
     )
 }
 

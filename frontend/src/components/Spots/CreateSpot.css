@@ -1,0 +1,31 @@
+.createSpotFormOuterContainer{
+    display: flex;
+}
+
+.colorDiv{
+  width: 70%;
+  height: 100vh;
+  /* padding: 10px; */
+
+  background-color: palevioletred;
+}
+
+.createSpotInnerFormContainer{
+    width: 100%;
+    height: 100vh;
+}
+
+.createSpotFromContainer{
+    width: 70%;
+    height: 80%;
+
+    position: sticky;
+    top: 4rem;
+    border-radius: 10px;
+    margin: auto;
+
+    background-color:#FFF;
+    padding:10px;
+    box-shadow: 0 0 6px rgba(128, 128, 128, 0.575);
+    background-color: white
+}

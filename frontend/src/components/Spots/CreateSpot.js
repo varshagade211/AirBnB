@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux'
 import {createSpotThunk} from '../../store/spots'
 import {NavLink, useHistory} from 'react-router-dom'
 import {createImageThunk} from '../../store/image'
+import './CreateSpot.css'
 function CreateSpot(){
     const dispatch = useDispatch()
     const history = useHistory()
@@ -52,10 +53,16 @@ function CreateSpot(){
         return
     }
     return(
-        <div>
+        <div className='createSpotFormOuterContainer'>
+            <div className='colorDiv'>
+                place holder
+            </div>
+            <div className='createSpotInnerFormContainer'>
+            <div className='createSpotFromContainer'>
             <form onSubmit={onSubmit}>
+
                 <label>Spot Name:</label>
-                <input type='text' name='spotName' placeholder='Enter Spot Name' value ={name} onChange={(e) => setName(e.target.value)} />
+                <input type='text'  name='spotName' placeholder='Enter Spot Name' value ={name} onChange={(e) => setName(e.target.value)} />
                 {errors?.name &&
                     <div className="errorContainer">
                         <div>
@@ -202,6 +209,7 @@ function CreateSpot(){
 
                 <button className='SpotButton' type={'submit'}>Submit</button>
             </form>
+            </div>
             {errors?.message &&
                     <div className="errorContainer">
                         <div>
@@ -215,6 +223,7 @@ function CreateSpot(){
                 }
 
         </div>
+    </div>
     )
 }
 

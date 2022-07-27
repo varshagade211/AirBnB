@@ -32,7 +32,7 @@ function LoginFormPage() {
             </ul> */}
             {/* <div> */}
                 <label className="label">Email </label>
-                <input type={'text'} placeholder = 'Enter Email Address' name={'email'} value={email} onChange={(e)=>setEmail(e.target.value)} />
+                <input className='loginFormInput' type={'text'} placeholder = 'Enter Email Address' name={'email'} value={email} onChange={(e)=>setEmail(e.target.value)} />
                 {errors?.email &&
                     <div className="errorContainer">
                         <div>
@@ -44,7 +44,7 @@ function LoginFormPage() {
                     </div>
                 }
                 <label  className="label">Password </label>
-                <input type={'password'} placeholder = 'Enter Password' name={'password'} value={password} onChange={(e)=>setPassword(e.target.value)} />
+                <input className='loginFormInput' type={'password'} placeholder = 'Enter Password' name={'password'} value={password} onChange={(e)=>setPassword(e.target.value)} />
                 {errors?.password &&
                     <div className="errorContainer">
                         <div>

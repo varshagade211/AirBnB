@@ -18,7 +18,7 @@ import EditForm from './components/Spots/EditForm'
 import SingleSpotImages from './components/Spots/SingleSpotImages'
 import EditImages from './components/Spots/EditImages';
 import DeletePopUpModal from './components/ImageDeleteModal'
-import ImageIdProvider from './context/showModelContext'
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -42,7 +42,9 @@ function App() {
            <CurrentUserSpots />
         </Route>
         <Route exact path="/becomehost">
-           <BecomeHostPage />
+
+             <BecomeHostPage />
+
         </Route>
         {/* <Route exact path="/login">
           <LoginFormModal />

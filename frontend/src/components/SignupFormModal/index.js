@@ -12,6 +12,7 @@ function SignupFormModal() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <SignupFormPage />
+          <hr className='line'></hr>
         </Modal>
       )}
     </>

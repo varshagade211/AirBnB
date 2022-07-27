@@ -10,15 +10,15 @@
 .label{
     /* margin: 150px 0 0 2rem; */
     display:inline-block;
-    margin: 1rem 0 0 2rem;
+    margin: 1.5rem 0 0 2rem;
 
 }
-.formContainer input{
+.formContainer .signUpFormInput{
    display: flex;
    min-width: 80%;
    flex: 1;
-   margin: 0.3rem 1rem 0rem 2rem;
-   padding: 4px;
+   margin: 0.5rem 1rem 0rem 2rem;
+   padding: 10px;
    border-radius: 5px;
 
    border: 1.25px solid rgba(0, 0, 0, 0.26);
@@ -36,13 +36,13 @@
     color:white;
     font-weight: 500;
 }
-h3{
+.welcomMsg{
 
     font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.797);
-    margin: 1rem 0 0 4rem;
+    margin: 1rem 0 1rem 4rem;
 }
-h4{
+.loginTitle{
     margin: 1rem 1rem 1rem 12rem;
     font-size: 1rem;
 

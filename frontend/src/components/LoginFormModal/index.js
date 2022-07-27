@@ -6,14 +6,16 @@ import './index.css'
 
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
- 
+
 
   return (
     <>
       <button className='loginButton' onClick={() => setShowModal(true)}>Log In</button>
+ 
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginFormPage />
+
         </Modal>
       )}
     </>

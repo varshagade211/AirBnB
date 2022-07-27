@@ -1,3 +1,5 @@
+
+
 import becomehost from '../../image/becomehost.JPG'
 import './BecomeHostPage.css'
 import LoginFormModal from '../LoginFormModal';

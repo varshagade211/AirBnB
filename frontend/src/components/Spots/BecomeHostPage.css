@@ -13,9 +13,13 @@
 }
 .becomeHostLoginLink{
     position: absolute;
-    bottom: 3rem;
-    left:3rem;
+    bottom: 10rem;
+    left:15rem;
     background-color: rgb(230, 30, 77);
-    font-size: 2.1rem;
+    border-radius: 14px;
+    font-size: 1.8rem;
     z-index: 1;
+    padding: 7px;
+    text-decoration: none;
+    color: rgba(245, 245, 245, 0.73);
 }

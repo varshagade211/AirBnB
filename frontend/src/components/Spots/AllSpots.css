@@ -7,3 +7,13 @@
     grid-template-columns: repeat(auto-fit, minmax(15em,1fr));
     row-gap:2em;
 }
+
+.footerOnHomePage{
+    display: flex;
+    justify-content: space-between;
+    margin: 0rem 5rem 0 5rem;
+}
+
+.hrLineAllSpot{
+    margin-top: 5rem;
+}

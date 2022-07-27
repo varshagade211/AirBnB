@@ -1,17 +1,17 @@
 import { createContext, useState ,useContext} from 'react';
 
 
-export const ImageIdContext = createContext();
-export const useImageId = () => useContext(ImageIdContext)
+export const LoginContext = createContext();
+export const useLogin= () => useContext(LoginContext)
 export const ImageIdProvider = props => {
-    const [ImageId, setImageId] = useState(-1);
+  const [showModal, setShowModal] = useState(false);
 
 
   return (
-    <ImageIdContext.Provider value={{ImageId, setImageId }}>
+    <LoginContext.Provider value={{showModal, setShowModal }}>
       {props.children}
-    </ImageIdContext.Provider>
+    </LoginContext.Provider>
   );
 };
 
-export default ImageIdProvider;
+export default LoginContext;

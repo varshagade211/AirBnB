@@ -7,12 +7,14 @@ function Spot({spot}){
 //    const [showSingleSpot,setSingleShowSpot] = useState(false)
 
    const onClickHandler = () => {
-        history.push(`/spots/${spot.id}`)
+        history.push(`/spots/${spot?.id}`)
     //   return  <Redirect to={`/api/spots/${spot.id}`} />
    }
     return(
 
+
             <div className='card' onClick={onClickHandler}>
+
                 <div className='imageContainer'>
                    {spot?.Images && <img className = 'spotImage'src={spot?.Images[0]?.image} alt={spot?.name}/>}
 
@@ -24,9 +26,10 @@ function Spot({spot}){
                        <li className='price'> <b>${spot?.price}</b> night</li>
                      {/* </div> */}
 
-                        <p className='star'><i class="fa-solid fa-star"></i> 5.0</p>
+                        <p className='star'><i class="fa-solid fa-star"></i> new</p>
 
                 </div>
+             
 
             </div>
 

@@ -29,6 +29,10 @@ function Navigation({ }){
       <div>
         <li className='userData'>{sessionUser.firstName}</li>
         <li className='userData'>{sessionUser.email}</li>
+
+        <hr className='line'></hr>
+
+        {sessionUser && <NavLink className= 'myLineAllSpot'to={'/spots/user/spots'}> My Listings </NavLink>}
         <hr className='line'></hr>
         <button className='logoutBtn'onClick={logout}>Log Out</button>
       </div>
@@ -38,6 +42,7 @@ function Navigation({ }){
       <div>
         <div className='linksContainer'>
           <LoginFormModal />
+      
           <SignupFormModal />
         </div>
         <hr className='line'></hr>
@@ -71,7 +76,6 @@ function Navigation({ }){
               </button>
               {showMenu && <div className="singUplinksContainer" id='singUplinksContainer'>
               {showMenu && sessionLinks}
-              {sessionUser && <NavLink to={'/spots/user/spots'}> My Spots </NavLink>}
             </div>}
           </div>
       </div>

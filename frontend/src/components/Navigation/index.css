@@ -33,6 +33,7 @@
 }
 .linksAndButtonContainer{
     position: relative;
+
 }
 
 .singUplinksContainer{
@@ -41,7 +42,7 @@
     top: 3.7rem;
     right:6.5rem;
     z-index: 10;
-    height:200px;
+    /* height:200px; */
     border: 1px solid white;
     border-radius: 10px;
     display: flex;
@@ -50,6 +51,7 @@
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     display: block;
+    padding: 10px;
 
 }
 .singUplinksContainerclose{
@@ -62,7 +64,9 @@
 .userData{
     list-style: none;
     margin:0.5rem 1rem 0.5rem 1.3rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    color: black;
+    font-weight: 500;
 }
 
 .logoutBtn{
@@ -70,13 +74,24 @@
     background-color: rgba(255, 255, 255, 0.238);
     border: none;
     border: white;
-    /* font-size: 1rem; */
+    font-size: 0.9rem;
     text-align: inherit;
-    /*
+    color: black;
+    font-weight: 500;
 
-
-    margin: 0.5rem 0 0 1rem;
-    padding: 0.4rem; */
+}
+.logoutBtn:hover{
+    cursor: pointer;
+}
+.myLineAllSpot{
+    text-decoration: none;
+   margin: 0 0 0 1.2rem;
+   font-size: 0.9rem;
+   color: black;
+   font-weight: 500;
+}
+.myLineAllSpot:hover{
+  cursor: pointer;
 
 }
 .line{

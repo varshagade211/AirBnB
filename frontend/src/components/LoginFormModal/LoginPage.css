@@ -35,12 +35,12 @@ form{
     margin: 1rem 0 0 2rem;
 
 }
-.formContainer input{
+.formContainer .loginFormInput{
    display: flex;
    min-width: 80%;
    flex: 1;
    margin: 0.3rem 1rem 0rem 2rem;
-   padding: 4px;
+   padding: 10px;
    border-radius: 5px;
 
    border: 1.25px solid rgba(0, 0, 0, 0.26);

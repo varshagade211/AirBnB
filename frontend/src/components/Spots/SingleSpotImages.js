@@ -14,7 +14,7 @@ function SingleSpotImages(){
        let  singleSpot = spots[id]
        spotAllImages = singleSpot?.Images
     }
-    
+
     useEffect(()=>{
         dispatch(loadSpotsThunk())
     },[dispatch])
@@ -24,8 +24,12 @@ function SingleSpotImages(){
 
     return(
         <div className='singleSpotImagesContaier'>
-            <i onClick={backHandler} class="fas fa-angle-left arrowIcon"></i>
-            {spotAllImages?.map((img)=> <img className='singleSpotImage'src={img?.image} alt='spot image'/>)}
+            <div className='arrowIconContainer' onClick={backHandler}>
+            <i  class="fas fa-angle-left arrowIcon"></i>
+            </div>
+            <div className='SingleimageContainer'>
+               {spotAllImages?.map((img)=> <img className='singleSpotImage'src={img?.image} alt='spot image'/>)}
+            </div>
         </div>
     )
 }

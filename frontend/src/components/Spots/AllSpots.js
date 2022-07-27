@@ -15,10 +15,20 @@ function AllSpots(){
     },[dispatch])
 
     return(
-
-        <div className='spotsContainer'>
+      <div>
+          <div className='spotsContainer'>
             {spots?.map(spot => <Spot spot={spot}></Spot>)}
+
         </div>
+        <hr className='line hrLineAllSpot'></hr>
+
+           <footer className='footerOnHomePage'>
+
+                 <p>© 2022 airbnb-spots, Inc, . Privacy·Terms·Sitemap</p>
+                <p> <i className="fa-solid fa-globe languageIcon"></i>English (US)</p>
+            </footer>
+      </div>
+
     )
 }
 
