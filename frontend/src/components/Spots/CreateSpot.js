@@ -67,7 +67,7 @@ function CreateSpot(){
 
                 </div>
                 <div className='seconColor'>
-             
+
                 </div>
             </div>
             <div className='createSpotInnerFormContainer'>
@@ -210,16 +210,20 @@ function CreateSpot(){
                 <div  className='createSpotFormInputContainer'>
                    <label className='createFormLabel'>Image 1:</label><br/>
                   <input className='createSpotInputs' type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl1}  onChange={(e) => setImageUrl1(e.target.value) }/><br />
-
+                </div>
+                <div  className='createSpotFormInputContainer'>
                   <label className='createFormLabel'>Image 2:</label><br/>
                   <input className='createSpotInputs' type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl2}  onChange={(e) => setImageUrl2(e.target.value) }/><br />
-
+                </div>
+                <div  className='createSpotFormInputContainer'>
                   <label className='createFormLabel'>Image 3:</label><br/>
                   <input className='createSpotInputs' type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl3}  onChange={(e) => setImageUrl3(e.target.value) }/><br />
-
+                 </div>
+                 <div  className='createSpotFormInputContainer'>
                   <label className='createFormLabel'>Image 4:</label><br/>
                   <input className='createSpotInputs' type='text' name='image'  placeholder='Enter Image Url' value={imageUrl4}  onChange={(e) => setImageUrl4(e.target.value) }/><br />
-
+                 </div>
+                 <div  className='createSpotFormInputContainer'>
                   <label className='createFormLabel'>Image 5:</label><br/>
                   <input className='createSpotInputs' type='text' name='image' placeholder='Enter Image Url'  value={imageUrl5}  onChange={(e) => setImageUrl5(e.target.value) }/><br />
 
