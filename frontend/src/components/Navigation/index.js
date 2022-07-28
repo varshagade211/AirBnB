@@ -41,8 +41,7 @@ function Navigation({ }){
     sessionLinks = (
       <div>
         <div className='linksContainer'>
-          <LoginFormModal />
-      
+          <LoginFormModal className={'loginButton'} />
           <SignupFormModal />
         </div>
         <hr className='line'></hr>

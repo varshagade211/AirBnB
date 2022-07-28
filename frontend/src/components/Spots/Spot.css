@@ -38,19 +38,38 @@
    grid-area: star;
    font-size: 0.78em;
 }
-.name{
+/* .name{
     margin: 1em 0 0.2em 0;
     grid-area: name;
     font-size: 0.78em;
     font-weight: 550;
+} */
+.name{
+    margin: 1em 0 0.2em 0;
+    grid-area: name;
+    font-size: 0.87em;
+    font-weight: 550;
+    color: rgba(27, 27, 27, 0.937);
 }
-.address{
+/* .address{
     grid-area: address;
     font-size: 0.78em;
     color: grey;
+} */
+.address{
+    grid-area: address;
+    font-size: 0.87em;
+    font-weight: 530;
+    color: rgb(106, 106, 106);
 }
-.price{
+/* .price{
     margin: 0.4em 0 0 0;
     grid-area: price;
     font-size: 0.78em;
+} */
+.price{
+    margin: 0.4em 0 0 0;
+    grid-area: price;
+    font-weight: 530;
+    font-size: 0.85em;
 }

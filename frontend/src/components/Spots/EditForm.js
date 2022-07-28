@@ -60,27 +60,42 @@ function EditForm() {
     }
 
     const editImageHandler = () =>{
-        
+
         history.push(`/spots/edit/${id}/images`)
     }
+    const backHandler = () => {
+        history.goBack()
+    }
     return(
+
         <div>
-            <h5>Edit form</h5>
+            <div className= 'editSpotBackIconContainer' onClick={backHandler}>
+            <i  className="fas fa-angle-left editSpotBackarrowIcon "></i>
+            </div>
+
+        <div className='editFormMainContainer'>
+
+
+          <div className='editFormMainInsideContainer'>
             <div className='editButtonAndTitleContainer'>
                 <div>
-                <h2>Photos</h2>
+                <h2 className='editFormHeading'>Photos</h2>
                 </div>
 
                 <div>
-                <button  onClick={editImageHandler} className='editImageButton'>Edit</button>
+                <button  onClick={editImageHandler} className='editImageButton'>Edit Image</button>
                 </div>
 
 
             </div>
+            <div className='editSpotImageContainer'>
               {threeSpotImages?.map((img,i)=><img key={i} className='editImagesInform' src={img?.image} alt='editImg' />)}
+            </div>
+           <div className='editFormContainer'>
             <form onSubmit={onSubmit}>
-                <label>Spot Name:</label>
-                <input type='text' name='spotName'  value ={name} onChange={(e) => setName(e.target.value)} />
+                <div className='editFormInputContainer'>
+                <label className='editFormLabel'>Spot Name:</label>
+                <input type='text'className='editFormInput'  name='spotName'  value ={name} onChange={(e) => setName(e.target.value)} />
                 {errors?.name &&
                     <div className="errorContainer">
                         <div>
@@ -91,9 +106,10 @@ function EditForm() {
                         </div>
                     </div>
                 }
-
-                <label>Address:</label>
-                <input type='text' name='address'  value ={address} onChange={(e) => setAddress(e.target.value)}/>
+                </div>
+                <div  className='editFormInputContainer'>
+                <label className='editFormLabel'>Address:</label>
+                <input className='editFormInput' type='text' name='address'  value ={address} onChange={(e) => setAddress(e.target.value)}/>
                 {errors?.address &&
                     <div className="errorContainer">
                         <div>
@@ -104,9 +120,10 @@ function EditForm() {
                         </div>
                     </div>
                 }
-
-                <label>City:</label>
-                <input type='text' name='city'  value ={city} onChange={(e) => setCity(e.target.value)} />
+               </div>
+               <div  className='editFormInputContainer'>
+                <label className='editFormLabel'>City:</label>
+                <input className='editFormInput' type='text' name='city'  value ={city} onChange={(e) => setCity(e.target.value)} />
                 {errors?.city &&
                     <div className="errorContainer">
                         <div>
@@ -117,9 +134,10 @@ function EditForm() {
                         </div>
                     </div>
                 }
-
-                <label>State:</label>
-                <input type='text' name='state'  value ={state}  onChange={(e) => setState(e.target.value)}/>
+                </div>
+                <div  className='editFormInputContainer'>
+                <label className='editFormLabel'>State:</label>
+                <input className='editFormInput' type='text' name='state'  value ={state}  onChange={(e) => setState(e.target.value)}/>
                 {errors?.state &&
                     <div className="errorContainer">
                         <div>
@@ -130,9 +148,10 @@ function EditForm() {
                         </div>
                     </div>
                 }
-
-                <label>Country:</label>
-                <input type='text' name='country'   value ={country} onChange={(e) => setCountry(e.target.value)}/>
+                </div>
+                <div  className='editFormInputContainer'>
+                <label className='editFormLabel'>Country:</label>
+                <input className='editFormInput' type='text' name='country'   value ={country} onChange={(e) => setCountry(e.target.value)}/>
                 {errors?.country &&
                     <div className="errorContainer">
                         <div>
@@ -143,9 +162,10 @@ function EditForm() {
                         </div>
                     </div>
                 }
-
-                <label>Description</label>
-                <textarea  name='desc'  value ={description} onChange={(e) => setDescription(e.target.value)}/>
+                </div>
+                <div  className='editFormInputContainer'>
+                <label className='editFormLabel'>Description</label>
+                <textarea className='editFormInput'  name='desc'  value ={description} onChange={(e) => setDescription(e.target.value)}/>
                 {errors?.description &&
                     <div className="errorContainer">
                         <div>
@@ -156,8 +176,10 @@ function EditForm() {
                         </div>
                     </div>
                 }
-                <label>Price:</label>
-                <input type='number' name='price'  value ={price} onChange={(e) => setPrice(e.target.value)}/>
+                </div>
+                <div  className='editFormInputContainer'>
+                <label className='editFormLabel'>Price:</label>
+                <input className='editFormInput' type='number' name='price'  value ={price} onChange={(e) => setPrice(e.target.value)}/>
                 {errors?.price &&
                     <div className="errorContainer">
                         <div>
@@ -169,8 +191,10 @@ function EditForm() {
                     </div>
                 }
 
-                <label>Latitude</label>
-                <input type='number' name='lat'  min="0" step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
+                </div>
+                <div  className='editFormInputContainer'>
+                <label className='editFormLabel'>Latitude</label>
+                <input className='editFormInput' type='number' name='lat'  min="0" step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
@@ -181,9 +205,10 @@ function EditForm() {
                         </div>
                     </div>
                 }
-
-                <label>Longitude:</label>
-                <input type='number' name='lng'  min="0" step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
+                </div>
+                <div  className='editFormInputContainer'>
+                <label className='editFormLabel'>Longitude:</label>
+                <input  className='editFormInput' type='number' name='lng'  min="0" step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>
@@ -194,8 +219,10 @@ function EditForm() {
                         </div>
                     </div>
                 }
-
-                <button className='SpotButton' type={'submit'}>Submit</button>
+                 </div >
+                 <div  className='editFormInputContainer'>
+                    <button className='editSpotButton' type={'submit'}>Submit</button>
+                </div>
             </form>
             {errors?.message &&
                     <div className="errorContainer">
@@ -208,7 +235,9 @@ function EditForm() {
                         <NavLink to='/'>Home</NavLink>
                     </div>
             }
-
+            </div>
+          </div>
+        </div>
         </div>
     )
 }

@@ -23,7 +23,7 @@ function LoginFormPage() {
 
    return (
     <div className="formContainer">
-        <h4>Log in or sign up </h4>
+        <h4 className="loginFormLogo">Log in or sign up </h4>
         <hr className='line'></hr>
         <h3 className="welcomMsg">Welcome to Airbnb</h3>
         <form className="loginForm" onSubmit={handleSubmit}>
@@ -55,7 +55,7 @@ function LoginFormPage() {
                         </div>
                     </div>
                 }
-
+               
                 <button className='submitButton' type={'submit'}>Login</button>
 
         </form>

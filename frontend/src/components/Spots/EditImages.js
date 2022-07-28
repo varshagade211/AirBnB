@@ -42,14 +42,23 @@ function EditImages(){
         }
     }
 
+    const backHandler = () => {
+      history.goBack()
+    }
+
     return(
         <div>
+            <div  className = 'editImageBackIconContainer' onClick={backHandler}>
+              <i  className="fas fa-angle-left editImagesBackarrowIcon"></i>
+            </div>
            <div className='editImageContainerOuterContainer'>
+
               {imagesFromImageTable?.map((img)=>{
                return(<DeletePopUpModal key={img?.id} ImageId={img?.id} image={img?.url} />)}
                 )}
+                   <AddImagesFormModal />
             </div>
-            <AddImagesFormModal/>
+
         </div>
     )
 }

@@ -9,14 +9,27 @@ function DeletePopUp ({ImageId,setRefresh, setShowModal}) {
   const deleteHandler = () => {
     dispatch(deleteImageThunk(ImageId))
     setShowModal(false)
-   
+
   }
 
 
   return(
         <div className='deletePopup'>
-          Are you sure!
-          <button onClick={deleteHandler}>delete</button>
+          <div className='cancelBtnDeleTxt'>
+            <div className='cancelMarkContainer' onClick={() => setShowModal(false)}>
+            <i className="fa-solid fa-xmark cancelMark"></i>
+          </div>
+            <h6 className='deletePopUpQuestion'> Delete this photo? </h6>
+          </div>
+
+          <hr className='deletePopupline'></hr>
+          <p className='deletePopUpMsg'> Once you delete it, you can't get it back.</p>
+          <hr className='deletePopupline'></hr>
+          <div className='deleteImagePopUpBtnContainer'>
+            <button  onClick={() => setShowModal(false)} className='cancelBtn'>Cancel</button>
+          <button className='deleteImagePopUpBtn' onClick={deleteHandler}>Delete it</button>
+          </div>
+
         </div>
   )
 }

@@ -55,14 +55,29 @@ function CreateSpot(){
     return(
         <div className='createSpotFormOuterContainer'>
             <div className='colorDiv'>
-                place holder
+                <div className='firstDiv'>
+                <div className='createSpotLogoContainer'>
+                <NavLink  exact to="/"><i class="fa-brands fa-airbnb createPageHomeLogo"></i></NavLink>
+
+                </div>
+                <div className='createTextWelcomeTxtDiv'>
+                <h2 className='createSpotWelcomeTxt'>Welcome To airbnb-spots !!!</h2>
+
+                </div>
+
+                </div>
+                <div className='seconColor'>
+             
+                </div>
             </div>
             <div className='createSpotInnerFormContainer'>
-            <div className='createSpotFromContainer'>
-            <form onSubmit={onSubmit}>
 
-                <label>Spot Name:</label>
-                <input type='text'  name='spotName' placeholder='Enter Spot Name' value ={name} onChange={(e) => setName(e.target.value)} />
+            <div className='createSpotFromContainer'>
+            <form className='createSpotForm' onSubmit={onSubmit}>
+                <div className='createSpotFormInputContainer'>
+                 <label className='createFormLabel'>Spot Name:</label><br/>
+                 <input className='createSpotInputs' type='text'  name='spotName' placeholder='Enter Spot Name' value ={name} onChange={(e) => setName(e.target.value)} />
+
                 {errors?.name &&
                     <div className="errorContainer">
                         <div>
@@ -73,9 +88,11 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
+                </div>
+                 <div  className='createSpotFormInputContainer'>
+                <label className='createFormLabel'>Address:</label><br/>
 
-                <label>Address:</label>
-                <input type='text' name='address' placeholder='Enter Address'  value ={address} onChange={(e) => setAddress(e.target.value)}/>
+                <input className='createSpotInputs' type='text' name='address' placeholder='Enter Address'  value ={address} onChange={(e) => setAddress(e.target.value)}/>
                 {errors?.address &&
                     <div className="errorContainer">
                         <div>
@@ -86,9 +103,10 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
-
-                <label>City:</label>
-                <input type='text' name='city' placeholder='Enter City' value ={city} onChange={(e) => setCity(e.target.value)} />
+               </div>
+               <div  className='createSpotFormInputContainer'>
+                <label className='createFormLabel'>City:</label><br/>
+                <input className='createSpotInputs' type='text' name='city' placeholder='Enter City' value ={city} onChange={(e) => setCity(e.target.value)} />
                 {errors?.city &&
                     <div className="errorContainer">
                         <div>
@@ -99,9 +117,10 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
-
-                <label>State:</label>
-                <input type='text' name='state' placeholder='Enter State' value ={state}  onChange={(e) => setState(e.target.value)}/>
+                </div>
+                <div  className='createSpotFormInputContainer'>
+                <label className='createFormLabel'>State:</label><br/>
+                <input className='createSpotInputs' type='text' name='state' placeholder='Enter State' value ={state}  onChange={(e) => setState(e.target.value)}/>
                 {errors?.state &&
                     <div className="errorContainer">
                         <div>
@@ -112,9 +131,12 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
+                </div>
+                <div  className='createSpotFormInputContainer'>
 
-                <label>Country:</label>
-                <input type='text' name='country'   placeholder='Enter Country'value ={country} onChange={(e) => setCountry(e.target.value)}/>
+
+                <label className='createFormLabel'>Country:</label><br/>
+                <input className='createSpotInputs' type='text' name='country'   placeholder='Enter Country'value ={country} onChange={(e) => setCountry(e.target.value)}/>
                 {errors?.country &&
                     <div className="errorContainer">
                         <div>
@@ -125,9 +147,10 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
-
-                <label>Description</label>
-                <textarea  name='desc' placeholder='Enter Description' value ={description} onChange={(e) => setDescription(e.target.value)}/><br />
+                  </div>
+                  <div  className='createSpotFormInputContainer'>
+                <label className='createFormLabel'>Description:</label><br/>
+                <textarea className='createSpotInputs' name='desc' placeholder='Enter Description' value ={description} onChange={(e) => setDescription(e.target.value)}/><br />
                 {errors?.description &&
                     <div className="errorContainer">
                         <div>
@@ -139,10 +162,11 @@ function CreateSpot(){
                     </div>
                 }
 
+                 </div>
+                 <div  className='createSpotFormInputContainer'>
 
-
-                 <label>Price:</label>
-                <input type='number' name='price' placeholder='Enter Price'  value ={price} onChange={(e) => setPrice(e.target.value)}/>
+                 <label className='createFormLabel'>Price:</label><br/>
+                <input type='number' className='createSpotInputs' name='price' placeholder='Enter Price'  value ={price} onChange={(e) => setPrice(e.target.value)}/>
                 {errors?.price &&
                     <div className="errorContainer">
                         <div>
@@ -153,10 +177,11 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
+                </div>
+                <div  className='createSpotFormInputContainer'>
+                <label className='createFormLabel'>Latitude</label><br/>
 
-                <label>Latitude</label>
-
-                <input type='number' name='lat' placeholder='Enter Latitude'  step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
+                <input type='number' className='createSpotInputs' name='lat' placeholder='Enter Latitude'  step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
@@ -167,9 +192,10 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
-
-                <label>Longitude:</label>
-                <input type='number' placeholder='Enter Longitude'  name='lng' step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
+                </div>
+                <div  className='createSpotFormInputContainer'>
+                <label className='createFormLabel'> Longitude:</label><br/>
+                <input type='number'className='createSpotInputs' placeholder='Enter Longitude'  name='lng' step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>
@@ -180,21 +206,22 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
+                </div>
+                <div  className='createSpotFormInputContainer'>
+                   <label className='createFormLabel'>Image 1:</label><br/>
+                  <input className='createSpotInputs' type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl1}  onChange={(e) => setImageUrl1(e.target.value) }/><br />
 
-                   <label>Image 1:</label><br/>
-                  <input type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl1}  onChange={(e) => setImageUrl1(e.target.value) }/><br />
+                  <label className='createFormLabel'>Image 2:</label><br/>
+                  <input className='createSpotInputs' type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl2}  onChange={(e) => setImageUrl2(e.target.value) }/><br />
 
-                  <label>Image 2:</label><br/>
-                  <input type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl2}  onChange={(e) => setImageUrl2(e.target.value) }/><br />
+                  <label className='createFormLabel'>Image 3:</label><br/>
+                  <input className='createSpotInputs' type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl3}  onChange={(e) => setImageUrl3(e.target.value) }/><br />
 
-                  <label>Image 3:</label><br/>
-                  <input type='text' name='image'  placeholder='Enter Image Url'  value={imageUrl3}  onChange={(e) => setImageUrl3(e.target.value) }/><br />
+                  <label className='createFormLabel'>Image 4:</label><br/>
+                  <input className='createSpotInputs' type='text' name='image'  placeholder='Enter Image Url' value={imageUrl4}  onChange={(e) => setImageUrl4(e.target.value) }/><br />
 
-                  <label>Image 4:</label><br/>
-                  <input type='text' name='image'  placeholder='Enter Image Url' value={imageUrl4}  onChange={(e) => setImageUrl4(e.target.value) }/><br />
-
-                  <label>Image 5:</label><br/>
-                  <input type='text' name='image' placeholder='Enter Image Url'  value={imageUrl5}  onChange={(e) => setImageUrl5(e.target.value) }/><br />
+                  <label className='createFormLabel'>Image 5:</label><br/>
+                  <input className='createSpotInputs' type='text' name='image' placeholder='Enter Image Url'  value={imageUrl5}  onChange={(e) => setImageUrl5(e.target.value) }/><br />
 
                 {errors?.url &&
                     <div className="errorContainer">
@@ -206,10 +233,13 @@ function CreateSpot(){
                         </div>
                     </div>
                 }
-
-                <button className='SpotButton' type={'submit'}>Submit</button>
+                </div>
+                <div  className='createSpotFormInputContainer'>
+                <button className='SpotSubmitButton' type={'submit'}>Submit</button>
+                </div>
             </form>
             </div>
+            <div  className='createSpotFormInputContainer'>
             {errors?.message &&
                     <div className="errorContainer">
                         <div>
@@ -221,7 +251,7 @@ function CreateSpot(){
                         <NavLink to='/'>Home</NavLink>
                     </div>
                 }
-
+             </div>
         </div>
     </div>
     )

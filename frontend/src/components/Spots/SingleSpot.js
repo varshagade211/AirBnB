@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import {loadSpotsThunk,deleteCurrentUserSpotsThunk} from '../../store/spots'
 function SingleSpot(){
     let {id} = useParams()
+
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -38,8 +39,14 @@ function SingleSpot(){
     const showImageHandler = () =>{
         history.push(`/images/${singleSpot.id}`)
     }
+    const backHandler = () => {
+        history.goBack()
+    }
     return(
         <div>
+             <div className='singleSpotBackIconContainer' onClick={backHandler}>
+            <i  class="fas fa-angle-left singleSpotBackarrowIcon"></i>
+            </div>
             <div className='singleSpotOuterContainer'>
                 <h2 className='singleSpotHeading'>{singleSpot?.name}</h2>
                 <div className='spotAndStartContainer'>

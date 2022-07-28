@@ -7,3 +7,152 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.editSpotImageContainer{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+}
+.editImageButton{
+    margin: 0 1.5rem 0 0rem;
+}
+
+.editImagesInform{
+    margin:  1rem 0rem 1rem 0.5rem;
+    border-radius: 15px;
+}
+
+.editFormMainContainer{
+    margin: 3rem 17rem 0 15rem;
+    width: 50%;
+}
+.editFormMainInsideContainer{
+    width: 100%;
+    margin: 1rem 1rem 0 1rem;
+
+}
+.editFormHeading{
+    margin: 0 0rem 0 1rem;
+}
+.editFormContainer{
+    width: 100%;
+}
+
+.editFormInput{
+    width: 100%;
+    margin: 0.5rem 0 0 0;
+    padding: 10px;
+    border-radius: 5px;
+
+    border: 1.25px solid rgba(0, 0, 0, 0.26);
+}
+.editFormInputContainer{
+    margin: 0.5rem 1rem 1rem 1rem;
+}
+.editSpotButton{
+    width: 80%;
+    margin: 1rem 2rem 1rem 4rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+
+    color: whitesmoke;
+    font-size: 0.9rem;
+  
+    background-color: rgb(230, 30, 77);
+    border: 1px solid rgb(230, 30, 77);
+    /* background: linear-gradient(to right, rgb(230, 30, 77) 0%,rgb(202, 53, 88) 50%, rgb(230, 30, 77) 90%); */
+}
+.editFormContainer{
+    min-height: 10%;
+
+    position: sticky;
+    top: 4rem;
+    border-radius: 10px;
+    /* margin: 3rem 3rem 3rem 3rem; */
+
+    background-color:#FFF;
+    padding:10px;
+    box-shadow: 0 0 6px rgba(128, 128, 128, 0.575);
+    background-color: #ffffff
+}
+.editImageButton{
+    padding: 15px;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    font-weight: 600;
+
+}
+
+.editImageButton:hover{
+    background-color: whitesmoke;
+    border-radius: 15px;
+}
+
+
+.editSpotBackarrowIcon{
+    position: absolute;
+     top: 1rem;
+    left:1rem;
+    font-size: 1.2rem;
+}
+.editSpotBackIconContainer{
+
+    position: relative;
+    top:1rem;
+    left:2rem;
+    bottom: 1rem;
+    width: 50px;
+    height:50px;
+}
+.editSpotBackIconContainer:hover{
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.218);
+
+
+    border-radius:50%;
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .editFormMainContainer{
+        margin: 1rem 1rem 0 1rem;
+        width: 100%;
+    }
+    .editFormContainer{
+        width: 70%;
+
+    }
+    .editImageButton{
+        margin: 0 0rem 0 0rem;
+    }
+    .editSpotImageContainer{
+    margin: 1rem 1rem 1rem 2rem ;
+
+    }
+   .editImagesInform{
+    width: 350px;
+    height: 200px;
+   }
+   .editFormContainer{
+    width: 90%;
+    margin: 1rem 1rem 1rem 2.1rem;
+   }
+
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 700px)  {
+.editFormContainer{
+    margin: 1rem 1rem 1rem 0rem
+}
+.editSpotImageContainer{
+    margin: 1rem 1rem 1rem 0rem
+}
+.editFormMainInsideContainer{
+    margin: 1rem 1rem 1rem 0rem
+}
+}

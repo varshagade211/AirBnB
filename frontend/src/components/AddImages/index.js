@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
  import AddImages from './AddImages';
-// import './index.css'
+import './index.css'
 
 
 function AddImagesFormModal() {
@@ -10,8 +10,16 @@ function AddImagesFormModal() {
 
   return (
     <>
+        <div className='editsingleImageContainer '>
+         <div  className='addMoreImages' onClick={() => setShowModal(true)}>
+          <div className='homeLogoAndAddHomebtnContainer '>
+          <i className="fa-solid fa-house houseLogo"></i>
+          <p className='addMoreImagestxt'>Add more Images</p></div>
+          </div>
 
-      <button  onClick={() => setShowModal(true)}>Add more Images</button>
+         </div>
+
+
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <AddImages setShowModal={setShowModal} />

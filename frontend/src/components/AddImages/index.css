@@ -1,0 +1,29 @@
+.addMoreImages{
+    border: none;
+    /* margin: 1rem 0.5rem 1rem 0.5rem; */
+    /* max-width: 800px; */
+    /* background-color: skyblue; */
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1rem dashed black;
+}
+
+
+
+.homeLogoAndAddHomebtnContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.houseLogo{
+    margin: auto;
+    font-size: 2rem;
+}
+
+.addMoreImagestxt{
+    margin:1rem 1rem 1rem 1rem;
+
+}

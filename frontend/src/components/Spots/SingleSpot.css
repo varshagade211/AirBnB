@@ -192,8 +192,8 @@
    text-align: center;
    margin: 2rem 0 1rem 0rem;
    border-radius: 10px;
-   padding: 0.9rem;
-   font-weight: bold;
+   padding: 0.7rem;
+   /* font-weight: bold; */
 }
 
 .editDeletebuttons{
@@ -215,12 +215,35 @@
     border: none;
      color: white;
      font-size: 1rem;
-     /* width: 100%; */
+
      text-align: center;
      margin: 2rem 0 1rem 0rem;
      border-radius: 10px;
-     padding: 0.9rem;
-     font-weight: bold;
+     padding: 0.5rem;
+     /* font-weight: bold; */
+}
+
+.singleSpotBackarrowIcon{
+    position: absolute;
+     top: 1rem;
+    left:1rem;
+    font-size: 1.2rem;
+}
+.singleSpotBackIconContainer{
+
+    position: relative;
+
+    left:1rem;
+    width: 50px;
+    height:50px;
+}
+.singleSpotBackIconContainer:hover{
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.218);
+
+
+    border-radius:50%;
+
 }
 @media only screen and (max-width: 600px) {
     .spotAndStartContainer{
@@ -256,10 +279,60 @@
 
         height:400px;
     }
-    /* .singleSpotOuterContainer{
-        margin: 0rem;
 
+
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .editDeletebuttons{
+        display: block;
+    }
+    .ediBtn,.deleteBtn,.bookingBtn{
+        padding: 0.5rem;
+
+
+    }
+}
+
+
+/* @media only screen and (min-width: 400px) { */
+    @media only screen and (min-width: 200px) and (max-width: 700px)  {
+
+        .editDeletebuttons{
+            display: flex;
+        }
+        .bookingBtn{
+            width: 30%;
+            /* margin: 2rem 5rem 0rem 5rem; */
+        }
+    .ediBtn,.deleteBtn,.bookingBtn{
+        padding: 0.5rem;
+        font-size: 0.5rem;
+
+
+    }
+    .infoContainer{
+        display: block;
+    }
+    .sideBarContainer{
+        width: 50%;
+    }
+    .singleSpotOuterContain{
+        font-size: 1rem;
+    }
+    /* .singleSpotAllImageContainer{
+        margin: 0 0 0 -3rem
     } */
-
+    .singleSpotOuterContainer{
+        margin: 0 0 0 0 ;
+    }
+    .singleSpotFirstImage{
+        width:100vw;
+    }
+    .spotAndStartContainer,.singleSpotHeading,.infoContainer{
+        margin:1rem 1rem 1rem 1rem;
+    }
 
 }

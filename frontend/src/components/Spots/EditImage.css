@@ -1,34 +1,35 @@
-.editImages{
-    width: 100%;
-
-}
-.editImageContainer{
-    position: relative;
-    width: 500px;
-    /* height: 500px; */
-
-
-}
-.dotsIcon {
-  position: absolute;
-  top: 4px;
-  right: 7px;
-  color: white;
-  font-size: 1.3rem;
-
-}
 
 .editImageContainerOuterContainer{
-    display: flex;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(15em,1fr));
+    gap: 1rem;
+    /* width: 100%; */
+    margin:1rem 1rem 1rem 1rem;
 }
-.dotIconContainer{
+
+
+
+
+.editImagesBackarrowIcon{
     position: absolute;
-    top: 4px;
-    right: 4px;
+     top: 1rem;
+    left:1rem;
+    font-size: 1.2rem;
+}
+.editImageBackIconContainer{
+
+    position: relative;
+
+    left:1rem;
+    width: 50px;
+    height:50px;
+}
+.editImageBackIconContainer:hover{
     cursor: pointer;
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
-    background-color: rgba(128, 128, 128, 0.708)
+    background-color: rgba(128, 128, 128, 0.218);
+
+
+    border-radius:50%;
 
 }

@@ -3,12 +3,13 @@
 
 .signUpForm{
     max-width: 100%;
+    width: 500px;
     height: 500px;
     margin: 0rem 0 0 2rem;
 }
 
 .label{
-    /* margin: 150px 0 0 2rem; */
+
     display:inline-block;
     margin: 1.5rem 0 0 2rem;
 
@@ -22,7 +23,7 @@
    border-radius: 5px;
 
    border: 1.25px solid rgba(0, 0, 0, 0.26);
-   /* margin: 1rem 0 0 2rem; */
+
 }
 
 .submitButton{

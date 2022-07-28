@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import DeletePopUp from './DeletePopUp.js';
+import './index.css'
 
 
 function DeletePopUpModal({ImageId, image, setRefresh}) {
@@ -9,7 +10,7 @@ function DeletePopUpModal({ImageId, image, setRefresh}) {
 
   return (
     <>
-      <div className='editImageContainer' onClick={()=>setShowModal(true)}>
+      <div className='editsingleImageContainer' onClick={()=>setShowModal(true)}>
         <img className='editImages'src={image} alt='name'/>
         <div className='dotIconContainer'> <i class="fa fa-ellipsis-h dotsIcon " aria-hidden="true"></i></div>
       </div>
