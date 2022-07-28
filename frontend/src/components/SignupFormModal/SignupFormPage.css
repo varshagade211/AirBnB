@@ -36,6 +36,7 @@
     border: 1px solid rgb(230, 30, 77);
     color:white;
     font-weight: 500;
+    cursor: pointer;
 }
 .welcomMsg{
 
@@ -70,7 +71,6 @@ form{
    margin: 0.3rem 0 0rem 0.2rem;
 }
 .submitButton{
-
     margin: 1rem 0 0 0.2rem;
 }
 h4,h3{

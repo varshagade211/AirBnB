@@ -37,7 +37,8 @@
 }
 
 .singUplinksContainer{
-    width:120%;
+    min-width:8rem;
+    /* overflow-x: auto; */
     position: absolute;
     top: 3.7rem;
     right:6.5rem;
@@ -74,6 +75,7 @@
     text-align: inherit;
     margin: 0.5rem 0 0 1rem;
     padding: 0.4rem;
+    cursor: pointer;
     font-weight: bold;
 }
 
@@ -102,11 +104,15 @@
   cursor: pointer;
 
 }
-.line{
+.NavLinkline{
     background-color: rgba(248, 245, 245, 0.099);
     border-color: rgba(248, 245, 245, 0.371);
-    position: relative;
-    /* z-index: -1; */
+    /* position: relative; */
+     border: 0;
+    display:block;
+    width: 96%;
+    background-color:rgba(128, 128, 128, 0.363);
+    height: 0.01em;
 }
 .linksContainer{
     display: flex;

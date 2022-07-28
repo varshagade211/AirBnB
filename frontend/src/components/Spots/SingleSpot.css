@@ -2,10 +2,12 @@
 .singleSpotImgs{
     width: 300px;
     height: 200px;
+    cursor: pointer;
 }
 .singleSpotFirstImage{
     width: 500px;
     height:407px;
+    cursor: pointer;
 }
 
 .singleSpotAllImageContainer{
@@ -215,6 +217,7 @@
     border: none;
      color: white;
      font-size: 1rem;
+     cursor: pointer;
 
      text-align: center;
      margin: 2rem 0 1rem 0rem;

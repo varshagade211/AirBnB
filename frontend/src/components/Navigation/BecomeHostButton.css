@@ -6,7 +6,7 @@
     height:40px;
     margin-right:2em;
     font-size: 0.85rem;
-
+    cursor: pointer;
     display: flex;
     justify-content: space-around;
     align-items: center;

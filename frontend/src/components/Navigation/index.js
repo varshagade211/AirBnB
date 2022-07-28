@@ -33,7 +33,7 @@ function Navigation({ }){
         <hr className='line'></hr>
 
         {sessionUser && <NavLink className= 'myLineAllSpot'to={'/spots/user/spots'}> My Listings </NavLink>}
-        <hr className='line'></hr>
+        <hr className='NavLinkline'></hr>
         <button className='logoutBtn'onClick={logout}>Log Out</button>
       </div>
     );
@@ -42,9 +42,10 @@ function Navigation({ }){
       <div>
         <div className='linksContainer'>
           <LoginFormModal className={'loginButton'} />
+          <hr className='NavLinkline'></hr>
           <SignupFormModal />
         </div>
-        <hr className='line'></hr>
+        <hr className='NavLinkline'></hr>
       </div>
     );
 

@@ -37,7 +37,7 @@ function AddImages({setShowModal}) {
 
                 </div>
                  <div className="addImagerBtnContainer">
-                    <button className="addImageSubmitButton">Submit Images</button>
+                    <button className="addImageSubmitButton">Submit</button>
 
                 </div>
 

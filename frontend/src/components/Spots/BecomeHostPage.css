@@ -36,6 +36,7 @@
   z-index: 1;
   padding: 9px;
   text-decoration: none;
+  cursor: pointer;
   color: rgba(245, 245, 245, 0.94);
 }
 

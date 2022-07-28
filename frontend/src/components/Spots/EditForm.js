@@ -83,7 +83,7 @@ function EditForm() {
                 </div>
 
                 <div>
-                <button  onClick={editImageHandler} className='editImageButton'>Edit Image</button>
+                <button  onClick={editImageHandler} className='editImageButton'>Edit Images <i className="fa-solid fa-angle-right"></i></button>
                 </div>
 
 
