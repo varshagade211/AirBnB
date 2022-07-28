@@ -40,7 +40,8 @@ function SingleSpot(){
         history.push(`/images/${singleSpot.id}`)
     }
     const backHandler = () => {
-        history.goBack()
+
+            history.push(`/`)
     }
     return(
         <div>

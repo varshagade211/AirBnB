@@ -10,6 +10,7 @@ function Spot({spot}){
         history.push(`/spots/${spot?.id}`)
     //   return  <Redirect to={`/api/spots/${spot.id}`} />
    }
+
     return(
 
 
@@ -29,10 +30,10 @@ function Spot({spot}){
                         <p className='star'><i class="fa-solid fa-star"></i> new</p>
 
                 </div>
-             
+
 
             </div>
-
+  
 
     )
 }

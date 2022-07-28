@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import ProfileButton from './ProfileButton';
+
 import './index.css';
 import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal'
@@ -15,6 +15,7 @@ function Navigation({ }){
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory()
   const dispatch = useDispatch();
+
   const sessionUser = useSelector(state => state.session.user);
   const logout = (e) => {
     e.preventDefault();
@@ -22,9 +23,22 @@ function Navigation({ }){
     dispatch(sessionActions.logOutThunk());
     history.push('/')
   };
+
+
+  // useEffect(() => {
+  //   if (!showMenu) return;
+
+  //   const closeMenu = () => {
+  //     setShowMenu(false);
+  //   };
+
+  //   document.addEventListener('click', closeMenu);
+
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [showMenu]);
+
   let sessionLinks;
   if (sessionUser) {
-
     sessionLinks = (
       <div>
         <li className='userData'>{sessionUser.firstName}</li>
@@ -48,16 +62,12 @@ function Navigation({ }){
         <hr className='NavLinkline'></hr>
       </div>
     );
-
   }
 
   //profilebutton logic
   const openMenu = () => {
-    setShowMenu((prev) => !prev)
-
+     setShowMenu((prev) => !prev)
   };
-
-
 
 
   return (
@@ -74,7 +84,7 @@ function Navigation({ }){
                 <i class="fa fa-bars barsIcon" aria-hidden="true"></i>
                 <i className="fas fa-user-circle userIcon" />
               </button>
-              {showMenu && <div className="singUplinksContainer" id='singUplinksContainer'>
+              {showMenu && <div className="singUplinksContainer" id='singUplinksContainer' >
               {showMenu && sessionLinks}
             </div>}
           </div>
