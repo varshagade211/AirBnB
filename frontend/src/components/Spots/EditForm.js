@@ -194,7 +194,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>Latitude</label>
-                <input className='editFormInput' type='number' name='lat'  min="0" step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
+                <input className='editFormInput' type='number' name='lat'  step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
@@ -208,7 +208,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>Longitude:</label>
-                <input  className='editFormInput' type='number' name='lng'  min="0" step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
+                <input  className='editFormInput' type='number' name='lng'  step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>

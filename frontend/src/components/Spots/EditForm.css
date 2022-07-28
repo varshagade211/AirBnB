@@ -16,6 +16,7 @@
 }
 .editImageButton{
     margin: 0 1.5rem 0 0rem;
+    cursor: pointer;
 }
 
 .editImagesInform{

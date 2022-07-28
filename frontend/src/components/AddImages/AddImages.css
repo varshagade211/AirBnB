@@ -37,4 +37,5 @@
     /* background: linear-gradient(to right, rgb(230, 30, 77) 0%,rgb(202, 53, 88) 50%, rgb(230, 30, 77) 90%); */
     color:white;
     font-weight: 500;
+    cursor: pointer;
 }
