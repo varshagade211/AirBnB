@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 .singleSpotFirstImage{
- 
+
     width: 90%;
     height:407px;
     cursor: pointer;
@@ -38,8 +38,9 @@
 
 
 .singleSpotRemainingImgsContainer{
+
     display: grid;
-    margin-left:-1rem;
+    margin: 0 0 0 -3rem;
     grid-template-columns: 1fr 1fr;
     /* grid-template-rows: auto; */
     gap:7px;
