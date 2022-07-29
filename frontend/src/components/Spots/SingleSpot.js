@@ -40,8 +40,10 @@ function SingleSpot(){
         history.push(`/images/${singleSpot.id}`)
     }
     const backHandler = () => {
-
-            history.push(`/`)
+         history.push(`/`)
+        if(isOwner){
+          history.push('/spots/user/spots')
+        }
     }
     return(
         <div>
@@ -51,8 +53,12 @@ function SingleSpot(){
             <div className='singleSpotOuterContainer'>
                 <h2 className='singleSpotHeading'>{singleSpot?.name}</h2>
                 <div className='spotAndStartContainer'>
-                    <p ><i className="fa-solid fa-star singleSpotStar"></i> 5.0      .</p>
-                    <p className='superHost'><i className="fa-solid fa-medal superHostMedal"></i>Superhost      .</p>
+                    <div>
+                    <p ><i className="fa-solid fa-star singleSpotStar"></i> 5.0 </p>
+                    </div>
+                    <div>
+                    <p className='superHost'><i className="fa-solid fa-medal superHostMedal"></i>Superhost  </p>
+                    </div>
                     <p className='singleSpotAddress'>{singleSpot?.address},{singleSpot?.address},{singleSpot?.state}</p>
                 </div>
 
@@ -61,8 +67,11 @@ function SingleSpot(){
                         <img  className = 'singleSpotFirstImage'src= {firstImg?.image} />
                     </div>
                     <div className='singleSpotRemainingImgsContainer'>
-                        {/* {Images?.map((image)=>  <div className='insideContainer'><img className = {`singleSpotImgs`} src= {image?.image} /> </div>)} */}
+                          {/* {Images?.map((image)=>  <div className='insideContainer'><img className = {`singleSpotImgs`} src= {image?.image} /> </div>)} */}
+                        {/* <div> */}
                         {Images?.map((image)=>  <img className = {`singleSpotImgs`} src= {image?.image} /> )}
+                        {/* </div> */}
+
                     </div>
                 </div>
 
@@ -81,10 +90,13 @@ function SingleSpot(){
                         <h1><b><span className='airTxt'>air</span>cover</b></h1>
                         <p className='policyText'>Every booking includes free protection from Host cancellations,<br/>
                         listing inaccuracies, and other issues like trouble checking in.</p>
-                        <p className='learnMore'>Learn more</p>
+                        {/* <p className='learnMore'>Learn more</p> */}
                         <hr className='line'></hr>
                         <div className='descriptionContainer'>
-                        <p className='description'>{singleSpot?.description}</p>
+
+                            <p className='description'>{singleSpot?.description}</p>
+
+
                         </div>
 
                         <hr className='line'></hr>
@@ -101,7 +113,7 @@ function SingleSpot(){
                     <div className='sideBarContainer'>
                        <div className='sideBar'>
                           <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
-                        <button className='bookingBtn' disabled={true}>Reserve</button>
+                        {/* <button className='bookingBtn' disabled={true}>Reserve</button> */}
                     </div>
                     {isOwner&&
                        <div className='editDeletebuttons'>

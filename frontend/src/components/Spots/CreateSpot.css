@@ -44,7 +44,6 @@
 .createSpotFromContainer{
 
     min-height: 10%;
-
     position: sticky;
     top: 4rem;
     border-radius: 10px;
@@ -59,7 +58,6 @@
 
 .createSpotFormInputContainer{
     margin: 0.5rem 1rem 1rem 1rem;
-
 
 }
 .createSpotInputs{
@@ -77,11 +75,32 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-
+     cursor: pointer;
     color: whitesmoke;
     font-size: 1rem;
-   
+
     background-color: rgb(230, 30, 77);
     border: 1px solid rgb(230, 30, 77);
     /* background: linear-gradient(to right, rgb(230, 30, 77) 0%,rgb(202, 53, 88) 50%, rgb(230, 30, 77) 90%); */
+}
+
+
+
+@media only screen and (max-width: 800px)  {
+
+    .createSpotFormOuterContainer{
+        flex-direction: column;
+    }
+    .colorDiv{
+        flex: 1;
+        width: 100%;
+
+    }
+    .createSpotFormOuterContainer{
+        flex:3;
+    }
+    .firstDiv{
+        height: 150px;
+    }
+
 }

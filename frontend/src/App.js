@@ -28,14 +28,12 @@ function App() {
 
   return (
     <div className='appContainer'>
-   {/* {isLoaded && ( */}
       <Switch>
-
-        <Route exact path="/">
-           <Navigation className='navContainer'/>
-           <hr className='line'></hr>
-           <AllSpots />
-        </Route>
+         <Route exact path="/">
+            <Navigation className='navContainer'/>
+            <hr className='line'></hr>
+            <AllSpots />
+      </Route>
         <Route exact path='/spots/user/spots'>
            <Navigation className='navContainer'/>
            <hr className='line'></hr>
@@ -46,12 +44,6 @@ function App() {
              <BecomeHostPage />
 
         </Route>
-        {/* <Route exact path="/login">
-          <LoginFormModal />
-        </Route> */}
-        {/* <Route exact path="/signup">
-          <SignupFormModal />
-        </Route> */}
         <Route exact path='/spots'>
            <CreateSpot />
         </Route>
