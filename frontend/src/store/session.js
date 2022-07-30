@@ -6,6 +6,7 @@ const LOGIN_USER = 'session/loginUser'
 const LOGOUT_USER = 'session/logoutUser'
 const RESTORE_USER = 'session/restoreUser'
 const SIGNUP_USER = 'session/signupUser'
+const GET_USER = 'session/getUser'
 //----------------------------------------------------regular action creator-----------------------------------------------------------
 //signup action creator
 const signupUser = (user) => {
@@ -30,12 +31,13 @@ const logOutUser = (response) => {
     }
 }
 //restore action creator
-const restoreUser = (user) => {
-    return{
-        type:RESTORE_USER,
-        user
-    }
-}
+// const restoreUser = (user) => {
+//     return{
+//         type:RESTORE_USER,
+//         user
+//     }
+// }
+
 
 
 //--------------------------------------------------thunk action creators-------------------------------------------------
@@ -127,6 +129,7 @@ export const sessionReducer = (state = currentSessionUser, action) => {
             newState.user = null;
             return newState;
         }
+
         // case RESTORE_USER:{
         //         if(action?.user?.id ){
         //             newState={user:action.user}

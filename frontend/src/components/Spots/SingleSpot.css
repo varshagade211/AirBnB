@@ -1,26 +1,58 @@
 
 
+/* .singalePageMainContainer{
+    margin: auto;
 
+} */
 .singleSpotImgs{
     width: 300px;
     height: 200px;
     cursor: pointer;
 }
+.singleSpotFirstImageContainer{
+  flex: 1;
+}
 .singleSpotFirstImage{
 
-    width: 90%;
+    width: 98%;
     height:407px;
     cursor: pointer;
 }
 
+/* .singleSpotFirstImage{
+    width: 70vw;
+    height:407px;
+    cursor: pointer;
+    display: block;
+
+} */
+.singleSpotAllImageContaineIfOneImage{
+    display: block;
+    width: 85vw;
+    text-align: center;
+    /* margin: 0rem 0rem 0 0rem; */
+    max-height: 400px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* .singleSpotRemainingImgsTwoContainer{
+    display: block;
+}
+.singleSpotTwoImgs{
+    width: 100%;
+    height: 100%;
+} */
 .singleSpotAllImageContainer{
 
   display: flex;
 
   overflow: hidden;
 
-  width:90vw;
-
+  width: 85vw;
+  text-align: center;
+  /* margin: 0rem 0rem 0 1.5rem; */
   /* overflow: hidden; */
   max-height: 400px;
   border-radius: 12px;
@@ -38,9 +70,9 @@
 
 
 .singleSpotRemainingImgsContainer{
-
+    flex: 1;
     display: grid;
-    margin: 0 0 0 -3rem;
+    /* margin: 0 0 0 -3rem; */
     grid-template-columns: 1fr 1fr;
     /* grid-template-rows: auto; */
     gap:7px;
@@ -48,7 +80,8 @@
 }
 
 .singleSpotOuterContainer{
-    margin: 0rem 5rem 0 2rem;
+    /* margin: 0rem 5rem 0 2rem; */
+    margin:1.5em 5.5em 0 5.5em
 
 }
 
@@ -56,13 +89,14 @@
 .singleSpotHeading{
     color: rgba(20, 20, 20, 0.888);
     font-size: 1.6rem;
-    margin: 0rem 5rem 0 2rem;
+    /* margin: 0rem 0rem 0 0rem; */
+    margin: -3.5rem 0rem 0 0rem
 }
 
 .spotAndStartContainer{
     display: flex;
-    margin-top: -0.3rem;
-    margin: 0rem 5rem 0 2rem;
+    /* margin-top: -0.3rem; */
+    /* margin: 0rem 5rem 0 2rem; */
 }
 .singleSpotStar{
     font-size: 0.8rem;
@@ -77,16 +111,11 @@
 .superHostMedal{
     font-size: 0.8rem;
     color: rgba(20, 20, 20, 0.866);
-    margin-right: 9px;
+    /* margin-right: 9px; */
 }
 
 .singleSpotAddress{
-    /* margin-left: 20px;
-    text-decoration: underline;
-    font-size: 0.85rem;
-    margin-top: 18px;
-    font-weight: bold;
-    color: rgba(20, 20, 20, 0.866); */
+
     margin-left: 20px;
     text-decoration: underline;
     font-size: 0.85rem;
@@ -145,14 +174,14 @@
 
 .learnMore{
     text-decoration: underline;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
 }
 
 .description{
     margin:3rem 0 3rem 0;
 }
 .descriptionContainer{
-    inline-size: 90%;
+    inline-size: 85%;
     overflow-wrap: break-word;
     text-align:justify;
 }
@@ -179,7 +208,7 @@
 }
 .dataContainer{
   width: 70%;
-  margin: 0rem 5rem 0 2rem;
+  /* margin: 0rem 5rem 0 2rem; */
 }
 .sideBarContainer{
     display: flex;
@@ -201,7 +230,7 @@
 }
 .singleSpotPrice{
     font-size: 1.2rem;
-    margin: 0 0 0 2rem;
+    /* margin: 0 0 0 2rem; */
 }
 .bookingBtn{
     background-color: rgb(238, 46, 91);
@@ -210,7 +239,7 @@
    font-size: 1rem;
    width: 100%;
    text-align: center;
-   margin: 2rem 0 1rem 0rem;
+   /* margin: 2rem 0 1rem 0rem; */
    border-radius: 10px;
    padding: 0.7rem;
    /* font-weight: bold; */
@@ -250,11 +279,13 @@
      top: 1rem;
     left:1rem;
     font-size: 1.2rem;
+    display: inline;
 }
 .singleSpotBackIconContainer{
 
     position: relative;
-
+    /* display: inline; */
+    display: block;
     left:1rem;
     width: 50px;
     height:50px;

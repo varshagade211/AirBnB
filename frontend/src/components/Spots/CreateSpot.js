@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux'
 import {createSpotThunk} from '../../store/spots'
 import {NavLink, useHistory} from 'react-router-dom'
 import {createImageThunk} from '../../store/image'
+import igloo from '../../image/favicon_white.ico'
 import './CreateSpot.css'
 function CreateSpot(){
     const dispatch = useDispatch()
@@ -105,8 +106,9 @@ function CreateSpot(){
             <div className='colorDiv'>
                 <div className='firstDiv'>
                 <div className='createSpotLogoContainer'>
-                <NavLink  exact to="/"><i class="fa-brands fa-airbnb createPageHomeLogo"></i></NavLink>
 
+                {/* <NavLink  exact to="/">  <i className="fa-thin fa-igloo createPageHomeLogo"></i></NavLink> */}
+                <NavLink  exact to="/"><img  className=' createPageHomeLogo' src={igloo} /></NavLink>
                 </div>
                 <div className='createTextWelcomeTxtDiv'>
                 <h2 className='createSpotWelcomeTxt'>Welcome To airbnb-spots !!!</h2>
