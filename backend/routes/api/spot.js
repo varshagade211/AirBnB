@@ -166,7 +166,11 @@ router.get('/', queryValidator, async(req,res,next) => {
             model: Image,
             attributes:['image','id']
 
-        }],
+        },{
+          model:User, as: "Owner",
+          attributes:['firstName', 'lastName']
+        }
+      ],
         limit:size,
         offset:size*(page-1)
     })
@@ -191,7 +195,11 @@ router.get('/user/spots',requireAuth, async(req,res,next)=> {
         include:[{
           model: Image,
           attributes:['image','id']
-        }],
+        },{
+          model:User, as: "Owner",
+          attributes:['firstName', 'lastName']
+        }
+      ],
       }
     )
 
