@@ -27,11 +27,20 @@
 }
 
 .SingleimageContainer{
-    margin: 4rem 10rem 0 16rem;
-    width:58%;
+    margin: 4rem 0rem 0 15rem;
+    width:60%;
     height: 30rem;
     text-align: center;
     /* margin: auto; */
 
 
+}
+
+
+@media only screen and (max-width: 1000px)  {
+
+.SingleimageContainer{
+margin: 1rem 1rem 0 1rem;
+    width: 95%;
+}
 }

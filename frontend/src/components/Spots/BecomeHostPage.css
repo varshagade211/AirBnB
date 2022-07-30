@@ -14,7 +14,7 @@
 
 .becomeHostLoginLink{
      position: absolute;
-    bottom: 10rem;
+    bottom: 7rem;
     left:15rem;
     background-color: rgb(230, 30, 77);
     border-radius: 10px;
@@ -28,7 +28,7 @@
 
 .becomeHostLogineButton{
   position: absolute;
-  bottom: 9rem;
+  bottom: 7rem;
   left:15rem;
   background-color: rgb(230, 30, 77);
   border-radius: 10px;
@@ -63,8 +63,12 @@
 
   font-size: 1.8rem;
 
+}
 
 }
+.videoImage{
+  height: 70vh;
+
 
 }
 

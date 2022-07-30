@@ -38,12 +38,11 @@
 
 .singUplinksContainer{
     min-width:8rem;
-    /* overflow-x: auto; */
+
     position: absolute;
     top: 3.7rem;
     right:6.5rem;
     z-index: 10;
-    /* height:200px; */
     border: 1px solid white;
     border-radius: 10px;
     display: flex;
@@ -58,13 +57,11 @@
 .singUplinksContainerclose{
     display: none;
 }
-/* .sigupAndUserIconContainer{
-  display: flex;
-  flex-direction: column;
-} */
+
 .userData{
     list-style: none;
     margin:0.5rem 1rem 0.5rem 1.3rem;
+
     font-size: 0.9rem;
     color: black;
     font-weight: 500;
@@ -80,7 +77,7 @@
 }
 
 .logoutBtn{
-    margin:0.5rem 1rem 0.5rem 1rem;
+    /* margin:0.5rem 1rem 0.5rem 1rem; */
     background-color: rgba(255, 255, 255, 0.238);
     border: none;
     border: white;
@@ -88,20 +85,27 @@
     text-align: inherit;
     color: black;
     font-weight: 500;
+    padding: 5px;
+    margin: 0 0 0 1.2rem;
 
 }
 .logoutBtn:hover{
     cursor: pointer;
+    background-color:rgba(128, 128, 128, 0.11)
 }
-.myLineAllSpot{
+.myLinkAllSpot{
     text-decoration: none;
    margin: 0 0 0 1.2rem;
    font-size: 0.9rem;
    color: black;
    font-weight: 500;
+   border: none;
+   background-color: white;
+   padding: 6px;
 }
-.myLineAllSpot:hover{
+.myLinkAllSpot:hover{
   cursor: pointer;
+  background-color:rgba(128, 128, 128, 0.11)
 
 }
 .NavLinkline{
@@ -131,15 +135,47 @@
     font-size: 1.4rem;
 }
 .logo-container{
-    /* width: 14rem; */
+
    display: flex;
-   /* justify-content: space-around; */
-   /* flex-direction: column; */
+
 }
 
 .becomeHostAndUserBtnContainer{
     display: flex;
 
 
+
+}
+.navbackgroundDiv{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+}
+
+.demoUserBtn{
+
+    background-color: rgba(255, 255, 255, 0.238);
+    border: white;
+    margin:  0rem 0.6rem 0 1rem;
+    padding: 0.4rem;
+    text-align: inherit;
+    cursor: pointer;
+}
+.demoUserBtn:hover{
+    background-color:rgba(128, 128, 128, 0.11)
+}
+@media only screen and (max-width: 700px)  {
+
+  .navLinks{
+    display:block;
+
+}
+.becomeHostAndUserBtnContainer{
+    justify-content: space-between;
+
+}
 
 }

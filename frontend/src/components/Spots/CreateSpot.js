@@ -25,20 +25,68 @@ function CreateSpot(){
 
     const onSubmit= async (e)=>{
         e.preventDefault()
+         const formErrors = {}
+        if(!name || typeof name !== 'string' || name.length === 0 || name.length>=50 ) {
+            formErrors.name='Name must be less than 50 characters'
+        }
+        if(!address || typeof address !== 'string' || address.length === 0) {
+            formErrors.address='Street address is required'
+        }
+        if(!city || typeof city !== 'string' || city.length === 0) {
+            formErrors.city='City is required'
+        }
+        if(!state || typeof state !== 'string' || state.length === 0) {
+            formErrors.state='State is required'
+        }
+        if(!country || typeof country !== 'string' || country.length === 0) {
+            formErrors.country='Country is required'
+        }
+        let newLat = parseInt(price)
+        if(!newLat || typeof newLat !== 'number') {
+            formErrors.lat='Latitude is not valid'
+        }
+        let newLng = parseInt(price)
+        if(!newLng || typeof newLng !== 'number'){
+            formErrors.lng='Longitude is not valid'
+        }
+        if(!description || typeof description !== 'string' || description.length === 0) {
+            formErrors.description='Description is required'
+        }
+       let newPrice = parseInt(price)
+        if(!newPrice || newPrice === NaN || newPrice <= 0) {
+            console.log('inside price', typeof newPrice , newPrice)
+            formErrors.price='Price per day is required'
+        }
+
+        if(!imageUrl1 || typeof imageUrl1 !== 'string' || imageUrl1.length === 0) {
+            formErrors.url='Upload minimum five images'
+        }
+        if(!imageUrl2 || typeof imageUrl2 !== 'string' || imageUrl2.length === 0) {
+            formErrors.url='Upload minimum five images'
+        }
+        if(!imageUrl3 || typeof imageUrl3 !== 'string' || imageUrl3.length === 0) {
+            formErrors.url='Upload minimum five images'
+        }
+        if(!imageUrl4 || typeof imageUrl4 !== 'string' || imageUrl4.length === 0) {
+            formErrors.url='Upload minimum five images'
+        }
+        if(!imageUrl5 || typeof imageUrl5 !== 'string' || imageUrl5.length === 0) {
+            formErrors.url='Upload minimum five images'
+        }
+        if (Object.keys(formErrors).length) {
+            setErrors(formErrors)
+            return
+        }
 
         const spotData ={
             name,address,city,state,country,description,price,lat,lng
         }
-        if(!(imageUrl1 && imageUrl2 && imageUrl3 && imageUrl4 && imageUrl5)){
-            setErrors({url:'Upload minimum five images'})
-            return
-        }
+
         const spot = await dispatch(createSpotThunk(spotData))
         .catch(async (res) => {
           const data = await res?.json();
           if (data && data?.errors) {
             setErrors(data?.errors);
-
           }
         });
 

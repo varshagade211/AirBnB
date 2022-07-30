@@ -25,17 +25,12 @@ function Navigation({ }){
   };
 
 
-  // useEffect(() => {
-  //   if (!showMenu) return;
-
-  //   const closeMenu = () => {
-  //     setShowMenu(false);
-  //   };
-
-  //   document.addEventListener('click', closeMenu);
-
-  //   return () => document.removeEventListener("click", closeMenu);
-  // }, [showMenu]);
+  const demoUserLoginHandleSubmit = (e) => {
+    e.preventDefault();
+    const email ='demouser@gmail.com'
+    const password = 'demoUserPassword'
+    return dispatch(sessionActions.loginThunk({email, password}))
+  }
 
   let sessionLinks;
   if (sessionUser) {
@@ -46,7 +41,7 @@ function Navigation({ }){
 
         <hr className='line'></hr>
 
-        {sessionUser && <NavLink className= 'myLineAllSpot'to={'/spots/user/spots'}> My Listings </NavLink>}
+        {sessionUser && <NavLink to={'/spots/user/spots'}><button className= 'myLinkAllSpot'> My Listings</button> </NavLink>}
         <hr className='NavLinkline'></hr>
         <button className='logoutBtn'onClick={logout}>Log Out</button>
       </div>
@@ -58,8 +53,11 @@ function Navigation({ }){
           <LoginFormModal className={'loginButton'} />
           <hr className='NavLinkline'></hr>
           <SignupFormModal />
+          <hr className='NavLinkline'></hr>
+          <button onClick={demoUserLoginHandleSubmit} className='demoUserBtn'>Demo User</button>
+          <hr className='NavLinkline'></hr>
         </div>
-        <hr className='NavLinkline'></hr>
+
       </div>
     );
   }
@@ -67,19 +65,26 @@ function Navigation({ }){
   //profilebutton logic
   const openMenu = () => {
      setShowMenu((prev) => !prev)
+
   };
 
+ const onClose = () => {
+  setShowMenu(false)
+ }
 
   return (
-    <ul>
+    <ul className='mavlinksmainContainer'>
+
       <li className='navLinks'>
         <div className='logo-container'>
            <NavLink exact to="/"><img className ='logo' src={logo} alt='logo' /></NavLink>
            <h3 className='logo-name'>airbnb-spots</h3>
         </div>
          <div className='becomeHostAndUserBtnContainer'>
+         {showMenu && <div className='navbackgroundDiv' onClick={onClose} ></div>}
             <BecomeHostNavButton />
             <div className='linksAndButtonContainer'>
+
               <button className="userIconContainer" onClick={openMenu}>
                 <i class="fa fa-bars barsIcon" aria-hidden="true"></i>
                 <i className="fas fa-user-circle userIcon" />
@@ -87,6 +92,7 @@ function Navigation({ }){
               {showMenu && <div className="singUplinksContainer" id='singUplinksContainer' >
               {showMenu && sessionLinks}
             </div>}
+
           </div>
       </div>
       </li>

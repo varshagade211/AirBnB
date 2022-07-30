@@ -1,11 +1,14 @@
 
+
+
 .singleSpotImgs{
     width: 300px;
     height: 200px;
     cursor: pointer;
 }
 .singleSpotFirstImage{
-    width: 500px;
+
+    width: 90%;
     height:407px;
     cursor: pointer;
 }
@@ -13,9 +16,9 @@
 .singleSpotAllImageContainer{
 
   display: flex;
-  /* flex-wrap: wrap; */
 
-  flex-grow: 1;
+  overflow: hidden;
+
   width:90vw;
 
   /* overflow: hidden; */
@@ -35,8 +38,9 @@
 
 
 .singleSpotRemainingImgsContainer{
+
     display: grid;
-    margin-left:10px;
+    margin: 0 0 0 -3rem;
     grid-template-columns: 1fr 1fr;
     /* grid-template-rows: auto; */
     gap:7px;
@@ -44,19 +48,21 @@
 }
 
 .singleSpotOuterContainer{
-    margin: 0rem 5rem 0 5rem;
+    margin: 0rem 5rem 0 2rem;
 
 }
+
 
 .singleSpotHeading{
     color: rgba(20, 20, 20, 0.888);
     font-size: 1.6rem;
-    margin-bottom: 0;
+    margin: 0rem 5rem 0 2rem;
 }
 
 .spotAndStartContainer{
     display: flex;
     margin-top: -0.3rem;
+    margin: 0rem 5rem 0 2rem;
 }
 .singleSpotStar{
     font-size: 0.8rem;
@@ -75,12 +81,21 @@
 }
 
 .singleSpotAddress{
+    /* margin-left: 20px;
+    text-decoration: underline;
+    font-size: 0.85rem;
+    margin-top: 18px;
+    font-weight: bold;
+    color: rgba(20, 20, 20, 0.866); */
     margin-left: 20px;
     text-decoration: underline;
     font-size: 0.85rem;
     margin-top: 18px;
     font-weight: bold;
     color: rgba(20, 20, 20, 0.866);
+    text-align: justify;
+
+
 }
 
 .sessionName{
@@ -137,7 +152,9 @@
     margin:3rem 0 3rem 0;
 }
 .descriptionContainer{
-    width: 80%;
+    inline-size: 90%;
+    overflow-wrap: break-word;
+    text-align:justify;
 }
 .offers{
     color: rgba(0, 0, 0, 0.771);
@@ -157,11 +174,12 @@
 .infoContainer{
   display: flex;
   /* position: relative; */
-  justify-content: space-between;
+
 
 }
 .dataContainer{
   width: 70%;
+  margin: 0rem 5rem 0 2rem;
 }
 .sideBarContainer{
     display: flex;
@@ -169,7 +187,7 @@
     width: 30%;
 }
 .sideBar{
-  width: 100%;
+  /* width: 100%; */
   /* height: 10%; */
   margin: 3rem 0rem 0 1rem;
   position: sticky;
@@ -199,13 +217,14 @@
 }
 
 .editDeletebuttons{
-    width: 100%;
+    /* width: 100%; */
     /* height: 10%; */
     margin: 3rem 0rem 0 1rem;
     position: sticky;
     top: 15rem;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     justify-content:space-around;
     background-color:#FFF;
     padding:10px;
@@ -248,67 +267,20 @@
     border-radius:50%;
 
 }
-@media only screen and (max-width: 600px) {
-    .spotAndStartContainer{
-        display: block;
-    }
-    .singleSpotRemainingImgsContainer{
-        display: none;
-    }
-    .singleSpotFirstImageContainer{
-        width:100%;
-    }
-}
 
 
 
 
-@media only screen and (max-width: 700px) {
-
-
-    .singleSpotAllImageContainer{
-        display: block;
-        overflow: visible;
-
-    }
-    .singleSpotRemainingImgsContainer{
-        display: none;
-    }
-    .singleSpotFirstImageContainer{
-        width:100%;
-    }
-    .singleSpotFirstImage{
-        width: 100%;
-
-        height:400px;
-    }
-
-
-
-}
-
-
-@media only screen and (max-width: 1000px) {
-    .editDeletebuttons{
-        display: block;
-    }
-    .ediBtn,.deleteBtn,.bookingBtn{
-        padding: 0.5rem;
-
-
-    }
-}
-
-
-/* @media only screen and (min-width: 400px) { */
-    @media only screen and (min-width: 200px) and (max-width: 700px)  {
+     @media only screen and (min-width: 200px) and (max-width: 1033px)  {
 
         .editDeletebuttons{
             display: flex;
+            flex-direction: row;
+
         }
         .bookingBtn{
             width: 30%;
-            /* margin: 2rem 5rem 0rem 5rem; */
+            margin: 2rem 5rem 0rem 5rem;
         }
     .ediBtn,.deleteBtn,.bookingBtn{
         padding: 0.5rem;
@@ -316,6 +288,7 @@
 
 
     }
+
     .infoContainer{
         display: block;
     }
@@ -325,9 +298,10 @@
     .singleSpotOuterContain{
         font-size: 1rem;
     }
-    /* .singleSpotAllImageContainer{
-        margin: 0 0 0 -3rem
-    } */
+    .singleSpotAllImageContainer{
+
+        width: 100%;
+    }
     .singleSpotOuterContainer{
         margin: 0 0 0 0 ;
     }
@@ -336,6 +310,9 @@
     }
     .spotAndStartContainer,.singleSpotHeading,.infoContainer{
         margin:1rem 1rem 1rem 1rem;
+    }
+    .singleSpotPrice{
+        margin:0 0rem 0 4.5rem;
     }
 
 }

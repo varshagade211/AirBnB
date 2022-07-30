@@ -17,3 +17,12 @@
 .hrLineAllSpot{
     margin-top: 5rem;
 }
+
+@media only screen and (max-width: 700px)  {
+
+.footerOnHomePage{
+
+
+    margin: 0rem 0rem 0 0rem;
+}
+}
