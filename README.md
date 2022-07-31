@@ -2,7 +2,7 @@
 ### spots-bnb
 
 This is clone of Airbnb. As we all know, Airbnb is an online marketplace that connects people who want to rent out their homes with people who are looking for accomodations in specific locales.
-In my project 'spots-bnb', I tried to replicate most of functionality of official Airbnb website and support almost all necessary features. [Click here to view spots-bnb Live Site](https://spots-bnb.herokuapp.com/)
+In my project 'spots-bnb', I tried to replicate most of functionality of official Airbnb website and support almost all necessary features. <br /> [Click here to view spots-bnb Live Site](https://spots-bnb.herokuapp.com/)
 
 Please see below link to project wiki: <br />
  [Feature List](https://github.com/varshagade211/AirBnB/wiki/Feature-list)  <br />
