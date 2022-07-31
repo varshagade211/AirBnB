@@ -4,13 +4,13 @@
 This is clone of Airbnb. As we all know, Airbnb is an online marketplace that connects people who want to rent out their homes with people who are looking for accomodations in specific locales.
 In my project 'spots-bnb', I tried to replicate most of functionality of official Airbnb website and support almost all necessary features. [Click here to view spots-bnb Live Site](https://spots-bnb.herokuapp.com/)
 
-Please see below link to project wiki:
+Please see below link to project wiki: <br />
  [Feature List](https://github.com/varshagade211/AirBnB/wiki/Feature-list)  <br />
  [Database Schema](https://github.com/varshagade211/AirBnB/wiki/Database-Schema-Image-with-Relationships)  <br />
  [API Routes](https://github.com/varshagade211/AirBnB/wiki/API-Routes)  <br />
  [Redux Store State Shape](https://github.com/varshagade211/AirBnB/wiki/Redux-State-Shape) <br />
 
- This project is built with:
+ This project is built with: <br />
  JavaScript <br />
  Sqlite3  <br />
  Sequelize  <br />
