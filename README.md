@@ -25,18 +25,18 @@ Please see below link to project wiki:
 
 * Home page for Display resolution 1920 x 1200
 
-![AirBnB db schema](home-page.JPG) &nbsp;
+![AirBnB db schema](home-page.JPG) &nbsp;  &nbsp;  &nbsp;
 
 
 
 
 * Home page for Display resolution 750 x 748
 
-![AirBnB db schema](tab-home-page.JPG) &nbsp;
+![AirBnB db schema](tab-home-page.JPG) &nbsp;  &nbsp;  &nbsp;
 
 
 
 
 * Home page for Display resolution 454 x 748
 
-![AirBnB db schema](responsive-home-page.JPG) &nbsp;
+![AirBnB db schema](responsive-home-page.JPG) &nbsp; &nbsp;
