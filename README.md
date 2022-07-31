@@ -5,18 +5,18 @@ This is clone of Airbnb. As we all know, Airbnb is an online marketplace that co
 In my project 'spots-bnb', I tried to replicate most of functionality of official Airbnb website and support almost all necessary features. [Click here to view spots-bnb Live Site](https://spots-bnb.herokuapp.com/)
 
 Please see below link to project wiki:
- [Feature List](https://github.com/varshagade211/AirBnB/wiki/Feature-list)
- [Database Schema](https://github.com/varshagade211/AirBnB/wiki/Database-Schema-Image-with-Relationships)
- [API Routes](https://github.com/varshagade211/AirBnB/wiki/API-Routes)
- [Redux Store State Shape](https://github.com/varshagade211/AirBnB/wiki/Redux-State-Shape)
+ [Feature List](https://github.com/varshagade211/AirBnB/wiki/Feature-list)  &nbsp;  &nbsp;
+ [Database Schema](https://github.com/varshagade211/AirBnB/wiki/Database-Schema-Image-with-Relationships)  &nbsp;  &nbsp;
+ [API Routes](https://github.com/varshagade211/AirBnB/wiki/API-Routes)  &nbsp;  &nbsp;
+ [Redux Store State Shape](https://github.com/varshagade211/AirBnB/wiki/Redux-State-Shape)  &nbsp;  &nbsp;
 
  This project is built with:
- JavaScript
- Sqlite3
- Sequelize
- Express
- React
- Redux
+ JavaScript  &nbsp;  &nbsp;
+ Sqlite3  &nbsp;  &nbsp;
+ Sequelize  &nbsp;  &nbsp;
+ Express  &nbsp;  &nbsp;
+ React  &nbsp;  &nbsp;
+ Redux &nbsp;  &nbsp;
 
 ## Feature Directions:
 
