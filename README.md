@@ -19,9 +19,18 @@ Please see below link to project wiki:
  Redux
 
 ## Feature Directions:
-   # Home Page Demo User:
-     You will be able to test features without signup by clicking on "Demo User" button.
 
-     Home page for Display resolution 1920 x 1200
+# Home Page Demo User:
+    You will be able to test features without signup by clicking on "Demo User" button.
 
-    ![AirBnB db schema]()
+# Home page for Display resolution 1920 x 1200
+
+![AirBnB db schema](home-page.JPG)
+
+# Home page for Display resolution 815 x 561
+
+![AirBnB db schema](tab-home-page.JPG)
+
+# Home page for Display resolution 454 x 561
+
+![AirBnB db schema](responsive-home-page.JPG)
