@@ -42,12 +42,12 @@ function CreateSpot(){
         if(!country || typeof country !== 'string' || country.length === 0) {
             formErrors.country='Country is required'
         }
-        let newLat = parseInt(price)
-        if(!newLat || typeof newLat !== 'number') {
+        let newLat = parseFloat(lat)
+        if(!newLat ||  newLat === NaN) {
             formErrors.lat='Latitude is not valid'
         }
-        let newLng = parseInt(price)
-        if(!newLng || typeof newLng !== 'number'){
+        let newLng = parseFloat(lng)
+        if(!newLng || newLng === NaN){
             formErrors.lng='Longitude is not valid'
         }
         if(!description || typeof description !== 'string' || description.length === 0) {
@@ -55,7 +55,7 @@ function CreateSpot(){
         }
        let newPrice = parseInt(price)
         if(!newPrice || newPrice === NaN || newPrice <= 0) {
-          
+
             formErrors.price='Price per day is required'
         }
 
