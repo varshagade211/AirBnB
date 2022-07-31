@@ -95,7 +95,7 @@ function EditForm() {
             <form onSubmit={onSubmit}>
                 <div className='editFormInputContainer'>
                 <label className='editFormLabel'>Spot Name:</label>
-                <input type='text'className='editFormInput'  name='spotName'  value ={name} onChange={(e) => setName(e.target.value)} />
+                <input type='text'className='editFormInput'  name='spotName' placeholder='Enter Spot Name'  value ={name} onChange={(e) => setName(e.target.value)} />
                 {errors?.name &&
                     <div className="errorContainer">
                         <div>
@@ -109,7 +109,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>Address:</label>
-                <input className='editFormInput' type='text' name='address'  value ={address} onChange={(e) => setAddress(e.target.value)}/>
+                <input className='editFormInput' type='text' name='address' placeholder='Enter Address' value ={address} onChange={(e) => setAddress(e.target.value)}/>
                 {errors?.address &&
                     <div className="errorContainer">
                         <div>
@@ -123,7 +123,7 @@ function EditForm() {
                </div>
                <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>City:</label>
-                <input className='editFormInput' type='text' name='city'  value ={city} onChange={(e) => setCity(e.target.value)} />
+                <input className='editFormInput' type='text' name='city'  placeholder='Enter City' value ={city} onChange={(e) => setCity(e.target.value)} />
                 {errors?.city &&
                     <div className="errorContainer">
                         <div>
@@ -137,7 +137,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>State:</label>
-                <input className='editFormInput' type='text' name='state'  value ={state}  onChange={(e) => setState(e.target.value)}/>
+                <input className='editFormInput' type='text' name='state'  placeholder='Enter State'  value ={state}  onChange={(e) => setState(e.target.value)}/>
                 {errors?.state &&
                     <div className="errorContainer">
                         <div>
@@ -151,7 +151,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>Country:</label>
-                <input className='editFormInput' type='text' name='country'   value ={country} onChange={(e) => setCountry(e.target.value)}/>
+                <input className='editFormInput' type='text' name='country' placeholder='Enter Country'  value ={country} onChange={(e) => setCountry(e.target.value)}/>
                 {errors?.country &&
                     <div className="errorContainer">
                         <div>
@@ -165,7 +165,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>Description</label>
-                <textarea className='editFormInput'  name='desc'  value ={description} onChange={(e) => setDescription(e.target.value)}/>
+                <textarea className='editFormInput'  name='desc' placeholder='Enter Description' value ={description} onChange={(e) => setDescription(e.target.value)}/>
                 {errors?.description &&
                     <div className="errorContainer">
                         <div>
@@ -179,7 +179,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>Price:</label>
-                <input className='editFormInput' type='number' name='price'  value ={price} onChange={(e) => setPrice(e.target.value)}/>
+                <input className='editFormInput' type='number' name='price' placeholder='Enter Price' value ={price} onChange={(e) => setPrice(e.target.value)}/>
                 {errors?.price &&
                     <div className="errorContainer">
                         <div>
@@ -194,7 +194,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>Latitude</label>
-                <input className='editFormInput' type='number' name='lat'  step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
+                <input className='editFormInput' type='number' name='lat' placeholder='Enter Latitude'   value ={lat} onChange={(e) => setLat(e.target.value)}/>
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
@@ -208,7 +208,7 @@ function EditForm() {
                 </div>
                 <div  className='editFormInputContainer'>
                 <label className='editFormLabel'>Longitude:</label>
-                <input  className='editFormInput' type='number' name='lng'  step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
+                <input  className='editFormInput' type='number' name='lng'   placeholder='Enter Longitude'  value ={lng} onChange={(e) => setLng(e.target.value)}/>
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>

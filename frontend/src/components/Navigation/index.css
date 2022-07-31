@@ -123,14 +123,14 @@
     flex-direction: column;
 }
 .logo{
-    width: 35px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     margin:0rem 0rem 0rem 3rem;
 
 }
 
 .logo-name{
-    margin:0.40rem 0.4rem 0rem 0.3rem;
+    margin:0.1rem 0.4rem 0rem 0.5rem;
     color:#ff385c;
     font-size: 1.4rem;
 }

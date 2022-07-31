@@ -24,7 +24,7 @@ function AllSpots(){
 
            <footer className='footerOnHomePage'>
 
-                 <p>© 2022 airbnb-spots, Inc, . Privacy·Terms·Sitemap</p>
+                 <p>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
                 <p> <i className="fa-solid fa-globe languageIcon"></i>English (US)</p>
             </footer>
       </div>

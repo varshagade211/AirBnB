@@ -20,6 +20,7 @@ function SingleSpot(){
     let singleSpot
     if(spots){
         singleSpot = spots[id]
+
     }
 
     let isOwner = false
@@ -35,9 +36,17 @@ function SingleSpot(){
     }
     const firstImg=  singleSpot?.Images[0]
     const Images = singleSpot?.Images?.slice(1)
+    let  singleClassName = 'singleSpotAllImageContainer'
+    if(!Images?.length){
+        singleClassName = 'singleSpotAllImageContaineIfOneImage'
+    }
+    let singleClassRemainingImages = 'singleSpotRemainingImgsContainer'
+
+
+
 
     const showImageHandler = () =>{
-        history.push(`/images/${singleSpot.id}`)
+        history.push(`/images/${singleSpot?.id}`)
     }
     const backHandler = () => {
          history.push(`/`)
@@ -46,38 +55,37 @@ function SingleSpot(){
         }
     }
     return(
-        <div>
-             <div className='singleSpotBackIconContainer' onClick={backHandler}>
-            <i  class="fas fa-angle-left singleSpotBackarrowIcon"></i>
+        <div className='singalePageMainContainer'>
+            <div className='singleSpotBackIconContainer' onClick={backHandler}>
+                <i  class="fas fa-angle-left singleSpotBackarrowIcon"></i>
             </div>
             <div className='singleSpotOuterContainer'>
                 <h2 className='singleSpotHeading'>{singleSpot?.name}</h2>
                 <div className='spotAndStartContainer'>
                     <div>
-                    <p ><i className="fa-solid fa-star singleSpotStar"></i> 5.0 </p>
+                       <p ><i className="fa-solid fa-star singleSpotStar"></i> 5.0 </p>
                     </div>
                     <div>
-                    <p className='superHost'><i className="fa-solid fa-medal superHostMedal"></i>Superhost  </p>
+                       <p className='superHost'><i className="fa-solid fa-medal superHostMedal"></i> Superhost  </p>
                     </div>
-                    <p className='singleSpotAddress'>{singleSpot?.address},{singleSpot?.address},{singleSpot?.state}</p>
+                       <p className='singleSpotAddress'>{singleSpot?.address},{singleSpot?.address},{singleSpot?.state}</p>
                 </div>
 
-                <div className='singleSpotAllImageContainer' onClick={showImageHandler}>
+                <div className={singleClassName} onClick={showImageHandler}>
                     <div className='singleSpotFirstImageContainer'>
                         <img  className = 'singleSpotFirstImage'src= {firstImg?.image} />
                     </div>
-                    <div className='singleSpotRemainingImgsContainer'>
-                          {/* {Images?.map((image)=>  <div className='insideContainer'><img className = {`singleSpotImgs`} src= {image?.image} /> </div>)} */}
-                        {/* <div> */}
-                        {Images?.map((image)=>  <img className = {`singleSpotImgs`} src= {image?.image} /> )}
-                        {/* </div> */}
+                    <div className={singleClassRemainingImages}>
+                       
+                        {Images?.map((image)=>  <img className = {'singleSpotImgs'} src= {image?.image} /> )}
+
 
                     </div>
                 </div>
 
                 <div className='infoContainer'>
                     <div className='dataContainer'>
-                        <h2 className='sessionName' >Entire home hosted by {sessionUser?.firstName} {sessionUser?.lastName}</h2>
+                        <h2 className='sessionName' >Entire home hosted by {singleSpot?.Owner?.firstName} {singleSpot?.Owner?.lastName}</h2>
                         <p>6 guests .3 bedrooms . 4 beds . 3 baths</p>
                         <hr className='line'></hr>
                         <p className='greatText'> <i className="fa-solid fa-key keyIcon"></i>  Great check-in experience</p>
@@ -111,22 +119,21 @@ function SingleSpot(){
                         </div>
                     </div>
                     <div className='sideBarContainer'>
-                       <div className='sideBar'>
-                          <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
-                        {/* <button className='bookingBtn' disabled={true}>Reserve</button> */}
-                    </div>
-                    {isOwner&&
-                       <div className='editDeletebuttons'>
-                          <button className='ediBtn' onClick={EditHandler}>Edit Listing</button>
-                          <button  className='deleteBtn'  onClick={deleteHandler}>Delete Listing</button>
-
-                       </div>
-                    }
+                        <div className='sideBar'>
+                           <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
+                           {/* <button className='bookingBtn' disabled={true}>Reserve</button> */}
+                        </div>
+                       {isOwner&&
+                            <div className='editDeletebuttons'>
+                              <button className='ediBtn' onClick={EditHandler}>Edit Listing</button>
+                              <button  className='deleteBtn'  onClick={deleteHandler}>Delete Listing</button>
+                            </div>
+                        }
                     </div>
                 </div>
                 <hr className='line'></hr>
                 <footer className='footer'>
-                    <p>© 2022 airbnb-spots, Inc, . Privacy·Terms·Sitemap</p>
+                    <p>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
                     <p> <i className="fa-solid fa-globe languageIcon"></i>English (US)</p>
                 </footer>
 

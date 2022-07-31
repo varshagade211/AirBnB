@@ -4,6 +4,8 @@
 .createPageHomeLogo{
     margin: 0.5rem 0 0 0.6rem;
     color: white;
+    cursor: pointer;
+    width: 40px;
 }
 .createSpotLogoContainer{
     width: 50px;
@@ -11,12 +13,10 @@
     margin: 1rem 0 0 2rem;
     font-size: 2rem;
 
+
 }
 
-.createSpotLogoContainer:hover{
-    background-color:rgba(141, 42, 241, 0.303);
-    border-radius: 50%;
-}
+
 .createSpotWelcomeTxt{
     color: white;
     margin: 25rem 1rem 1rem 0rem;
@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: column;
 
-  background: linear-gradient(to top,  rgb(83, 18, 167) 0%,rgb(94, 29, 151) 40%, rgb(241, 42, 132) 100%);
+  background: linear-gradient(to top,  rgb(83, 18, 167) 0%,rgb(94, 29, 151) 40%, rgb(179, 46, 106) 100%);
 }
 
 

@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux'
 import {createSpotThunk} from '../../store/spots'
 import {NavLink, useHistory} from 'react-router-dom'
 import {createImageThunk} from '../../store/image'
+import igloo from '../../image/favicon_white.ico'
 import './CreateSpot.css'
 function CreateSpot(){
     const dispatch = useDispatch()
@@ -19,8 +20,8 @@ function CreateSpot(){
     const [imageUrl4,setImageUrl4] = useState('')
     const [imageUrl5,setImageUrl5] = useState('')
     const [price,setPrice] = useState(0)
-    const [lat,setLat] = useState(-90)
-    const [lng,setLng] = useState(-180)
+    const [lat,setLat] = useState('')
+    const [lng,setLng] = useState('')
     const [errors, setErrors] = useState({})
 
     const onSubmit= async (e)=>{
@@ -54,7 +55,7 @@ function CreateSpot(){
         }
        let newPrice = parseInt(price)
         if(!newPrice || newPrice === NaN || newPrice <= 0) {
-            console.log('inside price', typeof newPrice , newPrice)
+          
             formErrors.price='Price per day is required'
         }
 
@@ -105,8 +106,9 @@ function CreateSpot(){
             <div className='colorDiv'>
                 <div className='firstDiv'>
                 <div className='createSpotLogoContainer'>
-                <NavLink  exact to="/"><i class="fa-brands fa-airbnb createPageHomeLogo"></i></NavLink>
 
+                {/* <NavLink  exact to="/">  <i className="fa-thin fa-igloo createPageHomeLogo"></i></NavLink> */}
+                <NavLink  exact to="/"><img  className=' createPageHomeLogo' src={igloo} /></NavLink>
                 </div>
                 <div className='createTextWelcomeTxtDiv'>
                 <h2 className='createSpotWelcomeTxt'>Welcome To airbnb-spots !!!</h2>
@@ -184,7 +186,7 @@ function CreateSpot(){
 
 
                 <label className='createFormLabel'>Country:</label><br/>
-                <input className='createSpotInputs' type='text' name='country'   placeholder='Enter Country'value ={country} onChange={(e) => setCountry(e.target.value)}/>
+                <input className='createSpotInputs' type='text' name='country'  placeholder='Enter Country' value ={country} onChange={(e) => setCountry(e.target.value)}/>
                 {errors?.country &&
                     <div className="errorContainer">
                         <div>
@@ -229,7 +231,7 @@ function CreateSpot(){
                 <div  className='createSpotFormInputContainer'>
                 <label className='createFormLabel'>Latitude</label><br/>
 
-                <input type='number' className='createSpotInputs' name='lat' placeholder='Enter Latitude'  step=".0001" value ={lat} onChange={(e) => setLat(e.target.value)}/>
+                <input type='number' className='createSpotInputs' name='lat' placeholder='Enter Latitude'  value ={lat} onChange={(e) => setLat(e.target.value)}/>
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
@@ -243,7 +245,7 @@ function CreateSpot(){
                 </div>
                 <div  className='createSpotFormInputContainer'>
                 <label className='createFormLabel'> Longitude:</label><br/>
-                <input type='number'className='createSpotInputs' placeholder='Enter Longitude'  name='lng' step=".0001"  value ={lng} onChange={(e) => setLng(e.target.value)}/>
+                <input type='number'className='createSpotInputs' placeholder='Enter Longitude'  name='lng' value ={lng} onChange={(e) => setLng(e.target.value)}/>
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>

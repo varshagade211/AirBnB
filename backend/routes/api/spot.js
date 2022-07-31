@@ -166,20 +166,15 @@ router.get('/', queryValidator, async(req,res,next) => {
             model: Image,
             attributes:['image','id']
 
-        }],
-        limit:size,
-        offset:size*(page-1)
+        },
+        {
+          model:User, as: "Owner",
+          attributes:['firstName', 'lastName']
+        }
+      ],
+        // limit:size,
+        // offset:size*(page-1)
     })
-    // for(let i=0; i<spots.length; i++) {
-    //     spots[i].dataValues["previewImage"] = ""
-    //     if(spots[i].Images.length) {
-    //         let previewImg = spots[i].Images[0].image
-    //         spots[i].dataValues["previewImage"] = previewImg
-    //     }
-    //     if (spots[i].Images) {
-    //         delete spots[i].dataValues.Images
-    //     }
-    // }
     res.json({Spots: spots,page,size:spots.length})
 })
 
@@ -191,21 +186,14 @@ router.get('/user/spots',requireAuth, async(req,res,next)=> {
         include:[{
           model: Image,
           attributes:['image','id']
-        }],
+        },
+        {
+          model:User, as: "Owner",
+          attributes:['firstName', 'lastName']
+        }
+      ],
       }
     )
-
-    // for(let i=0; i<spots.length; i++) {
-    //   spots[i].dataValues["previewImage"] = ""
-    //   if(spots[i].Images?.length) {
-    //       let previewImg = spots[i].Images[0].image
-    //       spots[i].dataValues["previewImage"] = previewImg
-    //   }
-    //   if (spots[i]?.Images) {
-    //       delete spots[i].dataValues.Images
-    //   }
-    // }
-    console.log("Backend spots : ", spots)
     res.status(200).json({Spots : spots})
 })
 

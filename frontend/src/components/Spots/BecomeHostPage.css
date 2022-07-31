@@ -5,6 +5,7 @@
 .becomeHostLogo{
   position: absolute;
   top: 3rem;
+  width: 40px;
   left:3rem;
   color: white;
   font-size: 2.1rem;

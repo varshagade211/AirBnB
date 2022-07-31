@@ -6,7 +6,7 @@ import './index.css';
 import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal'
 import * as sessionActions from '../../store/session';
-import logo from '../../image/logo.png'
+import igloo from '../../image/favicon.ico'
 import BecomeHostNavButton from'./BecomeHostNavButton'
 import { useHistory } from 'react-router-dom'
 
@@ -77,8 +77,8 @@ function Navigation({ }){
 
       <li className='navLinks'>
         <div className='logo-container'>
-           <NavLink exact to="/"><img className ='logo' src={logo} alt='logo' /></NavLink>
-           <h3 className='logo-name'>airbnb-spots</h3>
+           <NavLink exact to="/"><img src={igloo} className="logo"/></NavLink>
+           <h3 className='logo-name'>spots-bnb</h3>
         </div>
          <div className='becomeHostAndUserBtnContainer'>
          {showMenu && <div className='navbackgroundDiv' onClick={onClose} ></div>}

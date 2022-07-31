@@ -5,6 +5,7 @@ import './BecomeHostPage.css'
 import LoginFormModal from '../LoginFormModal';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import igloo from '../../image/favicon.ico'
 
 function BecomeHostPage(){
     const sessionUser = useSelector(state => state.session.user);
@@ -12,9 +13,9 @@ function BecomeHostPage(){
         <div >
             <img className='videoImage'src={becomehost} alt = 'becomehost image' />
 
-              <NavLink  exact to="/"><i class="fa-brands fa-airbnb becomeHostLogo"></i></NavLink>
-       
+          
 
+              <NavLink  exact to="/"><img  className='becomeHostLogo' src={igloo} /></NavLink>
 
            {sessionUser? <NavLink  className='becomeHostLoginLink' to="/spots">Try hosting</NavLink>:
             <LoginFormModal className='becomeHostLogineButton'/>}
