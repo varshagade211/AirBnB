@@ -42,6 +42,7 @@ const editSpotActionCreator = (updateSpot) => {
 export const loadSpotsThunk = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots')
     const spotData = await response.json()
+  
     dispatch(loadSpotsActionCreator(spotData.Spots))
 
     return response
@@ -149,7 +150,7 @@ const spotReducer = (state = initialSpots, action) => {
             // newState[action?.spot?.id] = action?.spot
             // return newState;
             //new Try
-            newState = {...state, spots:[...state?.spots, action.spot] , userSpot:[...state?.userSpot, action.spot]}
+            newState = {...state, spots:[...state?.spots, action?.spot] , userSpot:[...state?.userSpot, action?.spot]}
             newState[action?.spot?.id] = action?.spot
             return newState;
         }

@@ -46,7 +46,7 @@ function SingleSpot(){
 
 
     const showImageHandler = () =>{
-        history.push(`/images/${singleSpot.id}`)
+        history.push(`/images/${singleSpot?.id}`)
     }
     const backHandler = () => {
          history.push(`/`)
@@ -76,10 +76,9 @@ function SingleSpot(){
                         <img  className = 'singleSpotFirstImage'src= {firstImg?.image} />
                     </div>
                     <div className={singleClassRemainingImages}>
-                          {/* {Images?.map((image)=>  <div className='insideContainer'><img className = {`singleSpotImgs`} src= {image?.image} /> </div>)} */}
-                        {/* <div> */}
+                       
                         {Images?.map((image)=>  <img className = {'singleSpotImgs'} src= {image?.image} /> )}
-                        {/* </div> */}
+
 
                     </div>
                 </div>
@@ -134,7 +133,7 @@ function SingleSpot(){
                 </div>
                 <hr className='line'></hr>
                 <footer className='footer'>
-                    <p>© 2022 Spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
+                    <p>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
                     <p> <i className="fa-solid fa-globe languageIcon"></i>English (US)</p>
                 </footer>
 

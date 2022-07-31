@@ -13,7 +13,7 @@ function BecomeHostPage(){
         <div >
             <img className='videoImage'src={becomehost} alt = 'becomehost image' />
 
-              {/* <NavLink  exact to="/"><i class="fa-brands fa-airbnb becomeHostLogo"></i></NavLink> */}
+          
 
               <NavLink  exact to="/"><img  className='becomeHostLogo' src={igloo} /></NavLink>
 
