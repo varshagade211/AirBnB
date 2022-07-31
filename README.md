@@ -11,12 +11,12 @@ Please see below link to project wiki:
  [Redux Store State Shape](https://github.com/varshagade211/AirBnB/wiki/Redux-State-Shape)  &nbsp;  &nbsp;
 
  This project is built with:
- JavaScript  &nbsp;  &nbsp;
- Sqlite3  &nbsp;  &nbsp;
- Sequelize  &nbsp;  &nbsp;
- Express  &nbsp;  &nbsp;
- React  &nbsp;  &nbsp;
- Redux &nbsp;  &nbsp;
+ JavaScript <br />
+ Sqlite3  <br />
+ Sequelize  <br />
+ Express <br />
+ React  <br />
+ Redux <br />
 
 ## Feature Directions:
 
