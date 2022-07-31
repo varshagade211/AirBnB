@@ -30,13 +30,13 @@ Please see below link to project wiki:
 
 
 
-* Home page for Display resolution 815 x 561
+* Home page for Display resolution 750 x 748
 
 ![AirBnB db schema](tab-home-page.JPG)
 
 
 
 
-* Home page for Display resolution 454 x 561
+* Home page for Display resolution 454 x 748
 
 ![AirBnB db schema](responsive-home-page.JPG)
