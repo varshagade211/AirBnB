@@ -168,6 +168,9 @@ router.get('/', queryValidator, async(req,res,next) => {
 
         },
         {
+          model:Review
+        },
+        {
           model:User, as: "Owner",
           attributes:['firstName', 'lastName']
         }

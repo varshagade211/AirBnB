@@ -18,7 +18,7 @@ import EditForm from './components/Spots/EditForm'
 import SingleSpotImages from './components/Spots/SingleSpotImages'
 import EditImages from './components/Spots/EditImages';
 import DeletePopUpModal from './components/ImageDeleteModal'
-
+import Reviews from './components/Reviews';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -29,45 +29,51 @@ function App() {
   return (
     <div className='appContainer'>
       <Switch>
-         <Route exact path="/">
-            <Navigation className='navContainer'/>
-            <hr className='line'></hr>
-            <AllSpots />
-      </Route>
+        <Route exact path="/">
+          <Navigation className='navContainer'/>
+          <hr className='line'></hr>
+          <AllSpots />
+        </Route>
+
         <Route exact path='/spots/user/spots'>
-           <Navigation className='navContainer'/>
-           <hr className='line'></hr>
-           <CurrentUserSpots />
+          <Navigation className='navContainer'/>
+          <hr className='line'></hr>
+          <CurrentUserSpots />
         </Route>
+
         <Route exact path="/becomehost">
-
-             <BecomeHostPage />
-
+          <BecomeHostPage />
         </Route>
+
         <Route exact path='/spots'>
-           <CreateSpot />
+          <CreateSpot />
         </Route>
+        
         <Route exact path='/spots/:id'>
-           <Navigation className='navContainer'/>
-           <hr className='line'></hr>
-           <SingleSpot />
+          <SingleSpot />
         </Route>
+
         <Route exact path='/spots/edit/:id'>
-        <Navigation className='navContainer'/>
-           <hr className='line'></hr>
-           <EditForm />
+          <Navigation className='navContainer'/>
+          <hr className='line'></hr>
+          <EditForm />
         </Route>
+
         <Route exact path='/spots/edit/:id/images'>
-        <Navigation className='navContainer'/>
-           <hr className='line'></hr>
-             <EditImages />
-
-
+          <Navigation className='navContainer'/>
+          <hr className='line'></hr>
+          <EditImages />
         </Route>
+
         <Route exact path='/images/:id'>
-           <SingleSpotImages />
+          <SingleSpotImages />
         </Route>
 
+        <Route exact path='/reviews'>
+          <Navigation className='navContainer'/>
+          <hr className='line'></hr>
+          < Reviews />
+        </Route>
 
       </Switch>
     {/* )} */}

@@ -5,11 +5,13 @@ import thunk from 'redux-thunk'
 import {sessionReducer} from './session'
 import spotReducer  from './spots'
 import ImageReducer from './image'
+import reviewReducer from './review'
 //------------------------------------------------rootreducer--------------------------------------------------------------
 const rootReducer = combineReducers({
     session:sessionReducer,
     spots:spotReducer,
-    image:ImageReducer
+    image:ImageReducer,
+    reviews:reviewReducer
 })
 
 

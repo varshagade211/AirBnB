@@ -1,17 +1,23 @@
 .editImagesInform{
-    width: 200px;
-    height:200px
+    /* width: 200px;
+    height:200px */
+    width:100%;
 }
 .editButtonAndTitleContainer{
     display: flex;
     justify-content: space-between;
+
     align-items: center;
 }
 
 .editSpotImageContainer{
-  display: flex;
+  /* display: flex; */
+  /* width: 100%;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: 31% 31% 31%;
+  gap:1rem;
   width: 100%;
-  flex-wrap: wrap;
 
 }
 .editImageButton{
@@ -25,7 +31,8 @@
 }
 
 .editFormMainContainer{
-    margin: 3rem 17rem 0 15rem;
+    /* margin: 3rem 17rem 0 15rem; */
+    margin: auto;
     width: 50%;
 }
 .editFormMainInsideContainer{
@@ -36,9 +43,7 @@
 .editFormHeading{
     margin: 0 0rem 0 1rem;
 }
-.editFormContainer{
-    width: 100%;
-}
+
 
 .editFormInput{
     width: 100%;
@@ -77,8 +82,10 @@
     background-color:#FFF;
     padding:10px;
     box-shadow: 0 0 6px rgba(128, 128, 128, 0.575);
-    background-color: #ffffff
+    background-color: #ffffff;
+    width: 100%;
 }
+
 .editImageButton{
     padding: 15px;
     border: none;
@@ -121,38 +128,57 @@
 @media only screen and (max-width: 1000px) {
 
     .editFormMainContainer{
-        margin: 1rem 1rem 0 1rem;
-        width: 100%;
+        /* margin: 1rem 1rem 0 1rem; */
+        width: 75%;
     }
-    .editFormContainer{
+    /* .editFormContainer{
         width: 70%;
 
-    }
+    } */
     .editImageButton{
         margin: 0 0rem 0 0rem;
     }
     .editSpotImageContainer{
-    margin: 1rem 1rem 1rem 2rem ;
+    /* margin: 1rem 1rem 1rem 2rem ; */
 
     }
    .editImagesInform{
-    width: 350px;
-    height: 200px;
+    /* width: 350px; */
+    /* height: 200px; */
    }
-   .editFormContainer{
+   /* .editFormContainer{
     width: 90%;
     margin: 1rem 1rem 1rem 2.1rem;
-   }
+   } */
+
+}
+@media only screen and  (max-width: 600px)  {
+    .editSpotImageContainer{
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap:1rem;
+        width: 70%;
+        /* margin: 1rem 1rem 1rem 0rem */
+        margin: 0 auto 1rem auto;
+
+      }
+      .editImagesInform {
+        margin: 0 0 0 0;
+      }
 
 }
 
 
 @media only screen and (min-width: 200px) and (max-width: 700px)  {
-.editFormContainer{
+/* .editFormContainer{
     margin: 1rem 1rem 1rem 0rem
-}
-.editSpotImageContainer{
+} */
+/* .editSpotImageContainer{
     margin: 1rem 1rem 1rem 0rem
+} */
+.editFormMainContainer{
+    width: 100%;
 }
 .editFormMainInsideContainer{
     margin: 1rem 1rem 1rem 0rem

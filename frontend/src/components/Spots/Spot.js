@@ -4,12 +4,19 @@ import './Spot.css'
 import { useHistory, Redirect } from 'react-router-dom'
 function Spot({spot}){
     const history = useHistory()
-//    const [showSingleSpot,setSingleShowSpot] = useState(false)
 
    const onClickHandler = () => {
         history.push(`/spots/${spot?.id}`)
-    //   return  <Redirect to={`/api/spots/${spot.id}`} />
    }
+
+
+   let rating= "New"
+   if(spot?.Reviews?.length > 0){
+       let stars=0;
+       spot?.Reviews?.forEach(review => stars += review?.stars)
+       rating = (stars/spot?.Reviews?.length)?.toFixed(1)
+   }
+
 
     return(
 
@@ -27,13 +34,13 @@ function Spot({spot}){
                        <li className='price'> <b>${spot?.price}</b> night</li>
                      {/* </div> */}
 
-                        <p className='star'><i class="fa-solid fa-star"></i> new</p>
+                        <p className='star'><i class="fa-solid fa-star"></i>{rating}</p>
 
                 </div>
 
 
             </div>
-  
+
 
     )
 }

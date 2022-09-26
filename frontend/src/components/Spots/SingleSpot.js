@@ -4,6 +4,10 @@ import {useDispatch, useSelector} from 'react-redux'
 import './SingleSpot.css'
 import { useEffect, useState } from 'react'
 import {loadSpotsThunk,deleteCurrentUserSpotsThunk} from '../../store/spots'
+import * as reviewActions from '../../store/review'
+import Navigation from "../Navigation"
+import CreateReviewFormModal from '../CreateReviewModal'
+import DeleteSpotModal from '../DeleteSpotModal'
 function SingleSpot(){
     let {id} = useParams()
 
@@ -12,11 +16,16 @@ function SingleSpot(){
 
     const spots = useSelector(state => state?.spots)
     const sessionUser = useSelector(state => state?.session?.user)
+    const reviews = useSelector(state => state?.reviews?.reviews)
 
     useEffect(()=>{
         dispatch(loadSpotsThunk())
+        dispatch(reviewActions.loadSpotsReviewThunk(id))
     },[dispatch])
 
+
+    let stars=0;
+    reviews?.forEach(review => stars += review?.stars)
     let singleSpot
     if(spots){
         singleSpot = spots[id]
@@ -26,10 +35,10 @@ function SingleSpot(){
     let isOwner = false
     if(sessionUser?.id === singleSpot?.ownerId) isOwner = true
 
-    const deleteHandler = async() =>{
-       const response= await dispatch(deleteCurrentUserSpotsThunk(singleSpot))
-       history.push('/spots/user/spots')
-    }
+    // const deleteHandler = async() =>{
+    //    const response= await dispatch(deleteCurrentUserSpotsThunk(singleSpot))
+    //    history.push('/spots/user/spots')
+    // }
 
     const EditHandler = () =>{
         history.push(`/spots/edit/${id}`)
@@ -56,6 +65,8 @@ function SingleSpot(){
     }
     return(
         <div className='singalePageMainContainer'>
+           <Navigation className='navContainer'/>
+           <hr className='line'></hr>
             <div className='singleSpotBackIconContainer' onClick={backHandler}>
                 <i  class="fas fa-angle-left singleSpotBackarrowIcon"></i>
             </div>
@@ -76,7 +87,7 @@ function SingleSpot(){
                         <img  className = 'singleSpotFirstImage'src= {firstImg?.image} />
                     </div>
                     <div className={singleClassRemainingImages}>
-                       
+
                         {Images?.map((image)=>  <img className = {'singleSpotImgs'} src= {image?.image} /> )}
 
 
@@ -120,16 +131,56 @@ function SingleSpot(){
                     </div>
                     <div className='sideBarContainer'>
                         <div className='sideBar'>
-                           <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
-                           {/* <button className='bookingBtn' disabled={true}>Reserve</button> */}
+                            <div className='bookingPriceAndReviewContainer'>
+                                <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
+                                <p className='bookingStarsContainer'><i className="fa-solid fa-star bookinStar"></i>
+                                    {(stars/reviews?.length).toFixed(1)} <span>|</span>  {reviews?.length} Reviews</p>
+
+                            </div>
+                           <div className='dateInputLabelContainer'>
+                                <label className='dateLable' for="checkIn">Check In</label><br />
+                                <input className='dateInput' type="date" name="checkIn" id="checkIn" />
+
+                           </div>
+                            <div  className='dateInputLabelContainer'>
+                                <label className='dateLable' for="checkOut">Check Out</label><br />
+                                <input className='dateInput' type="date" name="checkOut" id="checkOut" />
+
+                            </div>
+                            <div className='dateInputLabelContainer'>
+                                <button className='bookingBtn'>Reserve</button>
+
+                            </div>
                         </div>
                        {isOwner&&
                             <div className='editDeletebuttons'>
                               <button className='ediBtn' onClick={EditHandler}>Edit Listing</button>
-                              <button  className='deleteBtn'  onClick={deleteHandler}>Delete Listing</button>
+                              <DeleteSpotModal singleSpot={singleSpot} className={"deleteBtn"}/>
+                              {/* <button  className='deleteBtn'  onClick={deleteHandler}>Delete Listing</button> */}
                             </div>
                         }
                     </div>
+                </div>
+                <hr className='line'></hr>
+                {/*------------------------------------------- reviews ------------------------------------------------------- */}
+                {/* <i className="fa-solid fa-circle dotIcon"></i> */}
+                <p className='reviewsStarsContainer'><i className="fa-solid fa-star"></i>
+                {(stars/reviews?.length).toFixed(1)} <span className='pipe'>|</span>  {reviews?.length} Reviews</p>
+                <CreateReviewFormModal />
+                <div className='reviewOuterContainer'>
+
+                   {reviews?.map(review => {
+                      return(
+                       <div className='reviewContainer'>
+                        <div className='reviewuserNameAndDateContainer'>
+                         <p className='reviewName'>{review?.User?.firstName} {review?.User?.lastName}</p>
+                         <p className='reviewDate'>{new Date(review?.createdAt).toDateString()}</p>
+                         </div>
+                         <p className='reviewTxt'>{review?.review}</p>
+                        </div>
+                      )
+                   })}
+
                 </div>
                 <hr className='line'></hr>
                 <footer className='footer'>

@@ -13,12 +13,15 @@ router.get('/',requireAuth, async(req,res) => {
         include:[
             {
                 model:Spot,
-                attributes:{exclude:['createdAt','updatedAt','description']}
+                attributes:{exclude:['createdAt','updatedAt','description']},
+                include:[
+                    {
+                        model:Image,
+                        attributes:['image']
+                    }
+                ]
             },
-            {
-                model:Image,
-                attributes:['image']
-            },
+
             {
                 model:User,
                 attributes:['id','firstName','lastName']
@@ -27,8 +30,39 @@ router.get('/',requireAuth, async(req,res) => {
     })
    return res.status(200).json({"Reviews" : reviews})
 })
+router.get('/user/', async(req,res,next)=>  {
+    const reviews = await Review.findAll(
+        {
+            where:{userId:req.user.id},
+            include:[
+                {
+                    model:User,
+                    attributes:['id','firstName','lastName']
+                },
+                {
+                    model:Spot,
+                    attributes:{exclude:['createdAt','updatedAt','description']},
+                    include:[
+                        {
+                            model:Image,
+                            attributes:['image']
+                        }
+                    ]
+                },
 
-//get review fo spot
+
+            ]
+        }
+    )
+    if(!reviews.length){
+        const err = new Error("Page Not Found");
+        err.errors = {review:"Spot couldn't be found"}
+        err.statusCode = 404;
+        return next(err);
+    }
+   return res.status(200).json({"Reviews" : reviews})
+})
+//get review for spot
 router.get('/:spotId', async(req,res,next)=>  {
     const reviews = await Review.findAll(
         {
@@ -62,10 +96,10 @@ const validateReview = [
     check("review")
        .notEmpty()
        .withMessage("Review text is required"),
-    check("stars")
-       .exists({checkFalsy:true})
-       .isNumeric()
-       .withMessage("Stars must be an integer from 1 to 5"),
+    // check("stars")
+    //    .exists({checkFalsy:true})
+    //    .isNumeric()
+    //    .withMessage("Stars must be an integer from 1 to 5"),
     check("stars")
        .isInt({ min: 1, max: 5 })
        .withMessage("Stars must be an integer from 1 to 5"),
@@ -77,22 +111,13 @@ router.post('/:spotId',requireAuth, validateReview, async (req,res,next)=>{
     const {review,stars} = req.body
     let spot = await Spot.findByPk(req.params.spotId)
     if(!spot){
-        const err = new Error("Spot couldn't be found");
+        const err = new Error("Page Not Found");
+        err.errors = {review:"Spot couldn't be found"}
         err.statusCode = 404;
         return next(err);
 
     }
-    let userHasReviewForSpot = await Review.findOne({
-        where: {
-            [Op.and]: [{spotId: spot.id}, {userId: req.user.id}]
-        }
-    })
 
-    if(userHasReviewForSpot) {
-        const err = new Error("User already has a review for this spot");
-        err.statusCode = 403;
-        return next(err);
-    }
 
     let newReview = await Review.create({
             review,
@@ -100,6 +125,8 @@ router.post('/:spotId',requireAuth, validateReview, async (req,res,next)=>{
             spotId:spot.id,
             userId:req.user.id
     })
+    let user = await User.findByPk(req.user.id)
+    newReview.dataValues.User = user
     return res.status(201).json(newReview)
 
 
@@ -115,7 +142,7 @@ router.put('/:id', requireAuth, validateReview, async(req,res,next)=> {
         return next(err);
 
     }
-
+    
     const {review, stars} = req.body
     if (foundReview.userId === req.user.id) {
         const updatedReview =  await foundReview.update({review, stars})

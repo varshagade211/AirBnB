@@ -1,0 +1,53 @@
+.editReviewInput{
+    /* width: 100%;
+    border-radius: 5px;
+    border:1px solid black;
+    padding: 1rem; */
+
+    width: 100%;
+    border:none;
+    /* border-bottom:  0.5px solid rgba(0, 0, 0, 0.232); */
+    padding: 0.5rem;
+    border:1px solid black;
+    border-radius: 5px;
+    margin: 0rem 0 0 0rem;
+    font-size: 0.8rem;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    min-height: 0.8rem;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.editReviewStar{
+    margin: 1rem 0 0 0 ;
+    color: goldenrod;
+    font-size: 1rem;
+
+}
+.editSelectedStar{
+    margin: 1rem 0 0 0;
+    color: goldenrod;
+    font-size: 1rem;
+
+}
+.editReviewFormContainer{
+    min-width: 300px;
+    min-height: 200px;
+    text-align: center;
+}
+
+.editReviewForm{
+    padding: 1rem;
+}
+
+.editReviewSubmitBtn{
+    margin: 1rem 0 0 0 ;
+    background-color: rgb(230, 30, 77);
+    border:0.5px solid rgb(230, 30, 77);
+    color: white;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px
+}
