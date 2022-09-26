@@ -19,6 +19,7 @@ import SingleSpotImages from './components/Spots/SingleSpotImages'
 import EditImages from './components/Spots/EditImages';
 import DeletePopUpModal from './components/ImageDeleteModal'
 import Reviews from './components/Reviews';
+import Bookings from './components/Bookings'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -48,7 +49,7 @@ function App() {
         <Route exact path='/spots'>
           <CreateSpot />
         </Route>
-        
+
         <Route exact path='/spots/:id'>
           <SingleSpot />
         </Route>
@@ -73,6 +74,12 @@ function App() {
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           < Reviews />
+        </Route>
+
+        <Route exact path='/bookings'>
+          <Navigation className='navContainer'/>
+          <hr className='line'></hr>
+          < Bookings />
         </Route>
 
       </Switch>
