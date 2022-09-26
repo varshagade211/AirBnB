@@ -6,12 +6,14 @@ import {sessionReducer} from './session'
 import spotReducer  from './spots'
 import ImageReducer from './image'
 import reviewReducer from './review'
+import bookingReducer from './bookings'
 //------------------------------------------------rootreducer--------------------------------------------------------------
 const rootReducer = combineReducers({
     session:sessionReducer,
     spots:spotReducer,
     image:ImageReducer,
-    reviews:reviewReducer
+    reviews:reviewReducer,
+    bookings:bookingReducer
 })
 
 

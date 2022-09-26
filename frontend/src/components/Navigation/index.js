@@ -45,6 +45,8 @@ function Navigation({ }){
         <hr className='NavLinkline'></hr>
         {sessionUser && <NavLink to={'/reviews'}><button className= 'myLinkAllSpot'> My Reviews</button> </NavLink>}
         <hr className='NavLinkline'></hr>
+        {sessionUser && <NavLink to={'/bookings'}><button className= 'myLinkAllSpot'>Trips</button> </NavLink>}
+        <hr className='NavLinkline'></hr>
         <button className='logoutBtn'onClick={logout}>Log Out</button>
       </div>
     );
