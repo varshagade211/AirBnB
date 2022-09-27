@@ -15,23 +15,31 @@ function Reviews(){
     //     dispatch(reviewActions.deleteReviewThunk(reviewId))
     // }
     return (
-        <div>
-            <div className="yourReviewContainer"><p>Your Review</p></div>
+        <div className="reviewFeedOuterContainer">
+            <div className="yourReviewContainer"><p className="pastReview">Past Reviews </p></div>
             {reviews?.map(review=>{
                return(
-                <div key={review?.id}>
+                <div key={review?.id} className="imageAndReviewContainer">
                     <div className="reviewPreviweImageContainer">
                         <img className='reviewPreviweImage' src={review?.Spot?.Images[0]?.image} />
                     </div>
-
-                  <p>{review?.Spot?.name}</p>
-                  <p>{review?.review}</p>
-                  <p><i class="fa-solid fa-star"></i> {review?.stars}</p>
-                  <p className='reviewDate'>{new Date(review?.createdAt).toDateString()}</p>
-                  <EditReviewModal review={review}/>
-                  <DeleteReviewFormModal reviewId={review?.id}/>
-                  {/* <button onClick={()=>deleteReviewHandler(review?.id)}>Delete Review</button> */}
+                    <div className="ReviewBtnAndReviewContainer">
+                        <div className="reviewInfoContainer">
+                        <p className="reviewInfo reviewSpotName">{review?.Spot?.name}</p>
+                        <p className='reviewPageDate reviewInfo'>{new Date(review?.createdAt).toDateString()}</p>
+                        <div className="reviewTextContainer">
+                            <p className="reviewInfo reviewPageText">{review?.review}</p>
+                        </div>
+                        <p className="reviewInfo"><i class="fa-solid fa-star"></i> {review?.stars}</p>
+                    </div>
+                    <div className="editdeletereviewBtnContainer">
+                        <EditReviewModal className={'editreviewBtn'} review={review}/>
+                        <DeleteReviewFormModal className={'deleteReviewBtn'} reviewId={review?.id}/>
+                    </div>
                 </div>
+
+                  {/* <button onClick={()=>deleteReviewHandler(review?.id)}>Delete Review</button> */}
+            </div>
              )
         })}
         </div>

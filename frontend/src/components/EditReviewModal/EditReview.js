@@ -107,10 +107,10 @@ function EditReviewForm({setShowModalClose , review}){
         <form className='editReviewForm' onSubmit={onSubmitReviewHandler}>
             <textarea className='editReviewInput' ref={textArea}  type='text' placeholder="Add review" name='review' value={reviewData} onChange={onCommentChangeHandler}/>
             {errors?.review &&
-                <div className="errorContainer">
+                <div>
                     <div>
-                        <i className="fa-solid fa-circle-exclamation commentErrorlogo"></i>
-                        <span className='commentError' key={errors.review}>{errors.review}</span>
+                        <i className="fa-solid fa-circle-exclamation createReviewErrorlogo"></i>
+                        <span className='createReviewErrorError' key={errors.review}>{errors.review}</span>
                     </div>
                     </div>
             }
@@ -133,10 +133,10 @@ function EditReviewForm({setShowModalClose , review}){
 
             </div>
             {errors?.stars &&
-                <div className="errorContainer">
+                <div>
                     <div>
-                        <i className="fa-solid fa-circle-exclamation commentErrorlogo"></i>
-                        <span className='commentError' key={errors.stars}>{errors.stars}</span>
+                        <i className="fa-solid fa-circle-exclamation createReviewErrorlogo"></i>
+                        <span className='createReviewErrorError' key={errors.stars}>{errors.stars}</span>
                     </div>
                     </div>
             }

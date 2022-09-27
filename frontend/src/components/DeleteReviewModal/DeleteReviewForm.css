@@ -1,0 +1,20 @@
+.deleteReviewWarning{
+    font-size: 0.9rem;
+    margin: 0 0 1rem 0;
+}
+.deleteReviewContainer{
+    padding: 1rem;
+}
+
+.cancelDeleteReviewModalBtnContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.deleteReviewModalBtn,.cancelReviewModalBtn{
+ background-color: rgb(238, 46, 91);
+ color: white;
+ padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+ border: 1px solid rgb(238, 46, 91);
+ border-radius: 5px;
+}

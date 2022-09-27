@@ -1,7 +1,89 @@
 .reviewPreviweImageContainer,.reviewPreviweImage{
-    width:100px;
+    width:150px;
 
 }
 .yourReviewContainer{
-    background-color:#ecefed;
+    background-color:rgba(0, 0, 0, 0.07);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.imageAndReviewContainer{
+    display: flex;
+    margin: 2rem 0 0 0;
+    border-bottom:1px solid rgba(0, 0, 0, 0.112);
+    padding: 1rem 1rem 2rem 1rem;
+}
+.reviewFeedOuterContainer{
+    margin: 1rem;
+}
+
+.reviewInfo{
+ margin: 0 0 0 1rem;
+ overflow-wrap: anywhere;
+ /* width: 70%; */
+}
+.reviewSpotName{
+    font-weight: bold;
+}
+.reviewPageText{
+    margin: 1rem 0 0 1rem;
+    /* font-size: 0.9rem; */
+}
+
+.reviewPageDate{
+    font-size: 0.8rem;
+    color: rgba(128, 128, 128);
+    margin: 0.2rem 0 0 1rem;
+}
+.ReviewBtnAndReviewContainer{
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+    /* background-color: pink; */
+}
+
+.editdeletereviewBtnContainer{
+    align-self: end;
+}
+
+.pastReview{
+    margin: 0 0 0 0 ;
+    font-weight: bold;
+}
+.editreviewBtn,.deleteReviewBtn{
+    background-color:  rgb(238, 46, 91);
+    border:1px solid rgb(238, 46, 91);
+    color:white;
+    padding:0.2rem 0.5rem 0.2rem 0.5rem ;
+    margin: 0 2rem 0 0;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.reviewInfoContainer{
+    width:60%;
+}
+@media only screen and (max-width: 500px)  {
+.imageAndReviewContainer{
+display: block;
+}
+
+.reviewPreviweImageContainer, .reviewPreviweImage{
+    width: 100%;
+    height: 200px;
+    margin: 0 0 1rem 0;
+}
+}
+@media only screen and (max-width: 900px)  {
+    .reviewInfoContainer{
+        width:100%;
+    }
+    .ReviewBtnAndReviewContainer{
+        display: block;
+    }
+    .editdeletereviewBtnContainer{
+        margin: 1rem 1rem 1rem 1rem;
+    }
 }

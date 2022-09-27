@@ -9,7 +9,11 @@ const {Op} = require('sequelize');
 //get reviews of current user
 router.get('/',requireAuth, async(req,res) => {
     const reviews = await Review.findAll({
+        order: [
+            ["id", "DESC"]
+        ],
         where: { userId:req.user.id },
+
         include:[
             {
                 model:Spot,
@@ -34,6 +38,9 @@ router.get('/user/', async(req,res,next)=>  {
     const reviews = await Review.findAll(
         {
             where:{userId:req.user.id},
+            order: [
+                ["id", "DESC"]
+            ],
             include:[
                 {
                     model:User,
@@ -67,6 +74,9 @@ router.get('/:spotId', async(req,res,next)=>  {
     const reviews = await Review.findAll(
         {
             where:{spotId:req.params.spotId},
+            order: [
+                ["id", "DESC"]
+            ],
             include:[
                 {
                     model:User,
