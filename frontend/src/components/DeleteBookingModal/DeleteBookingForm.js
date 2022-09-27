@@ -23,6 +23,7 @@ function DeleteBookingForm({setShowModalClose,booking}){
      }
     return (
         <div>
+            <i onClick={()=>setShowModalClose(false)} className="fa-regular fa-rectangle-xmark"></i>
             <p>Do you want to delete booking permanantly?</p>
             {errors?.date &&
                 <div className="errorContainer">
@@ -33,9 +34,9 @@ function DeleteBookingForm({setShowModalClose,booking}){
 
                 </div>
             }
-           <button   onClick={deleteHandler}>Delete Booking</button>
+           <button   onClick={deleteHandler}>Cancel Booking</button>
 
-            <button onClick={()=>setShowModalClose(false)}>Cancel</button>
+
         </div>
 
     )

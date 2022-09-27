@@ -11,7 +11,7 @@ function EditBookingModal({className,booking}) {
   return (
     <>
       {/* <button className='loginButton' onClick={() => setShowModal(true)}>Log In</button> */}
-      <button className={className} onClick={() => setShowModal(true)}>Edit Booking</button>
+      <p className={className} onClick={() => setShowModal(true)}><i className="fa-solid fa-pen" style={{marginRight:1+'rem'}}></i>Edit Booking</p>
 
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

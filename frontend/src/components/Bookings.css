@@ -1,3 +1,92 @@
 .yourBookingsContainer{
-    background-color:#ecefed;
+    background-color:rgba(0, 0, 0, 0.07);
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+
+
+}
+.yourTripTxt{
+    margin: 0 0 0 0;
+    font-weight: bold;
+}
+.bookinggImageAndInfoContainer{
+
+}
+.bookingImage{
+    width: 100%;
+
+}
+
+.bookingInfoAndMapContainer{
+    display: flex;
+}
+.mapContainer{
+    width:70%;
+
+}
+.bookinggImageAndInfoContainer{
+    width:30%
+}
+.bookingContainer{
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+.bookinImageContainer{
+/* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.688); */
+margin: 0 0.1rem 0 0;
+}
+
+.bookingCheckingContainer{
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0 0 0;
+
+}
+.bookingInfoContainer{
+    margin: 0 0rem 0 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.284);
+}
+
+.bookingBtnContainer{
+    margin: 0 0rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    border-top: 1px solid rgba(0, 0, 0, 0.284);
+}
+
+.deleteBookingBtn,.editBookingBtn{
+    /* margin:1rem 0 0 0;
+    background-color:  rgb(238, 46, 91);
+    border:1px solid rgb(238, 46, 91);
+    color:white;
+    padding:0.2rem 0.5rem 0.2rem 0.5rem ;
+    width: 80%;
+    cursor: pointer;
+    border-radius: 5px; */
+    /* width: 50%;
+    background-color: white;
+    border:none */
+    cursor: pointer;
+}
+
+
+.bookingBeachIcon,.leftBackIcon,.bookingLocationicon{
+    margin: 0 1rem 0 0;
+
+}
+
+.backBtnToSpot{
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 700px)  {
+.bookingInfoAndMapContainer{
+    display: block;
+}
+.bookinggImageAndInfoContainer,.mapContainer{
+    width:100%
+}
 }
