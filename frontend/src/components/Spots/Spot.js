@@ -34,7 +34,7 @@ function Spot({spot}){
                        <li className='price'> <b>${spot?.price}</b> night</li>
                      {/* </div> */}
 
-                        <p className='star'><i class="fa-solid fa-star"></i>{rating}</p>
+                        <p className='star'><i className="fa-solid fa-star"></i>{rating}</p>
 
                 </div>
 

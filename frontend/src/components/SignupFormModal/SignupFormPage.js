@@ -49,7 +49,7 @@ function SignupFormPage() {
            {errors?.firstName &&
               <div className="errorContainer">
                   <div>
-                      <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.firstName}>{errors.firstName}</span>
@@ -62,7 +62,7 @@ function SignupFormPage() {
             {errors?.lastName &&
               <div className="errorContainer">
                   <div>
-                      <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.lastName}>{errors.lastName}</span>
@@ -75,7 +75,7 @@ function SignupFormPage() {
             {errors?.email &&
               <div className="errorContainer">
                   <div>
-                      <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.email}>{errors.email}</span>
@@ -88,7 +88,7 @@ function SignupFormPage() {
             {errors?.password &&
               <div className="errorContainer">
                   <div>
-                      <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.password}>{errors.password}</span>
@@ -101,7 +101,7 @@ function SignupFormPage() {
             {errors?.confirmPassword &&
               <div className="errorContainer">
                   <div>
-                      <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.confirmPassword}>{errors.confirmPassword}</span>

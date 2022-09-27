@@ -12,7 +12,7 @@ function DeletePopUpModal({ImageId, image, setRefresh}) {
     <>
       <div className='editsingleImageContainer' onClick={()=>setShowModal(true)}>
         <img className='editImages'src={image} alt='name'/>
-        <div className='dotIconContainer'> <i class="fa fa-ellipsis-h dotsIcon " aria-hidden="true"></i></div>
+        <div className='dotIconContainer'> <i className="fa fa-ellipsis-h dotsIcon " aria-hidden="true"></i></div>
       </div>
       {showModal && (
         <Modal  onClose={() => setShowModal(false)}>

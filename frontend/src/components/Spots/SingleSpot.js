@@ -1,5 +1,5 @@
 
-import {useParams , useHistory} from 'react-router-dom'
+import {useParams , useHistory, NavLink} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import './SingleSpot.css'
 import { useEffect, useState } from 'react'
@@ -8,9 +8,14 @@ import * as reviewActions from '../../store/review'
 import Navigation from "../Navigation"
 import CreateReviewFormModal from '../CreateReviewModal'
 import DeleteSpotModal from '../DeleteSpotModal'
+import * as bookingActions from '../../store/bookings'
+
+
 function SingleSpot(){
     let {id} = useParams()
-
+    let [startDate,setStartDate] = useState('')
+    let [endDate, setEndDate] = useState('')
+    const [errors, setErrors] = useState({});
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -52,8 +57,6 @@ function SingleSpot(){
     let singleClassRemainingImages = 'singleSpotRemainingImgsContainer'
 
 
-
-
     const showImageHandler = () =>{
         history.push(`/images/${singleSpot?.id}`)
     }
@@ -63,6 +66,26 @@ function SingleSpot(){
           history.push('/spots/user/spots')
         }
     }
+
+    const onBookingSubmit = ((e)=>{
+        e.preventDefault()
+
+        dispatch(bookingActions.createBookingThunk({spotId:singleSpot?.id,startDate,endDate}))
+        .then((res) => {
+
+            setStartDate("");
+            setEndDate("")
+            setErrors({message:"Successfully created your booking! see in trips"});
+        })
+        .catch(async (res) => {
+            console.log(res)
+            const data = await res.json();
+            if (data && data.errors) {
+                setErrors(data.errors);
+            }
+        });
+
+    })
     return(
         <div className='singalePageMainContainer'>
            <Navigation className='navContainer'/>
@@ -104,7 +127,7 @@ function SingleSpot(){
                         <p className='grestlocationText'> <i className="fa-solid fa-location-dot locationIcon"></i>  Great location</p>
                         <p className='locationText'>100% of recent guests gave the location a 5-star rating.</p>
                         <p className='experience'>  <i className="fa-solid fa-star"></i>  Experienced host</p>
-                        <p className='freeCancelation'><i class="fa-solid fa-calendar"></i>  Free cancellation for 48 hours.</p>
+                        <p className='freeCancelation'><i className="fa-solid fa-calendar"></i>  Free cancellation for 48 hours.</p>
                         <hr className='line'></hr>
                         <h1><b><span className='airTxt'>air</span>cover</b></h1>
                         <p className='policyText'>Every booking includes free protection from Host cancellations,<br/>
@@ -130,30 +153,74 @@ function SingleSpot(){
                         </div>
                     </div>
                     <div className='sideBarContainer'>
-                        <div className='sideBar'>
+                   {singleSpot?.ownerId !== sessionUser?.id && <div className='sideBar'>
                             <div className='bookingPriceAndReviewContainer'>
                                 <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
                                 <p className='bookingStarsContainer'><i className="fa-solid fa-star bookinStar"></i>
                                     {(stars/reviews?.length).toFixed(1)} <span>|</span>  {reviews?.length} Reviews</p>
 
                             </div>
-                           <div className='dateInputLabelContainer'>
-                                <label className='dateLable' for="checkIn">Check In</label><br />
-                                <input className='dateInput' type="date" name="checkIn" id="checkIn" />
+                            <form onSubmit={onBookingSubmit}>
+                                <div className='dateInputLabelContainer'>
+                                    <label className='dateLable' for="checkIn">Check In</label><br />
+                                    <input className='dateInput' type="date" name="checkIn" id="checkIn"
+                                    onChange={(e)=>setStartDate(e.target.value)}/>
+                                      {errors?.startDate &&
+                                        <div className="errorContainer">
+                                            <div>
+                                                <i className="fa-solid fa-circle-exclamation createFormErrorlogo"></i>
+                                                <span className='createFormErrorError' key={errors.startDate}>{errors.startDate}</span>
+                                            </div>
 
-                           </div>
-                            <div  className='dateInputLabelContainer'>
-                                <label className='dateLable' for="checkOut">Check Out</label><br />
-                                <input className='dateInput' type="date" name="checkOut" id="checkOut" />
+                                        </div>
+                                    }
+                                </div>
+                                <div className='dateInputLabelContainer'>
+                                    <label className='dateLable' for="checkOut">Check Out</label><br />
+                                    <input className='dateInput' type="date" name="checkOut" id="checkOut"
+                                    onChange={(e)=>setEndDate(e.target.value)} />
+                                     {errors?.endDate &&
+                                        <div className="errorContainer">
+                                            <div>
+                                                <i className="fa-solid fa-circle-exclamation createFormErrorlogo"></i>
+                                                <span className='createFormErrorError' key={errors.startDate}>{errors.startDate}</span>
+                                            </div>
 
-                            </div>
-                            <div className='dateInputLabelContainer'>
-                                <button className='bookingBtn'>Reserve</button>
+                                        </div>
+                                    }
+                                     {errors?.date &&
+                                        <div className="errorContainer">
+                                            <div>
+                                                <i className="fa-solid fa-circle-exclamation createFormErrorlogo"></i>
+                                                <span className='createFormErrorError' key={errors.date}>{errors.date}</span>
+                                            </div>
 
-                            </div>
-                        </div>
+                                        </div>
+                                    }
+                                    {errors?.message &&
+                                        <div className="errorContainer">
+                                            <div>
+                                                {/* <i class="fa-solid fa-circle-exclamation createFormErrorlogo"></i> */}
+                                                <span className='createFormErrorError' key={errors.message}>{errors.message}</span>
+                                                <NavLink to={'/bookings'}> Your Trips</NavLink>
+                                            </div>
+
+                                        </div>
+                                    }
+                                </div>
+                                <div className='dateInputLabelContainer'>
+                                    <button className='bookingBtn'>Reserve</button>
+                                </div>
+                            </form>
+                    </div>}
                        {isOwner&&
                             <div className='editDeletebuttons'>
+                                <div className='bookingPriceAndReviewContainer'>
+                                <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
+                                <p className='bookingStarsContainer'><i className="fa-solid fa-star bookinStar"></i>
+                                    {(stars/reviews?.length).toFixed(1)} <span>|</span>  {reviews?.length} Reviews</p>
+
+                            </div>
                               <button className='ediBtn' onClick={EditHandler}>Edit Listing</button>
                               <DeleteSpotModal singleSpot={singleSpot} className={"deleteBtn"}/>
                               {/* <button  className='deleteBtn'  onClick={deleteHandler}>Delete Listing</button> */}
@@ -161,22 +228,30 @@ function SingleSpot(){
                         }
                     </div>
                 </div>
-                <hr className='line'></hr>
+                <hr className='reviewLine'></hr>
                 {/*------------------------------------------- reviews ------------------------------------------------------- */}
-                {/* <i className="fa-solid fa-circle dotIcon"></i> */}
-                <p className='reviewsStarsContainer'><i className="fa-solid fa-star"></i>
-                {(stars/reviews?.length).toFixed(1)} <span className='pipe'>|</span>  {reviews?.length} Reviews</p>
-                <CreateReviewFormModal />
+               <div className='reviewStarAddReviewContainer'>
+                    <p className='reviewsStarsContainer'><i className="fa-solid fa-star"></i>
+                    {(stars/reviews?.length).toFixed(1)} <span className='pipe'>|</span>  {reviews?.length} Reviews</p>
+                    <CreateReviewFormModal className={'addReviewBtn'}/>
+
+               </div>
                 <div className='reviewOuterContainer'>
 
                    {reviews?.map(review => {
                       return(
                        <div className='reviewContainer'>
                         <div className='reviewuserNameAndDateContainer'>
-                         <p className='reviewName'>{review?.User?.firstName} {review?.User?.lastName}</p>
-                         <p className='reviewDate'>{new Date(review?.createdAt).toDateString()}</p>
-                         </div>
+                        <div className='userIconAndUserNameContainer'>
+                            <i className="fa-solid fa-circle-user reviewUserIcon"></i>
+                            <div>
+                               <p className='reviewName'>{review?.User?.firstName} {review?.User?.lastName}</p>
+                               <p className='reviewDate'>{new Date(review?.createdAt).toDateString()}</p>
+                            </div>
+                        </div>
                          <p className='reviewTxt'>{review?.review}</p>
+
+                        </div>
                         </div>
                       )
                    })}

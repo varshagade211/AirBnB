@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     review:{
       type:DataTypes.STRING,
+      validate:{
+        len:[1,1000]
+      }
     },
     stars:{
       type:DataTypes.INTEGER,
@@ -34,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Review',
-   
+
   });
   return Review;
 };

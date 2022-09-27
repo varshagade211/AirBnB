@@ -93,9 +93,9 @@ const validateReview = [
        .exists({checkFalsy:true})
        .isString()
        .withMessage("Review text is required"),
-    check("review")
-       .notEmpty()
-       .withMessage("Review text is required"),
+    check('review')
+       .isLength({min:1, max:1000})
+       .withMessage('Review must be 1-1000 characters'),
     // check("stars")
     //    .exists({checkFalsy:true})
     //    .isNumeric()
@@ -142,7 +142,7 @@ router.put('/:id', requireAuth, validateReview, async(req,res,next)=> {
         return next(err);
 
     }
-    
+
     const {review, stars} = req.body
     if (foundReview.userId === req.user.id) {
         const updatedReview =  await foundReview.update({review, stars})

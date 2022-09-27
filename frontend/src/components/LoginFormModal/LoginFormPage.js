@@ -48,14 +48,14 @@ function LoginFormPage() {
                 {errors?.password &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.password}>{errors.password}</span>
                         </div>
                     </div>
                 }
-               
+
                 <button className='submitButton' type={'submit'}>Login</button>
 
         </form>

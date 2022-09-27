@@ -109,33 +109,33 @@ function EditReviewForm({setShowModalClose , review}){
             {errors?.review &&
                 <div className="errorContainer">
                     <div>
-                        <i class="fa-solid fa-circle-exclamation commentErrorlogo"></i>
+                        <i className="fa-solid fa-circle-exclamation commentErrorlogo"></i>
                         <span className='commentError' key={errors.review}>{errors.review}</span>
                     </div>
                     </div>
             }
 
             <div className='starContainer'>
-            { !firstStar &&<i class="fa-regular fa-star editReviewStar" onClick={firstStarHandler}></i>}
-            {firstStar &&<i class="fa-solid fa-star editSelectedStar" onClick={firstStarHandler} ></i>}
+            { !firstStar &&<i className="fa-regular fa-star editReviewStar" onClick={firstStarHandler}></i>}
+            {firstStar &&<i className="fa-solid fa-star editSelectedStar" onClick={firstStarHandler} ></i>}
 
-            {!secondStar && <i class="fa-regular fa-star editReviewStar"  onClick={secondStarHandler}></i>}
-            {secondStar && <i class="fa-solid fa-star editSelectedStar" onClick={secondStarHandler}></i>}
+            {!secondStar && <i className="fa-regular fa-star editReviewStar"  onClick={secondStarHandler}></i>}
+            {secondStar && <i className="fa-solid fa-star editSelectedStar" onClick={secondStarHandler}></i>}
 
-            {! thirdStar && <i class="fa-regular fa-star editReviewStar"  onClick={thirdStarHandler}></i>}
-            {thirdStar && <i class="fa-solid fa-star editSelectedStar" onClick={thirdStarHandler} ></i>}
+            {! thirdStar && <i className="fa-regular fa-star editReviewStar"  onClick={thirdStarHandler}></i>}
+            {thirdStar && <i className="fa-solid fa-star editSelectedStar" onClick={thirdStarHandler} ></i>}
 
-            { !fourthStar && <i class="fa-regular fa-star editReviewStar"  onClick={fourthStarHandler}></i>}
-            {fourthStar && <i class="fa-solid fa-star editSelectedStar" onClick={fourthStarHandler}></i>}
+            { !fourthStar && <i className="fa-regular fa-star editReviewStar"  onClick={fourthStarHandler}></i>}
+            {fourthStar && <i className="fa-solid fa-star editSelectedStar" onClick={fourthStarHandler}></i>}
 
-            {!fifthStar && <i class="fa-regular fa-star editReviewStar"  onClick={fifthStarHandler}></i>}
-            {fifthStar && <i class="fa-solid fa-star editSelectedStar" onClick={fifthStarHandler}></i>}
+            {!fifthStar && <i className="fa-regular fa-star editReviewStar"  onClick={fifthStarHandler}></i>}
+            {fifthStar && <i className="fa-solid fa-star editSelectedStar" onClick={fifthStarHandler}></i>}
 
             </div>
             {errors?.stars &&
                 <div className="errorContainer">
                     <div>
-                        <i class="fa-solid fa-circle-exclamation commentErrorlogo"></i>
+                        <i className="fa-solid fa-circle-exclamation commentErrorlogo"></i>
                         <span className='commentError' key={errors.stars}>{errors.stars}</span>
                     </div>
                     </div>

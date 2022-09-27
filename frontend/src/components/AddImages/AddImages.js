@@ -27,7 +27,7 @@ function AddImages({setShowModal}) {
                     {errors?.url &&
                         <div className="errorContainer">
                             <div>
-                               <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                               <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                             </div>
                             <div>
                                 <span className='error' key={errors.url}>{errors.url}</span>

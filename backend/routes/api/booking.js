@@ -75,7 +75,8 @@ router.post('/:spotId', requireAuth , validateBooking, async(req,res,next)=> {
     }
 
     if(spot.ownerId === req.user.id){
-        const err = new Error("Owner can not book this place");
+        const err = new Error("Validation Error");
+        err.errors = {date:"Owner can not book this place"}
         err.statusCode = 403;
         return next(err);
     }
@@ -84,14 +85,16 @@ router.post('/:spotId', requireAuth , validateBooking, async(req,res,next)=> {
     // find booking startdate is in future
     let today = new Date().toLocaleDateString('en-CA')
     if(startDate < today || endDate < today){
-        const err = new Error("Start or End date can not be in past");
+        const err = new Error("Validation Error");
+        err.errors = {date:"Start or End date can not be in past"}
         err.statusCode = 400;
         return next(err);
     }
 
     //check if end date is less than start date
     if(endDate < startDate){
-        const err = new Error("End date can not be before start date");
+        const err = new Error("Validation Error");
+        err.errors = {date:"End date can not be before start date"}
         err.statusCode = 400;
         return next(err);
     }
@@ -106,12 +109,13 @@ router.post('/:spotId', requireAuth , validateBooking, async(req,res,next)=> {
             || ((startDate > existingBooking.endDate) && (endDate > existingBooking.endDate))) {
                 continue
         }
-        const err = new Error("Sorry, this spot is already booked for the specified dates")
+        const err = new Error("Validation Error");
+        err.errors = {date:"Sorry, this spot is already booked for the specified dates"}
         err.statusCode = 403
-        err.errors = {
-            startDate: "Start date conflicts with an existing booking",
-            endDate: "End date conflicts with an existing booking"
-        }
+        // err.errors = {
+        //     startDate: "Start date conflicts with an existing booking",
+        //     endDate: "End date conflicts with an existing booking"
+        // }
         return next(err)
     }
 
@@ -122,6 +126,7 @@ router.post('/:spotId', requireAuth , validateBooking, async(req,res,next)=> {
             spotId:spot.id,
             userId:req.user.id,
         })
+    newdBooking.dataValues.Spot = spot
     res.status(200).json(newdBooking)
 })
 
@@ -129,13 +134,17 @@ router.post('/:spotId', requireAuth , validateBooking, async(req,res,next)=> {
 router.put('/:bookingId', requireAuth , validateBooking, async(req,res,next)=> {
     const booking = await Booking.findByPk(req.params.bookingId)
     if(!booking){
-        const err = new Error("Booking couldn't be found");
+        const err = new Error("Server Error");
+        err.errors = {date:"Booking couldn't be found"}
+
         err.statusCode = 404;
         return next(err);
     }
 
     if(booking.userId !== req.user.id){
-        const err = new Error("Forbidden");
+        const err = new Error("Authentication Error");
+        err.errors = {date:"Forbidden"}
+
         err.statusCode = 403;
         return next(err);
     }
@@ -144,7 +153,8 @@ router.put('/:bookingId', requireAuth , validateBooking, async(req,res,next)=> {
     let today = new Date().toLocaleDateString('en-CA')
     let existBookEndDate = booking.endDate
     if(today > existBookEndDate) {
-        const err = new Error("Past bookings can't be modified");
+        const err = new Error("Validation Error");
+        err.errors = {date:"Past bookings can't be modified"}
         err.statusCode = 400;
         return next(err);
     }
@@ -152,14 +162,16 @@ router.put('/:bookingId', requireAuth , validateBooking, async(req,res,next)=> {
     // find booking startdate is in future
     const {startDate, endDate} = req.body
     if(startDate < today || endDate < today){
-        const err = new Error("Start or End date can not be in past");
+        const err = new Error("Validation Error");
+        err.errors = {date:"Start or End date can not be in past"}
         err.statusCode = 400;
         return next(err);
     }
 
     //check if end date is less than start date
     if(endDate < startDate){
-        const err = new Error("End date can not be before start date");
+        const err = new Error("Validation Error");
+        err.errors = {date:"End date can not be before start date"}
         err.statusCode = 400;
         return next(err);
     }
@@ -175,12 +187,13 @@ router.put('/:bookingId', requireAuth , validateBooking, async(req,res,next)=> {
             || ((startDate > existingBooking.endDate) && (endDate > existingBooking.endDate))) {
                 continue
         }
-        const err = new Error("Sorry, this spot is already booked for the specified dates")
+        const err = new Error("Validation Error");
+        err.errors = {date:"Sorry, this spot is already booked for the specified dates"}
         err.statusCode = 403
-        err.errors = {
-            startDate: "Start date conflicts with an existing booking",
-            endDate: "End date conflicts with an existing booking"
-        }
+        // err.errors = {
+        //     startDate: "Start date conflicts with an existing booking",
+        //     endDate: "End date conflicts with an existing booking"
+        // }
         return next(err)
     }
 
@@ -192,7 +205,8 @@ router.put('/:bookingId', requireAuth , validateBooking, async(req,res,next)=> {
 router.delete('/:bookingId', requireAuth, async(req,res, next) =>{
     let booking = await Booking.findByPk(req.params.bookingId)
     if(!booking) {
-        const err = new Error("Booking couldn't be found");
+        const err = new Error("Server Error");
+        err.errors = {date:"Booking couldn't be found"}
         err.statusCode = 404;
         return next(err);
 
@@ -200,14 +214,17 @@ router.delete('/:bookingId', requireAuth, async(req,res, next) =>{
 
     let spot = await Spot.findByPk(booking.spotId)
     if((booking.userId !== req.user.id) && (spot.ownerId !== req.user.id)) {
-        const err = new Error("Forbidden");
+
+        const err = new Error("Authorization Error");
+        err.errors = {date:"Forbidden"}
         err.statusCode = 403;
         return next(err);
     }
 
     let today = new Date().toLocaleDateString('en-CA');
     if(today >= booking.startDate){
-        const err = new Error("Bookings that have been started can't be deleted");
+        const err = new Error("Validation Error");
+        err.errors = {date:"FoBookings that have been started can't be deletedbidden"}
         err.statusCode = 400;
         return next(err)
 

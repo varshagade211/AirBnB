@@ -11,7 +11,7 @@
     border:1px solid black;
     border-radius: 5px;
     margin: 0rem 0 0 0rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
     outline: none;
     resize: none;
     overflow: hidden;
@@ -19,7 +19,16 @@
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
-
+.createReviewErrorlogo{
+    color:red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0rem;
+}
+.createReviewErrorError{
+    color:red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0.5rem;
+  }
 .reviewStar{
     margin: 1rem 0 0 0 ;
     color: goldenrod;
@@ -33,9 +42,11 @@
 
 }
 .reviewFormContainer{
-    min-width: 300px;
+
+    width: 500px;
     min-height: 200px;
     text-align: center;
+    max-height: 500px
 }
 
 .reviewForm{
@@ -50,4 +61,12 @@
     padding: 0.5rem 1rem 0.5rem 1rem;
     cursor: pointer;
     border-radius: 5px
+}
+
+
+@media only screen and (max-width: 500px)  {
+
+.reviewFormContainer{
+    width: 100%;
+}
 }

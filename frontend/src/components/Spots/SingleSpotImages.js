@@ -25,7 +25,7 @@ function SingleSpotImages(){
     return(
         <div className='singleSpotImagesContaier'>
             <div className='arrowIconContainer' onClick={backHandler}>
-            <i  class="fas fa-angle-left arrowIcon"></i>
+            <i  className="fas fa-angle-left arrowIcon"></i>
             </div>
             <div className='SingleimageContainer'>
                {spotAllImages?.map((img)=> <img className='singleSpotImage'src={img?.image} alt='spot image'/>)}

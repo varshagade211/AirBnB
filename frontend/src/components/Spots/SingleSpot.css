@@ -305,23 +305,35 @@
 .reviewOuterContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: auto;
+    margin:1rem 1rem 1rem 1rem;
     column-gap: 1rem;
 
 
+
 }
 
+
 .reviewName{
-    margin: 1rem 0 0 0;
+    margin: 1rem 0 0 0.5rem;
+    /* font-size: 0.9rem; */
+    font-weight: bold;
+
 }
 .reviewDate{
-    margin: 0 0 0 0;
+    margin: 0.2rem 0 0 0.5rem;
     font-size: 0.9rem;
     color: rgba(0, 0, 0, 0.551);
 }
 .reviewTxt{
     overflow-wrap: anywhere;
+    /* font-size: 0.9rem; */
+    /* margin: 1rem 0 0 1rem; */
 }
+.reviewuserNameAndDateContainer{
+    width: 80%;
+    margin: 0 0 3rem 0;
+}
+
 .pipe{
 
     margin:  0rem 1rem 0rem 1rem;
@@ -350,20 +362,55 @@
     display:flex;
     justify-content: space-between;
 }
-@media only screen and (min-width: 200px) and (max-width: 1033px)  {
+.reviewStarAddReviewContainer{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:1rem 1rem 1rem 1rem;
+}
+.addReviewBtn{
+    width:24%;
+    height:10%;
+    padding:0.7rem;
+    margin: 0 0.7rem 0 0;
+    background-color: rgb(238, 46, 91);
+    color: white;
+    border:1px solid rgb(238, 46, 91);
+    border-radius: 10px;
+    font-size: 1rem;
+    /* text-align: center; */
+}
+.reviewUserIcon{
+    font-size: 2rem;
+    color: #0275d8;
+    margin: 1rem 0 0 0rem;
+}
+.userIconAndUserNameContainer{
+    display:flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+.reviewLine{
+    background-color: rgba(248, 245, 245, 0.099);
+    border-color: rgba(248, 245, 245, 0.371);;
+    position: relative;
+    z-index: -1;
+    margin: 1rem 0 1rem 0;
+}
+@media only screen and (min-width: 100px) and (max-width: 1033px)  {
 
     .editDeletebuttons{
         display: flex;
         flex-direction: row;
 
     }
-    .bookingBtn{
+    /* .bookingBtn{
         width: 30%;
         margin: 2rem 5rem 0rem 5rem;
-    }
+    } */
     .ediBtn,.deleteBtn,.bookingBtn{
         padding: 0.5rem;
-        font-size: 0.5rem;
+        /* font-size: 0.5rem; */
 
 
     }
@@ -395,4 +442,31 @@
 
 
     }
+}
+
+@media only screen and (max-width: 600px)  {
+    .sideBarContainer{
+        width:100%;
+    }
+    .dataContainer{
+        width:100%;
+    }
+    .sideBar{
+        margin: 3rem 0rem 0 0rem;
+    }
+    .reviewStarAddReviewContainer{
+        display: block;
+    }
+    .addReviewBtn{
+        width:fit-content;
+    }
+}
+
+@media only screen and (max-width: 700px)  {
+.reviewOuterContainer{
+    display: block;
+}
+.reviewuserNameAndDateContainer{
+  width:100%;
+}
 }

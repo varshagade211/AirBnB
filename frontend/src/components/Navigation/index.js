@@ -90,7 +90,7 @@ function Navigation({ }){
             <div className='linksAndButtonContainer'>
 
               <button className="userIconContainer" onClick={openMenu}>
-                <i class="fa fa-bars barsIcon" aria-hidden="true"></i>
+                <i className="fa fa-bars barsIcon" aria-hidden="true"></i>
                 <i className="fas fa-user-circle userIcon" />
               </button>
               {showMenu && <div className="singUplinksContainer" id='singUplinksContainer' >

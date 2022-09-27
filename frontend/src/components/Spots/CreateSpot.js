@@ -131,7 +131,7 @@ function CreateSpot(){
                 {errors?.name &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.name}>{errors.name}</span>
@@ -146,7 +146,7 @@ function CreateSpot(){
                 {errors?.address &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.address}>{errors.address}</span>
@@ -160,7 +160,7 @@ function CreateSpot(){
                 {errors?.city &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.city}>{errors.city}</span>
@@ -174,7 +174,7 @@ function CreateSpot(){
                 {errors?.state &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.state}>{errors.state}</span>
@@ -190,7 +190,7 @@ function CreateSpot(){
                 {errors?.country &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.country}>{errors.country}</span>
@@ -204,7 +204,7 @@ function CreateSpot(){
                 {errors?.description &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.description}>{errors.description}</span>
@@ -220,7 +220,7 @@ function CreateSpot(){
                 {errors?.price &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.price}>{errors.price}</span>
@@ -235,7 +235,7 @@ function CreateSpot(){
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.lat}>{errors.lat}</span>
@@ -249,7 +249,7 @@ function CreateSpot(){
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.lng}>{errors.lng}</span>
@@ -280,7 +280,7 @@ function CreateSpot(){
                 {errors?.url &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.url}>{errors.url}</span>
@@ -297,7 +297,7 @@ function CreateSpot(){
             {errors?.message &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.message}>{errors.message}</span>

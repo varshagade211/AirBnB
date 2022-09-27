@@ -141,7 +141,7 @@ function EditForm() {
                 {errors?.state &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.state}>{errors.state}</span>
@@ -155,7 +155,7 @@ function EditForm() {
                 {errors?.country &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.country}>{errors.country}</span>
@@ -169,7 +169,7 @@ function EditForm() {
                 {errors?.description &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.description}>{errors.description}</span>
@@ -183,7 +183,7 @@ function EditForm() {
                 {errors?.price &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.price}>{errors.price}</span>
@@ -198,7 +198,7 @@ function EditForm() {
                 {errors?.lat &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.lat}>{errors.lat}</span>
@@ -212,7 +212,7 @@ function EditForm() {
                 {errors?.lng &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.lng}>{errors.lng}</span>
@@ -227,7 +227,7 @@ function EditForm() {
             {errors?.message &&
                     <div className="errorContainer">
                         <div>
-                            <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+                            <i className="fa-solid fa-circle-exclamation errorlogo"></i>
                         </div>
                         <div>
                             <span className='error' key={errors.message}>{errors.message}</span>
