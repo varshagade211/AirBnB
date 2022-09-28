@@ -1,92 +1,122 @@
-.yourBookingsContainer{
+.tripsPreviweImageContainer,.tripPreviweImage{
+    width:150px;
+
+
+}
+.yourContainer{
     background-color:rgba(0, 0, 0, 0.07);
     padding: 0.5rem;
     text-align: center;
-    margin: 0 0 1rem 0;
-
-
-}
-.yourTripTxt{
-    margin: 0 0 0 0;
-    font-weight: bold;
-}
-.bookinggImageAndInfoContainer{
-
-}
-.bookingImage{
-    width: 100%;
-
 }
 
-.bookingInfoAndMapContainer{
+.imageAndTripsContainer{
     display: flex;
-}
-.mapContainer{
-    width:70%;
+    margin: 2rem 0 0 0;
+    border-bottom:1px solid rgba(0, 0, 0, 0.112);
+    padding: 1rem 1rem 2rem 1rem;
+    cursor: pointer;
 
 }
-.bookinggImageAndInfoContainer{
-    width:30%
+.tripsFeedOuterContainer{
+    margin: 1rem;
+    /* margin: 1.5em 3em 0 5.5em; */
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(22rem,1fr));
+    gap:1.5rem;
 }
-.bookingContainer{
+
+.tripInfo{
+ margin: 0 0 0 1rem;
+ overflow-wrap: anywhere;
+ /* width: 70%; */
+}
+.tripSpotName{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.tripSpotAddress{
+    font-size: 0.8rem;
+}
+.reviewPageText{
+    margin: 1rem 0 0 1rem;
+    /* font-size: 0.9rem; */
+}
+
+.tripPageDate{
+    font-size: 0.8rem;
+    color: rgba(128, 128, 128);
+    margin: 0.2rem 0 0 1rem;
+}
+.tripBtnAndTripContainer{
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+
+    /* background-color: pink; */
+}
+
+/* .editdeletereviewBtnContainer{
+    align-self: end;
+} */
+.checkingContainer{
     margin: 1rem 1rem 1rem 1rem;
 }
-
-.bookinImageContainer{
-/* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.688); */
-margin: 0 0.1rem 0 0;
+.checkInAndOut{
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
 }
-
-.bookingCheckingContainer{
-    display: flex;
-    justify-content: space-around;
-    margin: 1rem 0 0 0;
-
-}
-.bookingInfoContainer{
-    margin: 0 0rem 0 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.284);
-}
-
-.bookingBtnContainer{
-    margin: 0 0rem 0 1rem;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    border-top: 1px solid rgba(0, 0, 0, 0.284);
-}
-
-.deleteBookingBtn,.editBookingBtn{
-    /* margin:1rem 0 0 0;
+.tripDetailBtn{
+    margin: 1rem 1rem 1rem 1rem;
     background-color:  rgb(238, 46, 91);
     border:1px solid rgb(238, 46, 91);
     color:white;
     padding:0.2rem 0.5rem 0.2rem 0.5rem ;
-    width: 80%;
+
     cursor: pointer;
-    border-radius: 5px; */
-    /* width: 50%;
-    background-color: white;
-    border:none */
+    border-radius: 5px;
+}
+.trips{
+    margin: 0 0 0 0 ;
+    font-weight: bold;
+}
+/* .editreviewBtn,.deleteReviewBtn{
+    background-color:  rgb(238, 46, 91);
+    border:1px solid rgb(238, 46, 91);
+    color:white;
+    padding:0.2rem 0.5rem 0.2rem 0.5rem ;
+    margin: 0 2rem 0 0;
     cursor: pointer;
+    border-radius: 5px;
+
+} */
+.yourTripsContainer{
+    background-color:rgba(0, 0, 0, 0.07);
+    padding: 0.5rem;
+    text-align: center;
+}
+.tripInfoContainer{
+    width:100%;
+}
+@media only screen and (max-width: 500px)  {
+.imageAndTripsContainer{
+display: block;
 }
 
-
-.bookingBeachIcon,.leftBackIcon,.bookingLocationicon{
-    margin: 0 1rem 0 0;
-
+.tripsPreviweImageContainer, .tripPreviweImage{
+    width: 100%;
+    height: 200px;
+    margin: 0 0 1rem 0;
 }
-
-.backBtnToSpot{
-    cursor: pointer;
 }
-
-
-@media only screen and (max-width: 700px)  {
-.bookingInfoAndMapContainer{
-    display: block;
-}
-.bookinggImageAndInfoContainer,.mapContainer{
-    width:100%
-}
+@media only screen and (max-width: 900px)  {
+    .tripInfoContainer{
+        width:100%;
+    }
+    .tripBtnAndTripContainer{
+        display: block;
+    }
+    /* .editdeletereviewBtnContainer{
+        margin: 1rem 1rem 1rem 1rem;
+    } */
 }

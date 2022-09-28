@@ -28,3 +28,14 @@
     margin:1rem 1rem 1rem 1rem;
 
 }
+
+
+.addImageNodalContent{
+    position: absolute;
+    background-color:white;
+    border-radius: 10px;
+    max-width: 100%;
+    /* overflow-y:auto; */
+    /* height: 530px; */
+    min-height: 100px;
+  }

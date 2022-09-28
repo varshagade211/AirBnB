@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import DeleteBookingForm from './DeleteBookingForm.js';
-// import './index.css'
+import './index.css'
 
 
 function DeleteSpotFormModal({className,booking}) {
@@ -13,8 +13,9 @@ function DeleteSpotFormModal({className,booking}) {
       {/* <button className='loginButton' onClick={() => setShowModal(true)}>Log In</button> */}
       {/* <button className={className} onClick={() => setShowModal(true)}>Delete Review</button> */}
       <p  className={className} onClick={() => setShowModal(true)}><i className="fa-solid fa-xmark " style={{marginRight:1+'rem'}}></i> Cancel Booking</p>
+
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className={'deleteBookingModalContent'} onClose={() => setShowModal(false)}>
           <DeleteBookingForm setShowModalClose={setShowModal} booking={booking}/>
 
         </Modal>

@@ -1,6 +1,7 @@
 import {useState} from "react"
 import { useDispatch } from "react-redux";
 import {editBookingThunk} from '../../store/bookings'
+import './EditBookingForm.css'
 function EditBookingForm({setShowModalClose, booking}){
     let [startDate,setStartDate] = useState(booking?.startDate)
     let [endDate, setEndDate] = useState(booking?.endDate)
@@ -25,7 +26,7 @@ function EditBookingForm({setShowModalClose, booking}){
     }
 
 return(
-    <form onSubmit={onBookingSubmit}>
+    <form className="editBookingForm" onSubmit={onBookingSubmit}>
     <div className='dateInputLabelContainer'>
         <label className='dateLable' htmlFor="checkIn">Check In</label><br />
         <input className='dateInput' type="date" name="checkIn" id="checkIn" value={startDate}

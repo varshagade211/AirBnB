@@ -238,13 +238,14 @@
 .bookingBtn{
     background-color: rgb(238, 46, 91);
     border: none;
-   color: white;
-   font-size: 1rem;
-   width: 100%;
-   text-align: center;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
 
-   border-radius: 10px;
-   padding: 0.7rem;
+    border-radius: 10px;
+    padding: 0.7rem;
+    cursor: pointer;
    /* font-weight: bold; */
 }
 
@@ -397,6 +398,19 @@
     z-index: -1;
     margin: 1rem 0 1rem 0;
 }
+
+
+.createFormErrorlogo{
+    color:red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0rem;
+}
+.createFormErrorError{
+    color:red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0.5rem;
+}
+
 @media only screen and (min-width: 100px) and (max-width: 1033px)  {
 
     .editDeletebuttons{

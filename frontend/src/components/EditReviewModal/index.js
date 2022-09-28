@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditReviewForm from './EditReview.js';
-// import './index.css'
+import './index.css'
 
 
 function CreateReviewFormModal({className,review}) {
@@ -14,7 +14,7 @@ function CreateReviewFormModal({className,review}) {
       <button className={className} onClick={() => setShowModal(true)}>Edit Review</button>
 
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className={'editReviewModalContent'} onClose={() => setShowModal(false)}>
           <EditReviewForm setShowModalClose={setShowModal} review={review}/>
 
         </Modal>

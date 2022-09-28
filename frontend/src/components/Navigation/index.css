@@ -154,7 +154,20 @@
     bottom: 0;
 
 }
+.signUpButton{
+    background-color: rgba(255, 255, 255, 0.238);
+    border: white;
+    margin:  0rem 0.6rem 0 1rem;
+    padding: 0.4rem;
+    text-align: inherit;
+    cursor: pointer;
+}
 
+.signUpButton:hover{
+
+    background-color:rgba(128, 128, 128, 0.11)
+
+}
 .demoUserBtn{
 
     background-color: rgba(255, 255, 255, 0.238);

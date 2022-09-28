@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditBookingForm from './EditBookingForm.js';
-// import './index.css'
+import './index.css'
 
 
 function EditBookingModal({className,booking}) {
@@ -14,7 +14,7 @@ function EditBookingModal({className,booking}) {
       <p className={className} onClick={() => setShowModal(true)}><i className="fa-solid fa-pen" style={{marginRight:1+'rem'}}></i>Edit Booking</p>
 
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className={ 'editBookingModalContent'} onClose={() => setShowModal(false)}>
           <EditBookingForm setShowModalClose={setShowModal} booking={booking}/>
 
         </Modal>

@@ -10,7 +10,10 @@ const {Op} = require('sequelize');
 router.get('/', requireAuth, async(req,res) => {
     const bookings = await Booking.findAll({
             where:{userId:req.user.id},
-            include:[{model:Spot, attributes:{exclude:['createdAt','updatedAt','description']}}]
+            include:[
+                {model:Spot, attributes:{exclude:['createdAt','updatedAt','description']}},
+                {model:User}
+            ]
     })
     for(let i=0; i<bookings.length; i++){
         let previewImage = await Image.findOne({where:{spotId:bookings[i].spotId}})

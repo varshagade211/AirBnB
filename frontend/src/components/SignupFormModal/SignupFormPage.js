@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupFormPage.css'
+import LoginFormPage from '../LoginFormModal'
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -32,19 +33,25 @@ function SignupFormPage() {
     return setErrors({confirmPassword:'Confirm Password field must be the same as the Password field'});
 
   };
-
+  const demoUserLoginHandleSubmit = (e) => {
+    e.preventDefault();
+    const email ='demouser@gmail.com'
+    const password = 'demoUserPassword'
+    return dispatch(sessionActions.loginThunk({email, password}))
+  }
 
   return (
     <div className="formContainer">
-        <h4 className="loginTitle">Log in or sign up </h4>
-     <hr className='line'></hr>
+        {/* <h4 className="loginTitle">Log in or sign up </h4>
+     <hr className='line'></hr> */}
     <h3 className="welcomMsg">Welcome to Airbnb</h3>
+
     <form className='signUpForm'onSubmit={handleSubmit}>
         {/* <ul> */}
            {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
         {/* </ul> */}
 
-           <label className="label"> First Name:</label>
+           <label className="signUplabel"> First Name:</label>
            <input className='signUpFormInput'type={'text'} name={'firstName'} placeholder = 'Enter First Name'value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
            {errors?.firstName &&
               <div className="errorContainer">
@@ -57,7 +64,7 @@ function SignupFormPage() {
               </div>
             }
 
-            <label className="label"> Last Name:</label>
+            <label className="signUplabel"> Last Name:</label>
             <input type={'text'} className='signUpFormInput' name={'lastName'} placeholder = 'Enter First Name' value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
             {errors?.lastName &&
               <div className="errorContainer">
@@ -70,7 +77,7 @@ function SignupFormPage() {
               </div>
             }
 
-            <label className="label"> Email:</label>
+            <label className="signUplabel"> Email:</label>
             <input type={'text'} className='signUpFormInput' name={'email'} placeholder = 'Enter Email Address' value={email} onChange={(e)=>setEmail(e.target.value)}/>
             {errors?.email &&
               <div className="errorContainer">
@@ -83,7 +90,7 @@ function SignupFormPage() {
               </div>
             }
 
-            <label className="label"> Password:</label>
+            <label className="signUplabel"> Password:</label>
             <input type={'password'} className='signUpFormInput' name={'password'} placeholder = 'Enter Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
             {errors?.password &&
               <div className="errorContainer">
@@ -96,7 +103,7 @@ function SignupFormPage() {
               </div>
             }
 
-            <label className="label">  Confirm Password:</label>
+            <label className="signUplabel">  Confirm Password:</label>
             <input type={'password'} className='signUpFormInput' name={'password'}  placeholder = 'Confirm Password' value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
             {errors?.confirmPassword &&
               <div className="errorContainer">
@@ -109,7 +116,12 @@ function SignupFormPage() {
               </div>
             }
 
-            <button className='submitButton'type="submit">Sign Up</button>
+            <button className='signUpSubmitButton'type="submit">Sign Up</button>
+
+              <LoginFormPage  className='loginInstead' btnTxt={"Login instead"}/>
+              <button onClick={demoUserLoginHandleSubmit} className='submitDemoUse'>Demo User</button>
+
+
 
     </form>
     </div>

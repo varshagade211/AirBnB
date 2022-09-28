@@ -1,0 +1,14 @@
+.editBookingForm{
+    width: 300px;
+}
+
+
+
+@media only screen and (max-width: 300px)  {
+
+    .editBookingForm{
+        width: 100%;
+    }
+
+
+}

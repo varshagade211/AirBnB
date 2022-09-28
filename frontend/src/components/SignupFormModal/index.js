@@ -3,14 +3,14 @@ import { Modal } from '../../context/Modal';
 import SignupFormPage from './SignupFormPage';
 import './index.css'
 
-function SignupFormModal() {
+function SignupFormModal({className,btnTxt}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button className='signUpButton' onClick={() => setShowModal(true)}>Sign Up</button>
+      <button className={className} onClick={() => setShowModal(true)}>{btnTxt}</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className={"signUpModal"} onClose={() => setShowModal(false)}>
           <SignupFormPage />
           <hr className='line'></hr>
         </Modal>

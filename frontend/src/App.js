@@ -20,6 +20,7 @@ import EditImages from './components/Spots/EditImages';
 import DeletePopUpModal from './components/ImageDeleteModal'
 import Reviews from './components/Reviews';
 import Bookings from './components/Bookings'
+import SingleBooking  from './components/SingleBooking';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -80,6 +81,12 @@ function App() {
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           < Bookings />
+        </Route>
+
+        <Route exact path='/SingleBooking/:id'>
+          <Navigation className='navContainer'/>
+          <hr className='line'></hr>
+          < SingleBooking />
         </Route>
 
       </Switch>

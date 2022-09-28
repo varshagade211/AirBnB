@@ -4,17 +4,17 @@ import LoginFormPage from './LoginFormPage';
 import './index.css'
 
 
-function LoginFormModal({className}) {
+function LoginFormModal({className,btnTxt}) {
   const [showModal, setShowModal] = useState(false);
 
 
   return (
     <>
       {/* <button className='loginButton' onClick={() => setShowModal(true)}>Log In</button> */}
-      <button className={className} onClick={() => setShowModal(true)}>Log In</button>
+      <button className={className} onClick={() => setShowModal(true)}>{btnTxt}</button>
 
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className={"loginModalContent"} onClose={() => setShowModal(false)}>
           <LoginFormPage />
 
         </Modal>

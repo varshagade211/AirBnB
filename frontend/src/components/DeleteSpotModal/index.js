@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import DeleteSpotForm from './DeleteSpotForm.js';
-// import './index.css'
+import './index.css'
 
 
 function DeleteSpotFormModal({className,singleSpot}) {
@@ -14,7 +14,7 @@ function DeleteSpotFormModal({className,singleSpot}) {
       {/* <button className={className} onClick={() => setShowModal(true)}>Delete Review</button> */}
       <button  className={className} onClick={() => setShowModal(true)}>Delete Listing</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className={'deleteSpotModalContent'} onClose={() => setShowModal(false)}>
           <DeleteSpotForm setShowModalClose={setShowModal} singleSpot={singleSpot}/>
 
         </Modal>

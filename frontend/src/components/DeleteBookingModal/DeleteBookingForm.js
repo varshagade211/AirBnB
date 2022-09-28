@@ -2,6 +2,7 @@ import { useDispatch,useSelector } from "react-redux"
 
 import {deleteBookingThunk} from '../../store/bookings'
 import {useState} from 'react'
+import './DeleteBookingForm.css'
 function DeleteBookingForm({setShowModalClose,booking}){
     let dispatch = useDispatch()
     const [errors, setErrors] = useState({});
@@ -22,9 +23,11 @@ function DeleteBookingForm({setShowModalClose,booking}){
 
      }
     return (
-        <div>
-            <i onClick={()=>setShowModalClose(false)} className="fa-regular fa-rectangle-xmark"></i>
-            <p>Do you want to delete booking permanantly?</p>
+        <div className="deleteBookingModalContainer">
+            {/* <i onClick={()=>setShowModalClose(false)} className="fa-regular fa-rectangle-xmark "></i> */}
+
+             <i onClick={()=>setShowModalClose(false)} className="fa-solid fa-x cancelBookingCloseIcon"></i>
+            <p className="cancelBookingWarning">Do you want to cancel booking permanantly?</p>
             {errors?.date &&
                 <div className="errorContainer">
                     <div>
@@ -34,7 +37,10 @@ function DeleteBookingForm({setShowModalClose,booking}){
 
                 </div>
             }
-           <button   onClick={deleteHandler}>Cancel Booking</button>
+            <div className="cancelBookingBtnContainer">
+                 <button  className="cancelBookingBtn" onClick={deleteHandler}>Cancel Booking</button>
+
+            </div>
 
 
         </div>

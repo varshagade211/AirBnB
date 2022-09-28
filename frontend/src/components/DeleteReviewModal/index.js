@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import DeleteReviewForm from './DeleteReviewForm.js';
-// import './index.css'
+import './index.css'
 
 
 function DeleteReviewFormModal({className,reviewId}) {
@@ -14,7 +14,7 @@ function DeleteReviewFormModal({className,reviewId}) {
       <button className={className} onClick={() => setShowModal(true)}>Delete Review</button>
 
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className={'deleteReviewModalContent'} onClose={() => setShowModal(false)}>
           <DeleteReviewForm setShowModalClose={setShowModal} reviewId={reviewId}/>
 
         </Modal>

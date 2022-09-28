@@ -21,7 +21,7 @@ function AddImagesFormModal() {
 
 
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className={'addImageNodalContent'} onClose={() => setShowModal(false)}>
           <AddImages setShowModal={setShowModal} />
         </Modal>
       )}

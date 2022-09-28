@@ -19,12 +19,12 @@
     background-color: rgba(0, 0, 0, 0.7);
   }
 
-  #modal-content {
+  /* #modal-content {
     position: absolute;
     background-color:white;
     border-radius: 10px;
     max-width: 100vw;
     overflow-y:auto;
     /* height: 530px; */
-    min-height: 100px;
-  }
+    /* min-height: 100px; */
+  /* }  */

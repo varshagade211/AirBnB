@@ -15,7 +15,7 @@ function DeletePopUpModal({ImageId, image, setRefresh}) {
         <div className='dotIconContainer'> <i className="fa fa-ellipsis-h dotsIcon " aria-hidden="true"></i></div>
       </div>
       {showModal && (
-        <Modal  onClose={() => setShowModal(false)}>
+        <Modal className={'deleteImageModalContent'} onClose={() => setShowModal(false)}>
         <DeletePopUp ImageId={ImageId} setRefresh={setRefresh}  setShowModal={ setShowModal}/>
         </Modal>
       )}

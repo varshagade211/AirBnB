@@ -2,7 +2,9 @@ import { useState } from "react"
 import { useDispatch,useSelector } from "react-redux"
 import { useHistory,Redirect } from "react-router-dom"
 import { loginThunk } from "../../store/session"
+import * as sessionActions from '../../store/session';
 import './LoginPage.css';
+import SignupFormModal from "../SignupFormModal";
 function LoginFormPage() {
     const dispatch = useDispatch()
     const sessionUser =useSelector(state => state?.session?.user)
@@ -20,7 +22,12 @@ function LoginFormPage() {
             if (data && data.errors) setErrors(data.errors);
           });
       }
-
+    const demoUserLoginHandleSubmit = (e) => {
+        e.preventDefault();
+        const email ='demouser@gmail.com'
+        const password = 'demoUserPassword'
+        return dispatch(sessionActions.loginThunk({email, password}))
+      }
    return (
     <div className="formContainer">
         <h4 className="loginFormLogo">Log in or sign up </h4>
@@ -31,7 +38,7 @@ function LoginFormPage() {
                  {errors.map((error, idx) => <li className='error' key={idx}>{error}</li>)}
             </ul> */}
             {/* <div> */}
-                <label className="label">Email </label>
+                <label className="loginLabel">Email </label>
                 <input className='loginFormInput' type={'text'} placeholder = 'Enter Email Address' name={'email'} value={email} onChange={(e)=>setEmail(e.target.value)} />
                 {errors?.email &&
                     <div className="errorContainer">
@@ -43,7 +50,7 @@ function LoginFormPage() {
                         </div>
                     </div>
                 }
-                <label  className="label">Password </label>
+                <label  className="loginLabel">Password </label>
                 <input className='loginFormInput' type={'password'} placeholder = 'Enter Password' name={'password'} value={password} onChange={(e)=>setPassword(e.target.value)} />
                 {errors?.password &&
                     <div className="errorContainer">
@@ -57,6 +64,13 @@ function LoginFormPage() {
                 }
 
                 <button className='submitButton' type={'submit'}>Login</button>
+
+                <div className="submitDemoUseContainer">
+                    <p className="demoOption">Just looking? Use Demo mode to sign in and preview.</p>
+                    <button onClick={demoUserLoginHandleSubmit} className='submitDemoUse'>Demo User</button>
+                    {/* <button onClick={()=>history(/)} className='submitDemoUse'>Create Account</button> */}
+                    <SignupFormModal className='submitDemoUse' btnTxt={"Create account"} />
+                </div>
 
         </form>
     </div>
