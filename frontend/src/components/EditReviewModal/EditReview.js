@@ -18,8 +18,8 @@ function EditReviewForm({setShowModalClose , review}){
 
 
     const onCommentChangeHandler = (e) =>{
-        if(e.target.value.length>1000){
-            setErrors({...errors,'review':'review must be less than 1000 characters'});
+        if(e.target.value.length>255){
+            setErrors({...errors,'review':'review must be less than 255 characters'});
 
         }if(errors.review){
             delete errors.review
