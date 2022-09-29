@@ -19,7 +19,7 @@ function CreateReviewForm({setShowModalClose}){
 
     const onCommentChangeHandler = (e) =>{
         if(e.target.value.length>255){
-            setErrors({...errors,'review':'review must be less than 255 characters'});
+            setErrors({...errors,'review':'Review must be 1-255 characters'});
         }
 
         // if(errors.review){
