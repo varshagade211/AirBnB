@@ -40,11 +40,12 @@ function SingleBooking() {
     let today = new Date().toLocaleDateString('en-CA')
     // if(startDate < today || endDate < today){
     return(
-        <div className='bookingContainer'>
-            {/* <div className="yourBookingsContainer"><p className='yourTripTxt'>Trip in detail</p></div> */}
-            {/* {bookings?.map((booking) => { */}
-                {/* return ( */}
-                    <div key={booking?.id} className="bookingInfoAndMapContainer">
+        <div className='singlePagebookingContainer'>
+                    { !booking?.Spot &&
+                    <div className='noSingleSpotAvailableContainer'>
+                        <p className='noSpotAvailable'>Spot is no longer available</p></div>}
+                   {booking?.Spot && <div className="bookingInfoAndMapContainer">
+
                         <div className='bookingImageAndInfoContainer'>
                             <div className='bookinImageContainer' onClick={()=>history.push(`/spots/${booking?.Spot?.id}`)}>
                                 <img className='bookingImage'  src={booking?.Spot?.previewImage} />
@@ -101,11 +102,9 @@ function SingleBooking() {
                             src={`https://www.google.com/maps?q=${booking?.Spot?.lat},${booking?.Spot?.lng}&hl=es;&output=embed`}
                             title={booking?.Spot?.id}
                             width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                    {/* </div> */}
+
                         </div>
-                    </div>
-                {/* ) */}
-            {/* // })} */}
+                    </div>}
 
         </div>
     )

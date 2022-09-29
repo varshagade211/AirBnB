@@ -36,9 +36,9 @@ function EditBookingForm({setShowModalClose, booking, setTotalBill,totalBill}){
             let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
             if(Difference_In_Days > 0){
                 setDiffrenceInDate(Difference_In_Days)
-                setTotalFeesByDays(booking?.Spot?.price * Difference_In_Days)
-                setTotalBill(booking?.Spot?.price * Difference_In_Days+ 100 +booking?.Spot?.price * Difference_In_Days/10)
-                setServiceFees(booking?.Spot?.price * Difference_In_Days/10)
+                setTotalFeesByDays(Math.floor(booking?.Spot?.price * Difference_In_Days))
+                setTotalBill(Math.floor((booking?.Spot?.price * Difference_In_Days)+ 100 +((booking?.Spot?.price * Difference_In_Days)/10)))
+                setServiceFees(Math.floor((booking?.Spot?.price * Difference_In_Days)/10))
             }else{
                 setDiffrenceInDate(0)
                 setTotalFeesByDays(0)

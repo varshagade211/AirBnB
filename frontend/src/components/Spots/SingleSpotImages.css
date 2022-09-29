@@ -15,15 +15,17 @@
 .arrowIconContainer{
     width: 50px;
     height:50px;
-}
-
-.arrowIconContainer:hover{
     cursor: pointer;
-    background-color: rgba(128, 128, 128, 0.218);
     position: relative;
     top:0.96rem;
     left:1rem;
     border-radius:50%
+}
+
+.arrowIconContainer:hover{
+
+    background-color: rgba(128, 128, 128, 0.218);
+
 }
 
 .SingleimageContainer{

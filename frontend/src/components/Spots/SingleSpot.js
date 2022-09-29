@@ -65,10 +65,11 @@ function SingleSpot(){
         history.push(`/images/${singleSpot?.id}`)
     }
     const backHandler = () => {
-         history.push(`/`)
-        if(isOwner){
-          history.push('/spots/user/spots')
-        }
+        //  history.push(`/`)
+        // if(isOwner){
+        //   history.push('/spots/user/spots')
+        // }
+        history.goBack()
     }
 
     const onBookingSubmit = ((e)=>{
@@ -81,7 +82,7 @@ function SingleSpot(){
 
             setStartDate("");
             setEndDate("")
-            setErrors({message:"Successfully created your booking! see in trips"});
+            setErrors({success:"Successfully created your booking! see in trips"});
         })
         .catch(async (res) => {
             console.log(res)
@@ -108,9 +109,9 @@ function SingleSpot(){
             let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
             if(Difference_In_Days > 0){
                 setDiffrenceInDate(Difference_In_Days)
-                setTotalFeesByDays(singleSpot?.price * Difference_In_Days)
-                setTotalBill(singleSpot?.price * Difference_In_Days+ 100 +singleSpot?.price * diffrenceInDate/10)
-                setServiceFees(singleSpot?.price * Difference_In_Days/10)
+                setTotalFeesByDays(Math.floor(singleSpot?.price * Difference_In_Days))
+                setTotalBill(Math.floor((singleSpot?.price * Difference_In_Days)+ 100 +((singleSpot?.price * Difference_In_Days)/10)))
+                setServiceFees(Math.floor((singleSpot?.price  * Difference_In_Days)/10))
             }else{
                 setDiffrenceInDate(0)
                 setTotalFeesByDays(0)
@@ -124,6 +125,7 @@ function SingleSpot(){
         <div className='singalePageMainContainer'>
            <Navigation className='navContainer'/>
            <hr className='line'></hr>
+            {/* <div className='singleSpotBackIconContainer' > */}
             <div className='singleSpotBackIconContainer' onClick={backHandler}>
                 <i  className="fas fa-angle-left singleSpotBackarrowIcon"></i>
             </div>
@@ -233,11 +235,20 @@ function SingleSpot(){
                                         </div>
                                     }
                                     {errors?.message &&
-                                        <div className="errorContainer">
+                                        <div>
                                             <div>
-                                                {/* <i class="fa-solid fa-circle-exclamation createFormErrorlogo"></i> */}
+                                                <i class="fa-solid fa-circle-exclamation createFormErrorlogo"></i>
                                                 <span className='createFormErrorError' key={errors.message}>{errors.message}</span>
-                                                <NavLink to={'/bookings'}> Your Trips</NavLink>
+                                            </div>
+
+                                        </div>
+                                    }
+                                    {errors?.success &&
+                                        <div>
+                                            <div>
+                                                <i className="fa-solid fa-check successMessagelogo"></i>
+                                                <span className='successMessage' key={errors.success}>{errors.success}</span>
+                                                <NavLink className='successMessageTripLink' to={'/bookings'}> Your Trips</NavLink>
                                             </div>
 
                                         </div>

@@ -409,11 +409,24 @@
     font-size: 0.8rem;
     margin: 0.5rem 0.2rem 0rem 0.5rem;
 }
+
+.successMessagelogo,.successMessage{
+    color:green;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0rem;
+}
+.successMessageTripLink{
+    color:#0275d8;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0rem;
+    text-decoration: none;
+}
 .calculationContainer{
     display: flex;
     justify-content: space-between;
 
 }
+
 .youWontBeChargeTxt{
     text-align: center;
     margin: 1rem 0 0.5rem 0;

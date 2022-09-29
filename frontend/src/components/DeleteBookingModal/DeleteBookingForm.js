@@ -3,15 +3,17 @@ import { useDispatch,useSelector } from "react-redux"
 import {deleteBookingThunk} from '../../store/bookings'
 import {useState} from 'react'
 import './DeleteBookingForm.css'
+import { useHistory } from "react-router-dom"
 function DeleteBookingForm({setShowModalClose,booking}){
     let dispatch = useDispatch()
     const [errors, setErrors] = useState({});
-
+    const history = useHistory()
     const deleteHandler = async() =>{
         const response= await dispatch(deleteBookingThunk(booking?.id))
         .then((res) => {
             setErrors({});
             setShowModalClose(false)
+            history.push('/bookings')
         })
         .catch(async (res) => {
 

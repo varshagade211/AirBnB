@@ -18,8 +18,12 @@
 
 }
 .bookingContainer{
-    height:100vh
+    height:100vh;
+    margin: auto;
+    max-width: 1250px;
 }
+
+
 .tripsFeedOuterContainer{
     margin: 1rem;
     /* margin: 1.5em 3em 0 5.5em; */

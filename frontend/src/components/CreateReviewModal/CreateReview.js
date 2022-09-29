@@ -142,7 +142,14 @@ function CreateReviewForm({setShowModalClose}){
                     </div>
             }
 
-
+            {errors?.message &&
+                <div>
+                    <div>
+                        <i className="fa-solid fa-circle-exclamation createReviewErrorlogo"></i>
+                        <span className='createReviewErrorError' key={errors.message}>{errors.message}</span>
+                    </div>
+                    </div>
+            }
             <button className='reviewSubmitBtn'> Add Review</button>
 
         </form>

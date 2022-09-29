@@ -20,8 +20,8 @@ function AllSpots(){
             {spots?.map(spot => <Spot key={spot?.id} spot={spot}></Spot>)}
 
            </div>
-        <hr className='line hrLineAllSpot'></hr>
 
+        <hr className='line hrLineAllSpot'></hr>
             <footer className='footerOnHomePage'>
 
                  <p className='footerTxt'>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
