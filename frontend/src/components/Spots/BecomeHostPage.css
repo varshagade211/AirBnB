@@ -12,7 +12,9 @@
   z-index: 1;
 
 }
-
+.becomHostContainer{
+  height:100vh;
+}
 .becomeHostLoginLink{
      position: absolute;
     bottom: 7rem;

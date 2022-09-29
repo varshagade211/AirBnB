@@ -16,6 +16,10 @@ function SingleSpot(){
     let [startDate,setStartDate] = useState('')
     let [endDate, setEndDate] = useState('')
     const [errors, setErrors] = useState({});
+    const [diffrenceInDate, setDiffrenceInDate] = useState(0)
+    const [totalFeesByDay, setTotalFeesByDays] = useState(0)
+    const [totalBill, setTotalBill] = useState(0)
+    const [serviceFees, setServiceFees] = useState(0)
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -70,6 +74,8 @@ function SingleSpot(){
     const onBookingSubmit = ((e)=>{
         e.preventDefault()
 
+
+
         dispatch(bookingActions.createBookingThunk({spotId:singleSpot?.id,startDate,endDate}))
         .then((res) => {
 
@@ -86,12 +92,40 @@ function SingleSpot(){
         });
 
     })
+    const onEndDateChangeHandler = (e) => {
+        setEndDate(e.target.value)
+    }
+    const onStartDateChangeHandler = (e) =>{
+        setStartDate(e.target.value)
+
+
+    }
+    useEffect(()=>{
+        if(endDate && startDate){
+            let end = new Date(endDate)
+            let start = new Date( startDate)
+            let Difference_In_Time = end.getTime() - start.getTime();
+            let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+            if(Difference_In_Days > 0){
+                setDiffrenceInDate(Difference_In_Days)
+                setTotalFeesByDays(singleSpot?.price * Difference_In_Days)
+                setTotalBill(singleSpot?.price * Difference_In_Days+ 100 +singleSpot?.price * diffrenceInDate/10)
+                setServiceFees(singleSpot?.price * Difference_In_Days/10)
+            }else{
+                setDiffrenceInDate(0)
+                setTotalFeesByDays(0)
+                setTotalBill(0)
+                setServiceFees(0)
+            }
+
+        }
+    },[startDate,endDate])
     return(
         <div className='singalePageMainContainer'>
            <Navigation className='navContainer'/>
            <hr className='line'></hr>
             <div className='singleSpotBackIconContainer' onClick={backHandler}>
-                <i  class="fas fa-angle-left singleSpotBackarrowIcon"></i>
+                <i  className="fas fa-angle-left singleSpotBackarrowIcon"></i>
             </div>
             <div className='singleSpotOuterContainer'>
                 <h2 className='singleSpotHeading'>{singleSpot?.name}</h2>
@@ -111,7 +145,7 @@ function SingleSpot(){
                     </div>
                     <div className={singleClassRemainingImages}>
 
-                        {Images?.map((image)=>  <img className = {'singleSpotImgs'} src= {image?.image} /> )}
+                        {Images?.map((image)=>  <img key={image?.id} className = {'singleSpotImgs'} src= {image?.image} /> )}
 
 
                     </div>
@@ -157,14 +191,15 @@ function SingleSpot(){
                             <div className='bookingPriceAndReviewContainer'>
                                 <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
                                 <p className='bookingStarsContainer'><i className="fa-solid fa-star bookinStar"></i>
-                                    {(stars/reviews?.length).toFixed(1)} <span>|</span>  {reviews?.length} Reviews</p>
+                                {stars>0?(stars/reviews?.length).toFixed(1): 0} <span>|</span>  {reviews?.length} Reviews</p>
+
 
                             </div>
                             <form onSubmit={onBookingSubmit}>
                                 <div className='dateInputLabelContainer'>
-                                    <label className='dateLable' for="checkIn">Check In</label><br />
+                                    <label className='dateLable' htmlFor="checkIn">Check In</label><br />
                                     <input className='dateInput' type="date" name="checkIn" id="checkIn"
-                                    onChange={(e)=>setStartDate(e.target.value)}/>
+                                    onChange={(e)=>onStartDateChangeHandler(e)}/>
                                       {errors?.startDate &&
                                         <div className="errorContainer">
                                             <div>
@@ -176,9 +211,9 @@ function SingleSpot(){
                                     }
                                 </div>
                                 <div className='dateInputLabelContainer'>
-                                    <label className='dateLable' for="checkOut">Check Out</label><br />
+                                    <label className='dateLable' htmlFor="checkOut">Check Out</label><br />
                                     <input className='dateInput' type="date" name="checkOut" id="checkOut"
-                                    onChange={(e)=>setEndDate(e.target.value)} />
+                                    onChange={(e)=>onEndDateChangeHandler(e)} />
                                      {errors?.endDate &&
                                         <div className="errorContainer">
                                             <div>
@@ -211,6 +246,27 @@ function SingleSpot(){
                                 <div className='dateInputLabelContainer'>
                                     <button className='bookingBtn'>Reserve</button>
                                 </div>
+                                <div className='billingContainer'>
+                                    <p className='youWontBeChargeTxt'>You won't be charged yet</p>
+                                    <div className='calculationContainer'>
+                                       <p className='billingInfo'>${singleSpot?.price} x {diffrenceInDate} night</p>
+                                       <p className='billingInfo'>${totalFeesByDay}</p>
+                                    </div>
+                                    <div className='calculationContainer'>
+                                    <p className='billingInfo'> Cleaning fee </p>
+                                    <p className='billingInfo'>$100</p>
+
+                                    </div>
+                                    <div className='calculationContainer'>
+                                        <p className='billingInfo'>Service fee</p>
+                                        <p className='billingInfo'>${serviceFees}</p>
+
+                                    </div>
+                                <div className='calculationContainer totalContainer'>
+                                    <p className='billingInfo'>Total before taxes</p>
+                                    <p className='billingInfo'>${totalBill}</p>
+                                </div>
+                                </div>
                             </form>
                     </div>}
                        {isOwner&&
@@ -218,12 +274,12 @@ function SingleSpot(){
                                 <div className='bookingPriceAndReviewContainer'>
                                 <h2 className='singleSpotPrice'>${singleSpot?.price} / night</h2>
                                 <p className='bookingStarsContainer'><i className="fa-solid fa-star bookinStar"></i>
-                                    {(stars/reviews?.length).toFixed(1)} <span>|</span>  {reviews?.length} Reviews</p>
+                                    {stars>0?(stars/reviews?.length).toFixed(1): 0} <span>|</span>  {reviews?.length} Reviews</p>
 
                             </div>
                               <button className='ediBtn' onClick={EditHandler}>Edit Listing</button>
                               <DeleteSpotModal singleSpot={singleSpot} className={"deleteBtn"}/>
-                              {/* <button  className='deleteBtn'  onClick={deleteHandler}>Delete Listing</button> */}
+
                             </div>
                         }
                     </div>
@@ -232,7 +288,7 @@ function SingleSpot(){
                 {/*------------------------------------------- reviews ------------------------------------------------------- */}
                <div className='reviewStarAddReviewContainer'>
                     <p className='reviewsStarsContainer'><i className="fa-solid fa-star"></i>
-                    {(stars/reviews?.length).toFixed(1)} <span className='pipe'>|</span>  {reviews?.length} Reviews</p>
+                    {stars>0 ? (stars/reviews?.length).toFixed(1): 0 } <span className='pipe'>|</span>  {reviews?.length} Reviews</p>
                     <CreateReviewFormModal className={'addReviewBtn'}/>
 
                </div>
@@ -257,11 +313,11 @@ function SingleSpot(){
                    })}
 
                 </div>
-                <hr className='line'></hr>
+                {/* <hr className='line'></hr>
                 <footer className='footer'>
                     <p>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
                     <p> <i className="fa-solid fa-globe languageIcon"></i>English (US)</p>
-                </footer>
+                </footer> */}
 
 
             </div>

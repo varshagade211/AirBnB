@@ -30,7 +30,7 @@ function Reviews(){
                         <div className="reviewTextContainer">
                             <p className="reviewInfo reviewPageText">{review?.review}</p>
                         </div>
-                        <p className="reviewInfo"><i class="fa-solid fa-star"></i> {review?.stars}</p>
+                        <p className="reviewInfo"><i className="fa-solid fa-star"></i> {review?.stars}</p>
                     </div>
                     <div className="editdeletereviewBtnContainer">
                         <EditReviewModal className={'editreviewBtn'} review={review}/>

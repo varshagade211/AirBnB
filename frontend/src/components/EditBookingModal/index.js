@@ -4,7 +4,7 @@ import EditBookingForm from './EditBookingForm.js';
 import './index.css'
 
 
-function EditBookingModal({className,booking}) {
+function EditBookingModal({className,booking,setTotalBill,totalBill}) {
   const [showModal, setShowModal] = useState(false);
 
 
@@ -15,7 +15,7 @@ function EditBookingModal({className,booking}) {
 
       {showModal && (
         <Modal className={ 'editBookingModalContent'} onClose={() => setShowModal(false)}>
-          <EditBookingForm setShowModalClose={setShowModal} booking={booking}/>
+          <EditBookingForm setShowModalClose={setShowModal} booking={booking} totalBill={totalBill} setTotalBill={setTotalBill} />
 
         </Modal>
       )}

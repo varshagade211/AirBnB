@@ -11,7 +11,16 @@ router.get('/', requireAuth, async(req,res) => {
     const bookings = await Booking.findAll({
             where:{userId:req.user.id},
             include:[
-                {model:Spot, attributes:{exclude:['createdAt','updatedAt','description']}},
+                {
+                    model:Spot,
+                        attributes:{
+                           exclude:['createdAt','updatedAt','description'],},
+                        include:[
+                            {
+                               model:User, as: "Owner",
+                               attributes:['firstName', 'lastName']
+                            }]
+                },
                 {model:User}
             ]
     })

@@ -21,6 +21,7 @@ import DeletePopUpModal from './components/ImageDeleteModal'
 import Reviews from './components/Reviews';
 import Bookings from './components/Bookings'
 import SingleBooking  from './components/SingleBooking';
+import Footer from './components/Footer';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -35,61 +36,81 @@ function App() {
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           <AllSpots />
+          {/* <Footer /> */}
+
         </Route>
 
         <Route exact path='/spots/user/spots'>
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           <CurrentUserSpots />
+           <Footer />
+
         </Route>
 
         <Route exact path="/becomehost">
           <BecomeHostPage />
+          <Footer />
         </Route>
 
         <Route exact path='/spots'>
           <CreateSpot />
+          <Footer />
+
         </Route>
 
         <Route exact path='/spots/:id'>
           <SingleSpot />
+          <Footer />
         </Route>
 
         <Route exact path='/spots/edit/:id'>
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           <EditForm />
+          <Footer />
+
         </Route>
 
         <Route exact path='/spots/edit/:id/images'>
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           <EditImages />
+          <Footer />
+
         </Route>
 
         <Route exact path='/images/:id'>
           <SingleSpotImages />
+
         </Route>
 
         <Route exact path='/reviews'>
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           < Reviews />
+          <Footer />
+
         </Route>
 
         <Route exact path='/bookings'>
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           < Bookings />
+           <Footer />
+
+
         </Route>
 
         <Route exact path='/SingleBooking/:id'>
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           < SingleBooking />
+
         </Route>
 
       </Switch>
+
     {/* )} */}
   </div>
   );

@@ -199,10 +199,9 @@
    color: rgba(0, 0, 0, 0.8);
    margin: 0rem 0.9rem 0 0;
 }
-.footer{
-    display: flex;
-    justify-content: space-between;
-}
+
+
+
 .infoContainer{
   display: flex;
   /* position: relative; */
@@ -410,7 +409,27 @@
     font-size: 0.8rem;
     margin: 0.5rem 0.2rem 0rem 0.5rem;
 }
+.calculationContainer{
+    display: flex;
+    justify-content: space-between;
 
+}
+.youWontBeChargeTxt{
+    text-align: center;
+    margin: 1rem 0 0.5rem 0;
+    font-size: 0.9rem;
+    color:rgba(0, 0, 0, 0.61);
+}
+.billingContainer{
+    padding:0 1rem 0 1rem;
+}
+.billingInfo{
+    margin: 1rem 0 0.5rem 0;
+    font-size: 0.9rem
+}
+.totalContainer{
+    border-top: 1px solid rgba(0, 0, 0, 0.151);
+}
 @media only screen and (min-width: 100px) and (max-width: 1033px)  {
 
     .editDeletebuttons{
@@ -418,16 +437,16 @@
         flex-direction: row;
 
     }
+
     /* .bookingBtn{
         width: 30%;
         margin: 2rem 5rem 0rem 5rem;
     } */
     .ediBtn,.deleteBtn,.bookingBtn{
         padding: 0.5rem;
-        /* font-size: 0.5rem; */
-
 
     }
+
 
     .infoContainer{
         display: block;
@@ -482,5 +501,15 @@
 }
 .reviewuserNameAndDateContainer{
   width:100%;
+}
+.editDeletebuttons{
+    display: block;
+}
+.ediBtn,.deleteBtn,.bookingBtn{
+font-size: 0.7rem;
+width: 100%;
+margin: 1rem 0 0 0;
+
+
 }
 }

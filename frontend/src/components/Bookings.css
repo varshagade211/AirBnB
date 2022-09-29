@@ -17,6 +17,9 @@
     cursor: pointer;
 
 }
+.bookingContainer{
+    height:100vh
+}
 .tripsFeedOuterContainer{
     margin: 1rem;
     /* margin: 1.5em 3em 0 5.5em; */

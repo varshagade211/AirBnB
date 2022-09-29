@@ -10,10 +10,10 @@ import igloo from '../../image/favicon.ico'
 function BecomeHostPage(){
     const sessionUser = useSelector(state => state.session.user);
     return(
-        <div >
+        <div className='becomHostContainer'>
             <img className='videoImage'src={becomehost} alt = 'becomehost image' />
 
-          
+
 
               <NavLink  exact to="/"><img  className='becomeHostLogo' src={igloo} /></NavLink>
 

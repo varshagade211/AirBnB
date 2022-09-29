@@ -14,7 +14,7 @@ function Booking(){
     },[dispatch])
 
     return (
-        <div>
+        <div className="bookingContainer">
         <div className="yourTripsContainer"><p className="trips">Where you’ve been</p></div>
         <div className="tripsFeedOuterContainer">
             {bookings?.map(booking=>{

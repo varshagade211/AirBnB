@@ -1,0 +1,45 @@
+.footer{
+
+    position: sticky;
+    bottom: 0;
+    right:0;
+    left:0;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.17);
+    padding: 0 1rem 0 1rem;
+    background-color: white;
+
+    z-index: 1;
+
+}
+
+.footerAboutLinksContainer{
+    margin: 1rem 0 0 0;
+
+}
+
+
+.gitHubLink,.portfolioLink,.linkedInLink{
+    text-decoration: none;
+    margin: 0rem 0.5rem 0.5rem 0.5rem;
+}
+.linkedInIcon,.portfolioIcon{
+    font-size: 1.3rem;
+    color: #0275d8;
+
+}
+.gitHubIcon{
+font-size: 1.3rem;
+color: black;
+
+}
+
+
+@media only screen and (max-width: 700px)  {
+    .footer{
+        display: block;
+        text-align: center;
+    }
+
+}
