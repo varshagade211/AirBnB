@@ -64,7 +64,6 @@ export const loadCurrentUserReviewThunk = () => async (dispatch) => {
 
 export const createReviewThunk = (reviewData) => async (dispatch) => {
     const {review, stars, spotId} = reviewData
-    console.log(typeof stars, stars)
         const response = await csrfFetch(`/api/reviews/${spotId}`,
         {
            method:'POST',
@@ -85,7 +84,6 @@ export const createReviewThunk = (reviewData) => async (dispatch) => {
 export const editReviewThunk = (reviewData) => async (dispatch) => {
     const {review, stars, id} = reviewData
     const {Spot} = reviewData
-    console.log(typeof stars, stars)
         const response = await csrfFetch(`/api/reviews/${id}`,
         {
            method:'PUT',
@@ -142,11 +140,8 @@ const reviewReducer = (state = initialReviews, action) => {
             return newState
         }
         case EDIT_CURRENT_USER_REVIEW:{
-            console.log(action?.review)
             state?.reviews?.forEach((review,i) => {
-                console.log(review)
                 if(review?.id === action?.review?.id){
-                    console.log(review)
                     state?.reviews?.splice(i, 1, action?.review)
                 }
             })
@@ -157,7 +152,6 @@ const reviewReducer = (state = initialReviews, action) => {
                     state?.userReviews?.splice(i, 1, action?.review)
                 }
             })
-            console.log('inside userReview',state?.userReviews)
             newState = {...state,reviews:[...state?.reviews], userReviews:[...state?.userReviews]}
             return newState
         }

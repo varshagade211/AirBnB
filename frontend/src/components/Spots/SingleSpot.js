@@ -85,7 +85,6 @@ function SingleSpot(){
             setErrors({success:"Successfully created your booking! see in trips"});
         })
         .catch(async (res) => {
-            console.log(res)
             const data = await res.json();
             if (data && data.errors) {
                 setErrors(data.errors);
@@ -306,7 +305,7 @@ function SingleSpot(){
                 <div className='reviewOuterContainer'>
 
                    {reviews?.map(review => {
-                   
+
                       return(
                        <div key={review?.id} className='reviewContainer'>
                         <div className='reviewuserNameAndDateContainer'>

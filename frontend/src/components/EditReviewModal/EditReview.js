@@ -93,8 +93,6 @@ function EditReviewForm({setShowModalClose , review}){
             }
         })
         .catch(async (res) => {
-
-            console.log(res)
             const data = await res.json();
             if (data && data.errors) {
                 setErrors(data.errors);
