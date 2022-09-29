@@ -104,8 +104,8 @@ const validateReview = [
        .isString()
        .withMessage("Review text is required"),
     check('review')
-       .isLength({min:1, max:1000})
-       .withMessage('Review must be 1-1000 characters'),
+       .isLength({min:1, max:255})
+       .withMessage('Review must be 1-255 characters'),
     // check("stars")
     //    .exists({checkFalsy:true})
     //    .isNumeric()
