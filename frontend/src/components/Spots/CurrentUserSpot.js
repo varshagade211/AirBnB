@@ -49,7 +49,7 @@ function CurrentUserSpots(){
             {spots?.map(spot => <Spot key={spot?.id} spot={spot}></Spot>)}
 
         </div>
-        <footer className='footerOnHomePage'>
+        {/* <footer className='footerOnHomePage'>
 
             <p className='footerTxt'>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
             <div className='footerAboutLinksContainer'>
@@ -59,7 +59,7 @@ function CurrentUserSpots(){
 
             </div>
             <p className='footerTxt'> <i className="fa-solid fa-globe languageIcon"></i>English (US)</p>
-        </footer>
+        </footer> */}
         </div>
     )
 }
