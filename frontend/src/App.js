@@ -45,7 +45,7 @@ function App() {
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           <CurrentUserSpots />
-           <Footer />
+           {/* <Footer /> */}
 
         </Route>
 
@@ -109,7 +109,7 @@ function App() {
           < SingleBooking />
 
         </Route>
-        
+
         <Route>
           <PageNotFound />
         </Route>
