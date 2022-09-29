@@ -14,6 +14,10 @@
 }
 .becomHostContainer{
   height:100vh;
+
+}
+.becomHostInnerContainer{
+  position: relative;
 }
 .becomeHostLoginLink{
      position: absolute;

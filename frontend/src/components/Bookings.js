@@ -17,6 +17,7 @@ function Booking(){
         <div className="bookingContainer">
         <div className="yourTripsContainer"><p className="trips">Where you’ve been</p></div>
         <div className="tripsFeedOuterContainer">
+            {bookings?.length === 0 &&  <div className='noSingleSpotAvailableContainer'><p>No trips yet...</p> </div>}
             {bookings?.map(booking=>{
                return(
                 <div key={booking?.id} className="imageAndTripsContainer" onClick={()=>history.push(`/singleBooking/${booking?.id}`)}>
@@ -37,19 +38,11 @@ function Booking(){
 
                             {/* </div> */}
                         </div>
-
-                        {/* <button className="tripDetailBtn" onClick={()=>history.push(`/singleBooking/${booking?.id}`)}>Trip Details</button> */}
-                        {console.log(booking?.Spot?.stars)}
-                        {/* <p className="reviewInfo"><i class="fa-solid fa-star"></i> {review?.stars}</p> */}
                     </div>
-                    {/* <div className="editdeletereviewBtnContainer"> */}
 
-                        {/* <EditReviewModal className={'editreviewBtn'} review={review}/>
-                        <DeleteReviewFormModal className={'deleteReviewBtn'} reviewId={review?.id}/> */}
-                    {/* </div> */}
                 </div>
 
-                  {/* <button onClick={()=>deleteReviewHandler(review?.id)}>Delete Review</button> */}
+
             </div>
              )
         })}

@@ -1,0 +1,49 @@
+.pageNotFoundContainer{
+    margin: 10rem auto auto auto;
+    width:50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 1rem  2rem 1rem;
+    background-color: rgba(128, 128, 128, 0.177);
+}
+
+.pageNotFoundSearchIcon{
+    font-size: 5rem;
+    /* margin: 0 0 0 2rem; */
+}
+
+.pageNotFoundLogoAndNameContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.pageNotFoundLogoName{
+  margin: 0 0 0 0.3rem ;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color:#ff385c;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+.notFoundError{
+    margin: 1rem 1rem 1rem 1rem;
+    font-size: 1rem;
+}
+
+.fourOfourNumber{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 1rem 1rem 0;
+}
+
+.pageNotFoundHomeLink{
+    cursor: pointer;
+    color: #0275d8;;
+    text-decoration: underline;
+    margin: 0 0 0 0.3rem;
+}

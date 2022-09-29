@@ -43,7 +43,7 @@ function SingleBooking() {
         <div className='singlePagebookingContainer'>
                     { !booking?.Spot &&
                     <div className='noSingleSpotAvailableContainer'>
-                        <p className='noSpotAvailable'>Spot is no longer available</p></div>}
+                        <p className='noSpotAvailable'>Booking is no longer available</p></div>}
                    {booking?.Spot && <div className="bookingInfoAndMapContainer">
 
                         <div className='bookingImageAndInfoContainer'>
@@ -89,7 +89,7 @@ function SingleBooking() {
                                 <p className='bookingHeading'>Payment</p>
                                 <hr className='line'></hr>
                                 <div className='bookingBtnContainer'>
-                                <p><i className="fa-solid fa-dollar-sign bookingDollarIcon"></i>Total:${totalBill}</p>
+                                <p><i className="fa-solid fa-dollar-sign bookingDollarIcon"></i>Total:${Math.floor(totalBill)}</p>
                                 <hr className='line'></hr>
                             </div>
 

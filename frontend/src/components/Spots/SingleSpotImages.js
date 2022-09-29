@@ -28,7 +28,7 @@ function SingleSpotImages(){
             <i  className="fas fa-angle-left arrowIcon"></i>
             </div>
             <div className='SingleimageContainer'>
-               {spotAllImages?.map((img)=> <img className='singleSpotImage'src={img?.image} alt='spot image'/>)}
+               {spotAllImages?.map((img)=> <img key={img?.id} className='singleSpotImage'src={img?.image} alt='spot image'/>)}
             </div>
         </div>
     )

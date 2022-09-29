@@ -15,8 +15,10 @@
     padding: 1rem 1rem 2rem 1rem;
 }
 .reviewFeedOuterContainer{
-    margin: 1rem;
-    height:100vh
+    /* margin: 1rem; */
+    height:100vh;
+    margin: auto;
+    max-width: 1050px;
 }
 
 .reviewInfo{

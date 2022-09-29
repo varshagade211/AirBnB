@@ -22,6 +22,7 @@ import Reviews from './components/Reviews';
 import Bookings from './components/Bookings'
 import SingleBooking  from './components/SingleBooking';
 import Footer from './components/Footer';
+import PageNotFound  from './components/PageNotFound'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -107,6 +108,10 @@ function App() {
           <hr className='line'></hr>
           < SingleBooking />
 
+        </Route>
+        
+        <Route>
+          <PageNotFound />
         </Route>
 
       </Switch>

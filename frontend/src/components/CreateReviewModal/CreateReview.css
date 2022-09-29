@@ -33,6 +33,7 @@
     margin: 1rem 0 0 0 ;
     color: goldenrod;
     font-size: 1rem;
+    cursor: pointer;
 
 }
 .selectedStar{

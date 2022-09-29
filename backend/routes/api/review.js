@@ -61,12 +61,12 @@ router.get('/user/', async(req,res,next)=>  {
             ]
         }
     )
-    if(!reviews.length){
-        const err = new Error("Page Not Found");
-        err.errors = {review:"Spot couldn't be found"}
-        err.statusCode = 404;
-        return next(err);
-    }
+    // if(!reviews.length){
+    //     const err = new Error("Page Not Found");
+    //     err.errors = {review:"Reviews couldn't be found"}
+    //     err.statusCode = 404;
+    //     return next(err);
+    // }
    return res.status(200).json({"Reviews" : reviews})
 })
 //get review for spot

@@ -17,6 +17,7 @@ function Reviews(){
     return (
         <div className="reviewFeedOuterContainer">
             <div className="yourReviewContainer"><p className="pastReview">Past Reviews </p></div>
+            {reviews?.length === 0 && <div className='noSingleSpotAvailableContainer'><p> No reviews yet...</p> </div>}
             {reviews?.map(review=>{
                return(
                 <div key={review?.id} className="imageAndReviewContainer">

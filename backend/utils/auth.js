@@ -60,7 +60,7 @@ const restoreUser = (req, res, next) => {
 
     const err = new Error('Unauthorized');
     err.title = 'Unauthorized';
-    err.errors = {message:'Unauthorized Please login'};
+    err.errors = {message:'Please login'};
     err.status = 401;
     next(err)
     // _res.json({

@@ -82,7 +82,7 @@ function Navigation({ }){
       <li className='navLinks'>
         <div className='logo-container'>
            <NavLink exact to="/"><img src={igloo} className="logo"/></NavLink>
-           <h3 className='logo-name'>spots-bnb</h3>
+           <h3 onClick={()=> history.push('/')} className='logo-name'>spots-bnb</h3>
         </div>
          <div className='becomeHostAndUserBtnContainer'>
          {showMenu && <div className='navbackgroundDiv' onClick={onClose} ></div>}

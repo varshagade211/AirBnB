@@ -306,8 +306,9 @@ function SingleSpot(){
                 <div className='reviewOuterContainer'>
 
                    {reviews?.map(review => {
+                   
                       return(
-                       <div className='reviewContainer'>
+                       <div key={review?.id} className='reviewContainer'>
                         <div className='reviewuserNameAndDateContainer'>
                         <div className='userIconAndUserNameContainer'>
                             <i className="fa-solid fa-circle-user reviewUserIcon"></i>
