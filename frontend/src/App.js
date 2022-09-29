@@ -45,7 +45,7 @@ function App() {
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           <CurrentUserSpots />
-           <Footer />
+           {/* <Footer /> */}
 
         </Route>
 
