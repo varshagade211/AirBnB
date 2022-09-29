@@ -55,6 +55,6 @@ flex:1
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16em,1fr));
     gap:1.5rem;
-    /* height: 100vh; */
+    height: 100vh;
 
 }
