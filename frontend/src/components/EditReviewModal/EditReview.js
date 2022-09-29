@@ -1,5 +1,5 @@
 import './EditReview.css'
-import {useRef, useState} from 'react'
+import {useRef, useState,useEffect} from 'react'
 import * as reviewActions from '../../store/review'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -29,6 +29,13 @@ function EditReviewForm({setShowModalClose , review}){
         setReview(e.target.value)
 
     }
+    useEffect(()=>{
+        // if(isEdit){
+
+            textArea.current.style.height = 'auto'
+            textArea.current.style.height = textArea.current.scrollHeight + 'px'
+        // }
+    },[])
     const firstStarHandler = () => {
         setFirstStar(true)
 
@@ -138,7 +145,14 @@ function EditReviewForm({setShowModalClose , review}){
                     </div>
                     </div>
             }
-
+            {errors?.message &&
+                <div>
+                    <div>
+                        <i className="fa-solid fa-circle-exclamation createReviewErrorlogo"></i>
+                        <span className='createReviewErrorError' key={errors.message}>{errors.message}</span>
+                    </div>
+                    </div>
+            }
 
             <button className='editReviewSubmitBtn'>Save</button>
 
