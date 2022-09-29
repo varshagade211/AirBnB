@@ -3,23 +3,28 @@
     height: 450px;
     margin: 0.3rem 0rem 0 0rem;
 }
-/* .singleSpotImagesContaier{
-    position: relative;
-} */
+.singleSpotImagesContaier{
+    margin: auto;
+    max-width: 1250px;
+}
 .arrowIcon{
-    position: fixed;
+    /* position: fixed;
     top: 2rem;
-    left:2rem;
+    left:2rem; */
     font-size: 1.2rem;
 }
 .arrowIconContainer{
     width: 50px;
     height:50px;
     cursor: pointer;
-    position: relative;
+    /* position: relative;
     top:0.96rem;
-    left:1rem;
+    left:1rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius:50%
+
 }
 
 .arrowIconContainer:hover{
