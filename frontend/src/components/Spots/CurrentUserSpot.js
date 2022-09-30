@@ -6,6 +6,7 @@ import './AllSpots.css'
 import { useHistory } from 'react-router-dom'
 import './CurrentUserSpot.css'
 import welcome from '../../image/welcome_image.JPG'
+import Footer from '../Footer.js'
 function CurrentUserSpots(){
     const dispatch = useDispatch()
     const history = useHistory()
@@ -49,7 +50,9 @@ function CurrentUserSpots(){
             {spots?.map(spot => <Spot key={spot?.id} spot={spot}></Spot>)}
 
         </div>
-        <footer className='footerOnHomePage'>
+        <hr className='line hrLineAllSpot'></hr>
+        <Footer />
+        {/* <footer className='footerOnHomePage'>
 
             <p className='footerTxt'>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
             <div className='footerAboutLinksContainer'>
@@ -59,7 +62,7 @@ function CurrentUserSpots(){
 
             </div>
             <p className='footerTxt'> <i className="fa-solid fa-globe languageIcon"></i>English (US)</p>
-        </footer>
+        </footer> */}
         </div>
     )
 }

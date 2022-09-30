@@ -4,6 +4,7 @@ import * as reviewActions from '../store/review'
 import EditReviewModal from '../components/EditReviewModal'
 import DeleteReviewFormModal from '../components/DeleteReviewModal'
 import './Reviews.css'
+import Footer from "./Footer"
 function Reviews(){
     let dispatch = useDispatch()
     let user = useSelector(state => state?.session?.user)
@@ -16,11 +17,12 @@ function Reviews(){
     // }
     return (
         <div className="reviewFeedOuterContainer">
-            <div className="yourReviewContainer"><p className="pastReview">Past Reviews </p></div>
-            {reviews?.length === 0 && <div className='noSingleSpotAvailableContainer'><p> No reviews yet...</p> </div>}
-            {reviews?.map(review=>{
-               return(
-                <div key={review?.id} className="imageAndReviewContainer">
+            <div>
+                <div className="yourReviewContainer"><p className="pastReview">Past Reviews </p></div>
+                {reviews?.length === 0 && <div className='noSingleSpotAvailableContainer'><p> No reviews yet...</p> </div>}
+                {reviews?.map(review=>{
+                return(
+                    <div key={review?.id} className="imageAndReviewContainer">
                     <div className="reviewPreviweImageContainer">
                         <img className='reviewPreviweImage' src={review?.Spot?.Images[0]?.image} />
                     </div>
@@ -40,9 +42,14 @@ function Reviews(){
                 </div>
 
                   {/* <button onClick={()=>deleteReviewHandler(review?.id)}>Delete Review</button> */}
+
+                    </div>
+                )
+                })}
+
             </div>
-             )
-        })}
+            <hr className='line hrLineAllSpot'></hr>
+            <Footer />
         </div>
     )
 }

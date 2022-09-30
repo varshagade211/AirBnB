@@ -6,7 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import igloo from '../../image/favicon.ico'
-
+import Footer from '../Footer';
 function BecomeHostPage(){
     const sessionUser = useSelector(state => state.session.user);
     return(
@@ -20,7 +20,8 @@ function BecomeHostPage(){
             </div>
 
 
-
+            <hr className='line hrLineAllSpot'></hr>
+            <Footer />
 
 
         </div>

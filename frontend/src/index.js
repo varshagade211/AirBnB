@@ -10,7 +10,6 @@ import * as sessionAction from "./store/session"
 import { ModalProvider } from "./context/Modal";
 
 
-
 const store = configureStore()
 if(process.env.NODE_ENV !== 'production'){
   restoreCSRF()

@@ -16,9 +16,10 @@
 }
 .reviewFeedOuterContainer{
     /* margin: 1rem; */
-    height:100vh;
-    margin: auto;
+
+    margin: auto; 
     max-width: 1050px;
+
 }
 
 .reviewInfo{
@@ -79,6 +80,8 @@ display: block;
     margin: 0 0 1rem 0;
 }
 }
+
+
 @media only screen and (max-width: 900px)  {
     .reviewInfoContainer{
         width:100%;

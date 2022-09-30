@@ -5,6 +5,7 @@ import * as bookingActions from '../store/bookings'
 // import DeleteReviewFormModal from '../components/DeleteReviewModal'
 import { useHistory } from 'react-router-dom'
 import './Bookings.css'
+import Footer from "./Footer"
 function Booking(){
     let dispatch = useDispatch()
     let bookings = useSelector(state => state?.bookings?.bookings)
@@ -14,9 +15,10 @@ function Booking(){
     },[dispatch])
 
     return (
+
         <div className="bookingContainer">
-        <div className="yourTripsContainer"><p className="trips">Where you’ve been</p></div>
-        <div className="tripsFeedOuterContainer">
+            <div className="yourTripsContainer"><p className="trips">Where you’ve been</p></div>
+            <div className="tripsFeedOuterContainer">
             {bookings?.length === 0 &&  <div className='noSingleSpotAvailableContainer'><p>No trips yet...</p> </div>}
             {bookings?.map(booking=>{
                return(
@@ -46,8 +48,11 @@ function Booking(){
             </div>
              )
         })}
+            </div>
+            <hr className='line hrLineAllSpot'></hr>
+            <Footer />
         </div>
-        </div>
+
     )
 }
 

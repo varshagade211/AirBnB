@@ -9,7 +9,7 @@ import Navigation from "../Navigation"
 import CreateReviewFormModal from '../CreateReviewModal'
 import DeleteSpotModal from '../DeleteSpotModal'
 import * as bookingActions from '../../store/bookings'
-
+import Footer from '../Footer'
 
 function SingleSpot(){
     let {id} = useParams()
@@ -121,6 +121,7 @@ function SingleSpot(){
         }
     },[startDate,endDate])
     return(
+        <div>
         <div className='singalePageMainContainer'>
            <Navigation className='navContainer'/>
            <hr className='line'></hr>
@@ -324,6 +325,7 @@ function SingleSpot(){
                    })}
 
                 </div>
+
                 {/* <hr className='line'></hr>
                 <footer className='footer'>
                     <p>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
@@ -332,6 +334,9 @@ function SingleSpot(){
 
 
             </div>
+        </div>
+        <hr className='line hrLineAllSpot'></hr>
+        <Footer />
         </div>
     )
 }

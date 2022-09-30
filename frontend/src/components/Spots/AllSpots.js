@@ -22,7 +22,8 @@ function AllSpots(){
            </div>
 
         <hr className='line hrLineAllSpot'></hr>
-            <footer className='footerOnHomePage'>
+        <Footer />
+            {/* <footer className='footerOnHomePage'>
 
                  <p className='footerTxt'>© 2022 spots-bnb, Inc, . Privacy·Terms·Sitemap</p>
                  <div className='footerAboutLinksContainer'>
@@ -32,7 +33,7 @@ function AllSpots(){
 
               </div>
                 <p className='footerTxt'> <i className="fa-solid fa-globe languageIcon"></i>English (US)</p>
-            </footer>
+            </footer> */}
 
       </div>
 

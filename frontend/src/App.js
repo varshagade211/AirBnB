@@ -51,25 +51,25 @@ function App() {
 
         <Route exact path="/becomehost">
           <BecomeHostPage />
-          <Footer />
+          {/* <Footer /> */}
         </Route>
 
         <Route exact path='/spots'>
           <CreateSpot />
-          <Footer />
+          {/* <Footer /> */}
 
         </Route>
 
         <Route exact path='/spots/:id'>
           <SingleSpot />
-          <Footer />
+          {/* <Footer /> */}
         </Route>
 
         <Route exact path='/spots/edit/:id'>
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           <EditForm />
-          <Footer />
+          {/* <Footer /> */}
 
         </Route>
 
@@ -77,7 +77,7 @@ function App() {
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           <EditImages />
-          <Footer />
+          {/* <Footer /> */}
 
         </Route>
 
@@ -90,7 +90,7 @@ function App() {
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           < Reviews />
-          <Footer />
+          {/* <Footer /> */}
 
         </Route>
 
@@ -98,7 +98,7 @@ function App() {
           <Navigation className='navContainer'/>
           <hr className='line'></hr>
           < Bookings />
-           <Footer />
+           {/* <Footer /> */}
 
 
         </Route>
