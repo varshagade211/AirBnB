@@ -23,20 +23,32 @@ Please see below link to project wiki: <br />
 * Home Page Demo User:
     You will be able to test features without signup by clicking on "Demo User" button.
 
-* Home page for Display resolution 1920 x 1200
+* Home page:
 
-![AirBnB db schema](home-page.JPG) &nbsp;  &nbsp;  &nbsp;
-
-
-
-
-* Home page for Display resolution 750 x 748
-
-![AirBnB db schema](tab-home-page.JPG) &nbsp;  &nbsp;  &nbsp;
+![AirBnB db schema](spots-bnb-home-page.JPG) &nbsp;  &nbsp;  &nbsp;
 
 
 
 
-* Home page for Display resolution 454 x 748
+* Single spot:
 
-![AirBnB db schema](responsive-home-page.JPG) &nbsp; &nbsp;
+![AirBnB db schema](single-spot.JPG) &nbsp;  &nbsp;  &nbsp;
+
+![AirBnB db schema](single-spot2.JPG) &nbsp; &nbsp; &nbsp;
+
+* My reviews:
+
+![AirBnB db schema](my-reviews.JPG) &nbsp; &nbsp; &nbsp;
+
+
+* Trips:
+
+![AirBnB db schema](my-trips.JPG) &nbsp; &nbsp; &nbsp;
+
+* Trips in detail:
+
+![AirBnB db schema](single-booking.JPG) &nbsp; &nbsp; &nbsp;
+
+* Change image:
+
+![AirBnB db schema](change-images.JPG) &nbsp; &nbsp; &nbsp;
