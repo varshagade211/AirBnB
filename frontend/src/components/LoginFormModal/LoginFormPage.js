@@ -32,14 +32,14 @@ function LoginFormPage() {
     <div className="formContainer">
         <h4 className="loginFormLogo">Log in or sign up </h4>
         <hr className='line'></hr>
-        <h3 className="welcomMsg">Welcome to Airbnb</h3>
+        <h3 className="welcomMsg">Welcome to spots-bnb</h3>
         <form className="loginForm" onSubmit={handleSubmit}>
              {/* <ul>
                  {errors.map((error, idx) => <li className='error' key={idx}>{error}</li>)}
             </ul> */}
             {/* <div> */}
-                <label className="loginLabel">Email </label>
-                <input className='loginFormInput' type={'text'} placeholder = 'Enter Email Address' name={'email'} value={email} onChange={(e)=>setEmail(e.target.value)} />
+                {/* <label className="loginLabel">Email </label> */}
+                <input className='loginFormInput' type={'text'} placeholder = ' Email ' name={'email'} value={email} onChange={(e)=>setEmail(e.target.value)} />
                 {errors?.email &&
                     <div className="errorContainer">
                         <div>
@@ -50,8 +50,8 @@ function LoginFormPage() {
                         </div>
                     </div>
                 }
-                <label  className="loginLabel">Password </label>
-                <input className='loginFormInput' type={'password'} placeholder = 'Enter Password' name={'password'} value={password} onChange={(e)=>setPassword(e.target.value)} />
+                {/* <label  className="loginLabel">Password </label> */}
+                <input className='loginFormInput' type={'password'} placeholder = ' Password' name={'password'} value={password} onChange={(e)=>setPassword(e.target.value)} />
                 {errors?.password &&
                     <div className="errorContainer">
                         <div>
@@ -63,7 +63,7 @@ function LoginFormPage() {
                     </div>
                 }
 
-                <button className='submitButton' type={'submit'}>Login</button>
+                <button className='loginSubmitButton' type={'submit'}>Login</button>
 
                 <div className="submitDemoUseContainer">
                     <p className="demoOption">Just looking? Use Demo mode to sign in and preview.</p>

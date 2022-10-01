@@ -6,23 +6,39 @@
     width: 500px;
     /* height: 500px; */
     max-height: 600px;
-    /* margin: 0rem 0 0 2rem; */
+    /* margin: 0 0 0 2rem; */
+
 }
 
 .signUplabel{
 
-    display:inline-block;
-    margin: 1rem 0 0 2rem;
-
+    /* display:inline-block; */
+    /* margin: 1rem 0 0 2rem; */
+    margin: auto;
 }
-.formContainer .signUpFormInput{
+.formContainer{
+    text-align: center;
+}
+
+.signUpErrorContainer{
+    display: flex;
+    flex-direction: row;
+
+    margin: 1rem 0 0 3rem;
+}
+.signUpErrorLogo{
+    color: rgb(193, 53, 21);
+    font-size: 0.8rem;
+    margin: 0 1rem 0 0;
+}
+.signUpFormInput{
    display: flex;
    min-width: 80%;
    flex: 1;
-   margin: 0.2rem 1rem 0rem 2rem;
+   /* margin: 0.2rem 1rem 0rem 2rem; */
    padding: 10px;
    border-radius: 5px;
-
+   margin: 1rem auto auto auto;
    border: 1.25px solid rgba(0, 0, 0, 0.26);
 
 }
@@ -30,7 +46,8 @@
 .signUpSubmitButton{
     box-sizing: border-box;
     min-width: 80%;
-    margin: 1.4rem 0 0 2rem;
+    margin: 1rem 0 0 0;
+
     padding:0.7rem;
     border-radius: 5px;
     background-color: rgb(230, 30, 77);
@@ -39,16 +56,17 @@
     font-weight: 500;
     cursor: pointer;
 }
-.welcomMsg{
+.signUpwelcomMsg{
 
     font-size: 1.1rem;
     color: rgba(0, 0, 0, 0.797);
-    /* text-align: center; */
-    /* margin: 1rem 0 1rem 4rem; */
+    text-align: center;
+    margin: 0 0 0 0;
+
 }
 .loginTitle{
-    margin: 1rem 1rem 1rem 12rem;
-    font-size: 1rem;
+    /* margin: 1rem 1rem 1rem 12rem; */
+    font-size: 0.9rem;
 
 }
 .line{

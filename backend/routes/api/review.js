@@ -89,11 +89,11 @@ router.get('/:spotId', async(req,res,next)=>  {
             ]
         }
     )
-    if(!reviews.length){
-        const err = new Error("Spot couldn't be found");
-        err.statusCode = 404;
-        return next(err);
-    }
+    // if(!reviews.length){
+    //     const err = new Error("Spot couldn't be found");
+    //     err.statusCode = 404;
+    //     return next(err);
+    // }
    return res.status(200).json({"Reviews" : reviews})
 })
 

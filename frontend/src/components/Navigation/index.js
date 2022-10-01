@@ -56,7 +56,7 @@ function Navigation({ }){
         <div className='linksContainer'>
           <LoginFormModal className={'loginButton'} btnTxt={"Log In"}/>
           <hr className='NavLinkline'></hr>
-          <SignupFormModal className={"signUpButton"} btnTxt={"Sing Up"}/>
+          <SignupFormModal className={"signUpButton"} btnTxt={"Sign Up"}/>
           <hr className='NavLinkline'></hr>
           <button onClick={demoUserLoginHandleSubmit} className='demoUserBtn'>Demo User</button>
           <hr className='NavLinkline'></hr>

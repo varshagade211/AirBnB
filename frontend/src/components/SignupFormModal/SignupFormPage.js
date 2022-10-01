@@ -42,34 +42,39 @@ function SignupFormPage() {
 
   return (
     <div className="formContainer">
-        {/* <h4 className="loginTitle">Log in or sign up </h4>
-     <hr className='line'></hr> */}
-    <h3 className="welcomMsg">Welcome to Airbnb</h3>
+        <h4 className="loginTitle">Log in or sign up </h4>
+     <hr className='line'></hr>
+
+    <h3 className="signUpwelcomMsg">Welcome to spots-bnb</h3>
 
     <form className='signUpForm'onSubmit={handleSubmit}>
         {/* <ul> */}
            {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
         {/* </ul> */}
 
-           <label className="signUplabel"> First Name:</label>
-           <input className='signUpFormInput'type={'text'} name={'firstName'} placeholder = 'Enter First Name'value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+           {/* <label className="signUplabel"> First Name:</label> */}
+           <div>
+
+           <input placeholder="First Name" className='signUpFormInput'type={'text'} name={'firstName'} value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+
            {errors?.firstName &&
-              <div className="errorContainer">
+              <div className="signUpErrorContainer">
                   <div>
-                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation signUpErrorLogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.firstName}>{errors.firstName}</span>
                   </div>
               </div>
             }
+           </div>
 
-            <label className="signUplabel"> Last Name:</label>
-            <input type={'text'} className='signUpFormInput' name={'lastName'} placeholder = 'Enter First Name' value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
+            {/* <label className="signUplabel"> Last Name:</label> */}
+            <input type={'text'} className='signUpFormInput' name={'lastName'} placeholder = 'Last Name' value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
             {errors?.lastName &&
-              <div className="errorContainer">
+              <div className="signUpErrorContainer">
                   <div>
-                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation signUpErrorLogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.lastName}>{errors.lastName}</span>
@@ -77,12 +82,12 @@ function SignupFormPage() {
               </div>
             }
 
-            <label className="signUplabel"> Email:</label>
-            <input type={'text'} className='signUpFormInput' name={'email'} placeholder = 'Enter Email Address' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+            {/* <label className="signUplabel"> Email:</label> */}
+            <input type={'text'} className='signUpFormInput' name={'email'} placeholder = 'Email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
             {errors?.email &&
-              <div className="errorContainer">
+              <div className="signUpErrorContainer">
                   <div>
-                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation signUpErrorLogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.email}>{errors.email}</span>
@@ -90,12 +95,12 @@ function SignupFormPage() {
               </div>
             }
 
-            <label className="signUplabel"> Password:</label>
-            <input type={'password'} className='signUpFormInput' name={'password'} placeholder = 'Enter Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+            {/* <label className="signUplabel"> Password:</label> */}
+            <input type={'password'} className='signUpFormInput' name={'password'} placeholder = 'Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
             {errors?.password &&
-              <div className="errorContainer">
+              <div className="signUpErrorContainer">
                   <div>
-                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation signUpErrorLogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.password}>{errors.password}</span>
@@ -103,12 +108,12 @@ function SignupFormPage() {
               </div>
             }
 
-            <label className="signUplabel">  Confirm Password:</label>
+            {/* <label className="signUplabel">  Confirm Password:</label> */}
             <input type={'password'} className='signUpFormInput' name={'password'}  placeholder = 'Confirm Password' value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
             {errors?.confirmPassword &&
-              <div className="errorContainer">
+              <div className="signUpErrorContainer">
                   <div>
-                      <i className="fa-solid fa-circle-exclamation errorlogo"></i>
+                      <i className="fa-solid fa-circle-exclamation signUpErrorLogo"></i>
                   </div>
                   <div>
                       <span className='error' key={errors.confirmPassword}>{errors.confirmPassword}</span>

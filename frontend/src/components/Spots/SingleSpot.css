@@ -355,6 +355,10 @@
     margin: 1rem 1rem 1rem 1rem;
 
 }
+
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
 .bookingStarsContainer,.bookinStar{
     font-size: 0.9rem;
 }
