@@ -236,7 +236,7 @@ router.delete('/:bookingId', requireAuth, async(req,res, next) =>{
     let today = new Date().toLocaleDateString('en-CA');
     if(today >= booking.startDate){
         const err = new Error("Validation Error");
-        err.errors = {date:"FoBookings that have been started can't be deletedbidden"}
+        err.errors = {date:"Bookings that have been started can't be deleted"}
         err.statusCode = 400;
         return next(err)
 
