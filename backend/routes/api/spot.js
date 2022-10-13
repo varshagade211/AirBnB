@@ -191,6 +191,9 @@ router.get('/user/spots',requireAuth, async(req,res,next)=> {
           attributes:['image','id']
         },
         {
+          model:Review
+        },
+        {
           model:User, as: "Owner",
           attributes:['firstName', 'lastName']
         }
